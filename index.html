@@ -36,8 +36,8 @@ d3.tsv("data.tsv", function(d) {
 }, function(error, data) {
   if (error) throw error;
 
-  x.domain(data.map(function(d) { return d.letter; }));
-  y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+  y.domain(data.map(function(d) { return d.letter; }));
+  x.domain([0, d3.max(data, function(d) { return d.frequency; })]);
 
   g.append("g")
       .attr("class", "axis axis--x")
