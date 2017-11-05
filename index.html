@@ -24,8 +24,8 @@ var svg = d3.select("svg"),
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
-var y = d3.scaleBand().rangeRound([0, width]).padding(0.1),
-    x = d3.scaleLinear().rangeRound([height, 0]);
+var x = d3.scaleLinear().rangeRound([0, width]),
+    y = d3.scaleBand().rangeRound([0, height]).padding(0.1);
 
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -41,7 +41,7 @@ d3.tsv("data.tsv", function(d) {
   
   g.append("g")
       .attr("class", "axis axis--y")
-      .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "translate(0," + width + ")")
       .call(d3.axisBottom(y));
 
   g.append("g")
@@ -49,8 +49,8 @@ d3.tsv("data.tsv", function(d) {
       .call(d3.axisLeft(x).ticks(10, "%"))
     .append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", "0.71em")
+      .attr("x", 6)
+      .attr("dx", "0.71em")
       .attr("text-anchor", "end")
       .text("Frequency");
 
@@ -61,7 +61,7 @@ d3.tsv("data.tsv", function(d) {
       .attr("y", function(d) { return y(d.letter); })
       .attr("x", function(d) { return x(d.frequency); })
       .attr("height", y.bandwidth())
-      .attr("width", function(d) { return width - x(d.frequency); });
+      .attr("width", function(d) { return x(d.frequency); });
 });
 
 </script>
