@@ -59,7 +59,8 @@ d3.tsv("data.tsv", function(d) {
     .enter().append("rect")
       .attr("class", "bar")
       .attr("y", function(d) { return y(d.letter); })
-      .attr("x", function(d) { return x(d.frequency); })
+      //.attr("x", function(d) { return x(d.frequency); })
+      .attr("x", function(d) { return 0; })
       .attr("height", y.bandwidth())
       .attr("width", function(d) { return x(d.frequency); });
 });
