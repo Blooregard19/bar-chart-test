@@ -15,7 +15,7 @@
 }
 
 </style>
-<svg width="960" height="500"></svg>
+<svg width="500" height="960"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
@@ -24,8 +24,8 @@ var svg = d3.select("svg"),
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
-var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
-    y = d3.scaleLinear().rangeRound([height, 0]);
+var y = d3.scaleBand().rangeRound([0, width]).padding(0.1),
+    x = d3.scaleLinear().rangeRound([height, 0]);
 
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
