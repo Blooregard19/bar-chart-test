@@ -41,18 +41,18 @@ d3.tsv("data.tsv", function(d) {
   
   g.append("g")
       .attr("class", "axis axis--y")
-      .attr("transform", "translate(0," + width + ")")
-      .call(d3.axisBottom(y));
-
-  g.append("g")
-      .attr("class", "axis axis--x")
-      .call(d3.axisLeft(x).ticks(10, "%"))
-    .append("text")
+      .call(d3.axisLeft(y))
+  .append("text")
       .attr("transform", "rotate(-90)")
       .attr("x", 6)
       .attr("dx", "0.71em")
       .attr("text-anchor", "end")
       .text("Frequency");
+
+  g.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + width + ")")
+      .call(d3.axisBottom(x).ticks(10, "%"));
 
   g.selectAll(".bar")
     .data(data)
