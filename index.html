@@ -82,7 +82,7 @@ d3.tsv("data.tsv", function(d) {
         .copy();
 
     svg.selectAll(".bar")
-        .sort(function(a, b) { return x0(a.letter) - x0(b.letter); });
+        .sort(function(a, b) { return y0(a.letter) - y0(b.letter); });
 
     var transition = svg.transition().duration(750),
         delay = function(d, i) { return i * 50; };
