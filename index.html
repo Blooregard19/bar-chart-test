@@ -14,7 +14,14 @@
   display: none;
 }
 
+label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
 </style>
+<label><input type="checkbox"> Sorbarendezés</label>
 <svg width="500" height="960"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
@@ -63,6 +70,32 @@ d3.tsv("data.tsv", function(d) {
       .attr("x", function(d) { return 0; })
       .attr("height", y.bandwidth())
       .attr("width", function(d) { return x(d.frequency); });
+  
+  d3.select("input").on("change", change);
+  
+  function change() {
+    // Copy-on-write since tweens are evaluated after a delay.
+    var y0 = y.domain(data.sort(this.checked
+        ? function(a, b) { return b.frequency - a.frequency; }
+        : function(a, b) { return d3.ascending(a.letter, b.letter); })
+        .map(function(d) { return d.letter; }))
+        .copy();
+
+    svg.selectAll(".bar")
+        .sort(function(a, b) { return x0(a.letter) - x0(b.letter); });
+
+    var transition = svg.transition().duration(750),
+        delay = function(d, i) { return i * 50; };
+
+    transition.selectAll(".bar")
+        .delay(delay)
+        .attr("y", function(d) { return y0(d.letter); });
+
+    transition.select(".y.axis")
+        .call(d3.axisLeft(y))
+      .selectAll("g")
+        .delay(delay);
+  }
 });
 
 </script>
