@@ -40,12 +40,12 @@ d3.tsv("data.tsv", function(d) {
   y.domain(data.map(function(d) { return d.letter; }));
   
   g.append("g")
-      .attr("class", "axis axis--x")
+      .attr("class", "axis axis--y")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(y));
 
   g.append("g")
-      .attr("class", "axis axis--y")
+      .attr("class", "axis axis--x")
       .call(d3.axisLeft(x).ticks(10, "%"))
     .append("text")
       .attr("transform", "rotate(-90)")
@@ -58,8 +58,8 @@ d3.tsv("data.tsv", function(d) {
     .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return y(d.letter); })
-      .attr("y", function(d) { return x(d.frequency); })
+      .attr("y", function(d) { return y(d.letter); })
+      .attr("x", function(d) { return x(d.frequency); })
       .attr("height", y.bandwidth())
       .attr("width", function(d) { return width - x(d.frequency); });
 });
