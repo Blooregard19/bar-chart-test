@@ -98,11 +98,8 @@ d3.tsv("data.tsv", function(d) {
     transition.select(".axis--y")
         .call(d3.axisLeft(y))
       .selectAll("text")
-        .attr("transform", "rotate(-90)")
         .attr("x", 6)
-        .attr("dx", "0.71em")
-        .attr("text-anchor", "end")
-        .text("Frequency");
+        .attr("dx", "0.71em");
   }
 });
 
