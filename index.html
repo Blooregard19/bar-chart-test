@@ -96,9 +96,13 @@ d3.tsv("data.tsv", function(d) {
         .attr("y", function(d) { return y0(d.letter); });
 
     transition.select(".y.axis")
-        .call(d3.axisLeft(y0))
-      .selectAll("g")
-        .delay(delay);
+        .call(d3.axisLeft(y))
+      .selectAll("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", 6)
+        .attr("dx", "0.71em")
+        .attr("text-anchor", "end")
+        .text("Frequency");
   }
 });
 
