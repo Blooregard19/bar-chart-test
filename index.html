@@ -95,8 +95,8 @@ d3.tsv("data.tsv", function(d) {
         .delay(delay)
         .attr("y", function(d) { return y0(d.letter); });
 
-    transition.select(".y.axis")
-        .call(d3.axisLeft(y0))
+    transition.select(".axis--y")
+        .call(d3.axisLeft(y))
       .selectAll("text")
         .attr("transform", "rotate(-90)")
         .attr("x", 6)
