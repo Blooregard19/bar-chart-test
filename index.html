@@ -10,6 +10,10 @@
   fill: brown;
 }
 
+.selected {
+  fill: brown;	
+}
+
 .axis--x path {
   display: none;
 }
@@ -86,7 +90,8 @@ data = data.filter(function(d) {return d.year == 2015;});
       //.attr("x", function(d) { return x(d.frequency); })
       .attr("x", function(d) { return 0; })
       .attr("height", y.bandwidth())
-      .attr("width", function(d) { return x(d.obi); });
+      .attr("width", function(d) { return x(d.obi); })
+      .on("click", szinez );
   
   d3.select("input").on("change", change);
   
@@ -115,6 +120,11 @@ data = data.filter(function(d) {return d.year == 2015;});
         //.attr("x", -9)
         //.attr("dx", "0.32em")
         ;
+  }
+
+  function szinez() {
+    d3.selectAll(".bar").attr("class", "bar");
+    d3.select(this).attr("class", "bar selected");
   }
 });
 
