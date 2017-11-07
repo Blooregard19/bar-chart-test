@@ -24,7 +24,40 @@ label {
   right: 10px;
 }
 
+#evval {
+  display: inline-block;
+}
+#evval {
+   /*background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;*/
+   height: 25px;
+   /*overflow: hidden;*/
+   width: 80px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   background-color: #779126;
+}
+#evval #srvy {
+   /*background: transparent;*/
+   background: #779126;
+   border: none;
+   font-size: 12px;
+   height: 25px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 79px;
+   color: #fff;
+}
 </style>
+<div id = "evval">
+<select id = "survy">
+  <option value="2006">2006</option>
+  <option value="2008">2008</option>
+  <option value="2010">2010</option>
+  <option value="2012">2012</option>
+  <option value="2015" selected>2015</option>
+</select>
+</div>
+
 <label><input type="checkbox"> Sorbarendezés</label>
 <svg width="500" height="960"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -49,19 +82,19 @@ var ssv = d3.dsvFormat(";");
 d3.request("visu_data.csv")
 	.mimeType("text/plain")
 	.response(function(xhr) { return ssv.parse(xhr.responseText)})
-	.get(function(data) {
+	.get(function(datab) {
 //d3.tsv("data.tsv", function(d) {
 //  d.frequency = +d.frequency;
 //  return d;
 //}, function(error, data) {
  // if (error) throw error;
 
-data.forEach(function(d) {
+datab.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
 d.year = +d.year;
 });
 
-data = data.filter(function(d) {return d.year == 2015;});
+data = datab.filter(function(d) {return d.year == 2015;});
 
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(data.map(function(d) { return d.country; }));
@@ -125,6 +158,11 @@ data = data.filter(function(d) {return d.year == 2015;});
   function szinez() {
     d3.selectAll(".bar").attr("class", "bar");
     d3.select(this).attr("class", "bar selected");
+  }
+	
+  function evvalto{
+    data = datab.filter(function(d) {return d.year == d3.select("#srvy").property("value");});
+    
   }
 });
 
