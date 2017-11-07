@@ -165,10 +165,12 @@ data = datab.filter(function(d) {return d.year == 2015;});
     d3.select(this).attr("class", "bar selected");
   }
 	
-  function evvalto() {
+  
+});
+
+function evvalto() {
     data = datab.filter(function(d) {return d.year == d3.select("#srvy").property("value");});
     
   }
-});
 
 </script>
