@@ -110,7 +110,7 @@ data = data.filter(function(d) {return d.year == 2015;});
 
     transition.select(".axis--y")
 	 .call(d3.axisLeft(y))
-      .selectAll("text")
+      .selectAll("g")
 	 .delay(delay)
         //.attr("x", -9)
         //.attr("dx", "0.32em")
