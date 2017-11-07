@@ -40,6 +40,8 @@ var x = d3.scaleLinear().rangeRound([0, width]),
 
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var ssv = d3.dsvFormat(";");
+	
 d3.request("visu_data.csv")
 	.mimeType("text/plain")
 	.response(function(xhr) { return ssv.parse(xhr.responseText)})
@@ -52,7 +54,7 @@ d3.request("visu_data.csv")
 
 data.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
-//d.Fejezet = +d.Fejezet;
+d.year = +d.year;
 });
 
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
