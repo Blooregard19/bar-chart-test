@@ -27,7 +27,7 @@ label {
 <script>
 
 var svg = d3.select("svg"),
-    margin = {top: 20, right: 20, bottom: 30, left: 40},
+    margin = {top: 20, right: 40, bottom: 30, left: 40},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
@@ -107,6 +107,7 @@ d.year = +d.year;
         .attr("y", function(d) { return y0(d.country); });
 
     transition.select(".axis--y")
+	 .delay(delay)
         .call(d3.axisLeft(y))
       .selectAll("text")
         //.attr("x", -9)
