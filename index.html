@@ -40,15 +40,23 @@ var x = d3.scaleLinear().rangeRound([0, width]),
 
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+d3.request("visu_data.csv")
+	.mimeType("text/plain")
+	.response(function(xhr) { return ssv.parse(xhr.responseText)})
+	.get(function(data) {
+//d3.tsv("data.tsv", function(d) {
+//  d.frequency = +d.frequency;
+//  return d;
+//}, function(error, data) {
+ // if (error) throw error;
 
-d3.tsv("data.tsv", function(d) {
-  d.frequency = +d.frequency;
-  return d;
-}, function(error, data) {
-  if (error) throw error;
+data.forEach(function(d) {
+d.obi = +d.obi.replace(",", ".");
+//d.Fejezet = +d.Fejezet;
+});
 
-  x.domain([0, d3.max(data, function(d) { return d.frequency; })]);
-  y.domain(data.map(function(d) { return d.letter; }));
+  x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  y.domain(data.map(function(d) { return d.country; }));
   
   g.append("g")
       .attr("class", "axis axis--y")
@@ -63,37 +71,38 @@ d3.tsv("data.tsv", function(d) {
   g.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x).ticks(10, "%"));
+      .call(d3.axisBottom(x));  
+    //.call(d3.axisBottom(x).ticks(10, "%"));
 
   g.selectAll(".bar")
-    .data(data)
+    .data(data.filter(function(d) {return d.year == 2015;}))
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("y", function(d) { return y(d.letter); })
+      .attr("y", function(d) { return y(d.country); })
       //.attr("x", function(d) { return x(d.frequency); })
       .attr("x", function(d) { return 0; })
       .attr("height", y.bandwidth())
-      .attr("width", function(d) { return x(d.frequency); });
+      .attr("width", function(d) { return x(d.obi); });
   
   d3.select("input").on("change", change);
   
   function change() {
     // Copy-on-write since tweens are evaluated after a delay.
     var y0 = y.domain(data.sort(this.checked
-        ? function(a, b) { return b.frequency - a.frequency; }
-        : function(a, b) { return d3.ascending(a.letter, b.letter); })
-        .map(function(d) { return d.letter; }))
+        ? function(a, b) { return b.obi - a.obi; }
+        : function(a, b) { return d3.ascending(a.country, b.country); })
+        .map(function(d) { return d.country; }))
         .copy();
 
     svg.selectAll(".bar")
-        .sort(function(a, b) { return y0(a.letter) - y0(b.letter); });
+        .sort(function(a, b) { return y0(a.country) - y0(b.country); });
 
     var transition = svg.transition().duration(750),
         delay = function(d, i) { return i * 50; };
 
     transition.selectAll(".bar")
         .delay(delay)
-        .attr("y", function(d) { return y0(d.letter); });
+        .attr("y", function(d) { return y0(d.country); });
 
     transition.select(".axis--y")
         .call(d3.axisLeft(y))
