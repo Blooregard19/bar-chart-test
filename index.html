@@ -101,8 +101,8 @@ data = data.filter(function(d) {return d.year == 2015;});
     svg.selectAll(".bar")
         .sort(function(a, b) { return y0(a.country) - y0(b.country); });
 
-    var transition = svg.transition().duration(350),
-        delay = function(d, i) { return i * 50; };
+    var transition = svg.transition().duration(550),
+        delay = function(d, i) { return i * 10; };
 
     transition.selectAll(".bar")
         .delay(delay)
