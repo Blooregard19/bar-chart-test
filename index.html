@@ -109,9 +109,9 @@ data = data.filter(function(d) {return d.year == 2015;});
         .attr("y", function(d) { return y0(d.country); });
 
     transition.select(".axis--y")
-	 .delay(delay)
-        .call(d3.axisLeft(y))
+	 .call(d3.axisLeft(y))
       .selectAll("text")
+	 .delay(delay)
         //.attr("x", -9)
         //.attr("dx", "0.32em")
         ;
