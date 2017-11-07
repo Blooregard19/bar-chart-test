@@ -57,6 +57,8 @@ d.obi = +d.obi.replace(",", ".");
 d.year = +d.year;
 });
 
+data = data.filter(function(d) {return d.year == 2015;});
+
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(data.map(function(d) { return d.country; }));
   
@@ -77,7 +79,7 @@ d.year = +d.year;
     //.call(d3.axisBottom(x).ticks(10, "%"));
 
   g.selectAll(".bar")
-    .data(data.filter(function(d) {return d.year == 2015;}))
+    .data(data)
     .enter().append("rect")
       .attr("class", "bar")
       .attr("y", function(d) { return y(d.country); })
