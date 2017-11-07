@@ -102,7 +102,7 @@ data = data.filter(function(d) {return d.year == 2015;});
         .sort(function(a, b) { return y0(a.country) - y0(b.country); });
 
     var transition = svg.transition().duration(550),
-        delay = function(d, i) { return i * 10; };
+        delay = function(d, i) { return i * 25; };
 
     transition.selectAll(".bar")
         .delay(delay)
