@@ -131,7 +131,7 @@ data = datab.filter(function(d) {return d.year == 2015;});
       .on("click", szinez );
   
   d3.select("input").on("change", change);
-  d3.select("#year").on("change", evvalto);
+  d3.select("#survy").on("change", evvalto);
 	
   function change() {
     // Copy-on-write since tweens are evaluated after a delay.
