@@ -193,7 +193,7 @@ console.log(data);
 
   var chart = d3.selectAll(".bar")
     .data(data, function(d) {return d.country;});
-  chart.enter().append("rect")
+  var chart = chart.enter().append("rect")
          .attr("class", function(d) {return "bar" + " " + d.country;})
          .attr("id", function(d) {return d.country;})
          //.attr("y", function(d) { return y(d.country); })
