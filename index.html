@@ -122,7 +122,8 @@ data = datab.filter(function(d) {return d.year == 2015;});
   g.selectAll(".bar")
     .data(data)
     .enter().append("rect")
-      .attr("id", function(d) {return "bar" + " " + d.country;})
+      .attr("class", function(d) {return "bar" + " " + d.country;})
+      .attr("id", function(d) {return d.country;})
       .attr("y", function(d) { return y(d.country); })
       //.attr("x", function(d) { return x(d.frequency); })
       .attr("x", function(d) { return 0; })
@@ -189,11 +190,10 @@ data = datab.filter(function(d) {return d.year == 2015;});
   //    .call(d3.axisBottom(x));  
     //.call(d3.axisBottom(x).ticks(10, "%"));
 
-  var chart = g.selectAll(".bar")
+  var chart = d3.selectAll(".bar")
     .data(data);
   chart.enter().append("rect")
       .merge(chart)
-      .attr("id", function(d) {return "bar" + " " + d.country;})
       .attr("y", function(d) { return y(d.country); })
       //.attr("x", function(d) { return x(d.frequency); })
       .attr("x", function(d) { return 0; })
