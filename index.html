@@ -196,14 +196,13 @@ console.log(data);
     .data(data);
   chart.enter().append("rect")
       .merge(chart)
+      .transition().duration(550)
       .attr("y", function(d) { return y(d.country); })
       //.attr("x", function(d) { return x(d.frequency); })
       .attr("x", function(d) { return 0; })
       .attr("height", y.bandwidth())
       .attr("width", function(d) { return x(d.obi); })
       .on("click", szinez );
-  chart.transition().duration(550)
-      .attr("width", function(d) { return x(d.obi); });
   chart.exit().remove();
   }
 
