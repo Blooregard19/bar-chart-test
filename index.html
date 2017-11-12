@@ -201,9 +201,8 @@ console.log(data);
       //.attr("x", function(d) { return x(d.frequency); })
       .attr("x", function(d) { return 0; })
       .attr("height", y.bandwidth())
-      .attr("width", function(d) { return x(d.obi); })
-      .on("click", szinez );
-  
+      .attr("width", function(d) { return x(d.obi); });
+        
   }
 
 });
