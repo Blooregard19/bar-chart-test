@@ -192,7 +192,7 @@ console.log(data);
   //    .call(d3.axisBottom(x));  
     //.call(d3.axisBottom(x).ticks(10, "%"));
 
-  var chart = d3.selectAll(".bar")
+  var chart = g.selectAll(".bar")
     .data(data, function(d) {return d.country;});
   chart.exit().remove();
   chart.enter().append("rect")
