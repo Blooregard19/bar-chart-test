@@ -193,7 +193,6 @@ console.log(data);
 
   var chart = d3.selectAll(".bar")
     .data(data, function(d) {return d.country;});
-  chart.exit().remove();
   chart.enter().append("rect")
          .attr("class", function(d) {return "bar" + " " + d.country;})
          .attr("id", function(d) {return d.country;})
@@ -209,6 +208,7 @@ console.log(data);
          .attr("x", function(d) { return 0; })
          .attr("height", y.bandwidth())
          .attr("width", function(d) { return x(d.obi); });
+  chart.exit().remove();
         
   }
 
