@@ -167,6 +167,7 @@ data = datab.filter(function(d) {return d.year == 2015;});
   }
 
   function evvalto() {
+console.log(d3.select("#srvy").property("value"));
     data = datab.filter(function(d) {return d.year == d3.select("#srvy").property("value");});
 console.log(data);
     var transition = svg.transition().duration(550),
