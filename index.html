@@ -135,6 +135,7 @@ data = datab.filter(function(d) {return d.year == 2015;});
   d3.select("#survy").on("change", evvalto);
 	
   function change() {
+    data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
     // Copy-on-write since tweens are evaluated after a delay.
     var y0 = y.domain(data.sort(this.checked
         ? function(a, b) { return b.obi - a.obi; }
