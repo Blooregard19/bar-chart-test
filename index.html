@@ -205,7 +205,6 @@ console.log(data);
        .merge(chart)
          .transition().duration(550)
          .attr("y", function(d) { return y(d.country); })
-       //.attr("x", function(d) { return x(d.frequency); })
          .attr("x", function(d) { return 0; })
          .attr("height", y.bandwidth())
          .attr("width", function(d) { return x(d.obi); });
