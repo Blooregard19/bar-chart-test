@@ -99,7 +99,7 @@ d.year = +d.year;
 });
 
 data = datab.filter(function(d) {return d.year == 2015;});
-console.log(d3.select("#survy").property("value"));
+
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(data.map(function(d) { return d.country; }));
   
@@ -167,7 +167,6 @@ console.log(d3.select("#survy").property("value"));
   }
 
   function evvalto() {
-
     data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 console.log(data);
     var transition = svg.transition().duration(550),
@@ -176,9 +175,9 @@ console.log(data);
   //x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   //y.domain(data.map(function(d) { return d.country; }));
   
-  //g.append("g")
+  d3.select(".axis--y")
   //    .attr("class", "axis axis--y")
-  //    .call(d3.axisLeft(y))
+      .call(d3.axisLeft(y));
   //.append("text")
   //    .attr("transform", "rotate(-90)")
   //    .attr("x", 6)
