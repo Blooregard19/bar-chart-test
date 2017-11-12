@@ -193,7 +193,7 @@ console.log(data);
 
   var chart = d3.selectAll(".bar")
     .data(data, function(d) {return d.country;});
-  chart.exit().remove();
+  //chart.exit().remove();
   chart.enter().append("rect")
       .merge(chart)
       .transition().duration(550)
