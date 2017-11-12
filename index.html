@@ -105,13 +105,13 @@ data = datab.filter(function(d) {return d.year == 2015;});
   
   g.append("g")
       .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y))
-  .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("x", 6)
-      .attr("dx", "0.71em")
-      .attr("text-anchor", "end")
-      .text("Frequency");
+      .call(d3.axisLeft(y));
+  //.append("text")
+  //    .attr("transform", "rotate(-90)")
+  //    .attr("x", 6)
+  //    .attr("dx", "0.71em")
+  //    .attr("text-anchor", "end")
+  //    .text("Frequency");
 
   g.append("g")
       .attr("class", "axis axis--x")
@@ -193,6 +193,7 @@ console.log(data);
 
   var chart = d3.selectAll(".bar")
     .data(data);
+  chart.exit().remove();
   chart.enter().append("rect")
       .merge(chart)
       .transition().duration(550)
@@ -202,7 +203,7 @@ console.log(data);
       .attr("height", y.bandwidth())
       .attr("width", function(d) { return x(d.obi); })
       .on("click", szinez );
-  chart.exit().remove();
+  
   }
 
 });
