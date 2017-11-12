@@ -98,7 +98,7 @@ d.obi = +d.obi.replace(",", ".");
 d.year = +d.year;
 });
 
-data = datab.filter(function(d) {return d.year == 2015;});
+data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(data.map(function(d) { return d.country; }));
