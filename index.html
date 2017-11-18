@@ -204,7 +204,7 @@ console.log(data);
          .attr("width", function(d) { return 0; })
          .on("click", szinez )
        .merge(chart)
-         .transition().duration(550)
+         .transition().duration(550).delay(300)
          .attr("y", function(d) { return y(d.country); })
          .attr("x", function(d) { return 0; })
          .attr("height", y.bandwidth())
