@@ -184,7 +184,8 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   
   d3.select(".axis--y")
   //    .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y)).delay(300);
+      .call(d3.axisLeft(y))
+    .selectAll("g").delay(300);
   //.append("text")
   //    .attr("transform", "rotate(-90)")
   //    .attr("x", 6)
