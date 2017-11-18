@@ -169,16 +169,22 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
 
   function evvalto() {
     data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
-console.log(data);
+
+    y.domain(data.sort(this.checked
+        ? function(a, b) { return b.obi - a.obi; }
+        : function(a, b) { return d3.ascending(a.country, b.country); })
+        .map(function(d) { return d.country; }))
+        .copy();
+
     var transition = svg.transition().duration(550),
 	delay = function(d, i) { return i * 25; };
     
   //x.domain([0, d3.max(data, function(d) { return d.obi; })]);
-  y.domain(data.map(function(d) { return d.country; }));
+  //y.domain(data.map(function(d) { return d.country; }));
   
   d3.select(".axis--y")
   //    .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y));
+      .call(d3.axisLeft(y)).delay(300);
   //.append("text")
   //    .attr("transform", "rotate(-90)")
   //    .attr("x", 6)
