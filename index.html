@@ -131,6 +131,12 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("height", y.bandwidth())
       .attr("width", function(d) { return x(d.obi); })
       .on("click", szinez );
+  g.selectAll(".text")
+    .data(data.filter(function(d) {return d.co_code == "";}), function(d) {return d.country;})
+    .enter().append("text")
+      .attr("dx", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Nem vett részt");
   
   d3.select("input").on("change", change);
   d3.select("#survy").on("change", evvalto);
@@ -217,7 +223,14 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
          .attr("x", function(d) { return 0; })
          .attr("height", y.bandwidth())
          .attr("width", function(d) { return x(d.obi); });
-          
+  
+  var szoveg = g.selectAll(".text")
+    .data(data.filter(function(d) {return d.co_code == "";}), function(d) {return d.country;});
+  szoveg.exit().remove();
+  szoveg.enter().append("text")
+      .attr("dx", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Nem vett részt");     
   }
 
 });
