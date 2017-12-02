@@ -163,6 +163,10 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
         .delay(delay)
         .attr("y", function(d) { return y0(d.country); });
 
+    transition.selectAll(".text")
+        .delay(delay)
+        .attr("y", function(d) { return y0(d.country); });
+	  
     transition.select(".axis--y")
 	 .call(d3.axisLeft(y))
       .selectAll("g")
