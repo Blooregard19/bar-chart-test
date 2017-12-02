@@ -98,10 +98,6 @@ d.obi = +d.obi.replace(",", ".");
 d.year = +d.year;
 });
 console.log(datab);
-var orszag = d3.nest()
-  .key(function(d) { return d.country;})
-  .entries(datab);
-console.log(orszag.data.key);
 
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
