@@ -227,9 +227,10 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
          .attr("height", y.bandwidth())
          .attr("width", function(d) { return x(d.obi); });
   
+  g.selectAll(".text").exit().remove();
   var szoveg = g.selectAll(".text")
     .data(data.filter(function(d) {return d.co_code == "";}), function(d) {return d.country;});
-  szoveg.exit().remove();
+  //szoveg.exit().remove();
   szoveg.enter().append("text")
       .attr("id", function(d) {return d.country;})
       .attr("y", function(d) { return y(d.country); })
