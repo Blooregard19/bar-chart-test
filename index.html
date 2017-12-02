@@ -236,7 +236,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("y", function(d) { return y(d.country); })
       .attr("x", function(d) { return 0; })	
       .attr("dy", function(d) {return y.bandwidth() + "px";})
-      .attr("font_size", "4px")
+      .stlye("font-size", function(d) {return y.bandwidth() + "px";})
       .style("font-family", "Arial")
       .attr("text-anchor", "start")
       .text("Nem vett részt");     
