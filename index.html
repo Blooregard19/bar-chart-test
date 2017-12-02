@@ -101,7 +101,7 @@ d.year = +d.year;
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
-  y.domain(datab.map(function(d) { return d.country; }).keys());
+  y.domain(datab.map(function(d) { return d.country; }));
   
   g.append("g")
       .attr("class", "axis axis--y")
