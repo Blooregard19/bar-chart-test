@@ -104,6 +104,14 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(datab.map(function(d) { return d.country; }));
   
+  g.append("g")			
+      .attr("class", "grid")
+      .attr("transform", "translate(0," + height + ")")
+      .call(make_x_gridlines()
+          .tickSize(-height)
+          .tickFormat("")
+	    );
+
   g.append("g")
       .attr("class", "axis axis--y")
       .call(d3.axisLeft(y));
@@ -181,6 +189,11 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
     d3.select(this).attr("class", "bar selected");
   }
 
+  function make_x_gridlines() {		
+    return d3.axisBottom(x)
+        .ticks(5)
+  }
+	
   function evvalto() {
     data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
