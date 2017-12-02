@@ -231,7 +231,10 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
     .data(data.filter(function(d) {return d.co_code == "";}), function(d) {return d.country;});
   szoveg.exit().remove();
   szoveg.enter().append("text")
-      .attr("dx", "0.71em")
+      .attr("id", function(d) {return d.country;})
+      .attr("y", function(d) { return y(d.country); })
+      .attr("x", function(d) { return 0; })	
+      .attr("dx", "0.31em")
       .attr("text-anchor", "end")
       .text("Nem vett részt");     
   }
