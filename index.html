@@ -227,16 +227,16 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
          .attr("height", y.bandwidth())
          .attr("width", function(d) { return x(d.obi); });
   
-  g.selectAll(".text").exit().remove();
   var szoveg = g.selectAll(".text")
     .data(data.filter(function(d) {return d.co_code == "";}), function(d) {return d.country;});
-  //szoveg.exit().remove();
+  szoveg.exit().remove();
   szoveg.enter().append("text")
+      .attr("class", "text")
       .attr("id", function(d) {return d.country;})
       .attr("y", function(d) { return y(d.country); })
       .attr("x", function(d) { return 0; })	
       .attr("dy", "0.31em")
-      .style("font_size", function(d) {return y.bandwidth() + "px"})
+      .attr("font_size", function(d) {return y.bandwidth() + "px"})
       .style("font-family", "Arial")
       .attr("text-anchor", "start")
       .text("Nem vett részt");     
