@@ -138,7 +138,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("y", function(d) { return y(d.country); })
       .attr("x", function(d) { return 0; })	
       .attr("dx", "0.51em")
-      .attr("text-anchor", "end")
+      .attr("text-anchor", "start")
       .text("Nem vett részt");
   
   d3.select("input").on("change", change);
@@ -235,7 +235,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("y", function(d) { return y(d.country); })
       .attr("x", function(d) { return 0; })	
       .attr("dx", "0.31em")
-      .attr("text-anchor", "end")
+      .attr("text-anchor", "start")
       .text("Nem vett részt");     
   }
 
