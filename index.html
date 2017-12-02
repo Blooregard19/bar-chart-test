@@ -98,8 +98,13 @@ d.obi = +d.obi.replace(",", ".");
 d.year = +d.year;
 });
 
+var orszag = d3.nest()
+  .key(function(d) { return d.country;})
+  .entries(datab);
+console.log(orszag.key);
+
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
-console.log(datab.map(function(d) { return d.country; }).keys());
+
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(datab.map(function(d) { return d.country; }));
   
