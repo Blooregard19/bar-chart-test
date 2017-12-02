@@ -97,7 +97,7 @@ datab.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
 d.year = +d.year;
 });
-
+console.log(datab);
 var orszag = d3.nest()
   .key(function(d) { return d.country;})
   .entries(datab);
