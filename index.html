@@ -97,7 +97,7 @@ datab.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
 d.year = +d.year;
 });
-console.log(y);
+console.log(y.bandwidth());
 
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
