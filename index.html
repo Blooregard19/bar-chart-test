@@ -97,7 +97,7 @@ datab.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
 d.year = +d.year;
 });
-console.log(datab);
+console.log(y);
 
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
@@ -137,7 +137,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("id", function(d) {return d.country;})
       .attr("y", function(d) { return y(d.country); })
       .attr("x", function(d) { return 0; })	
-      .attr("dx", "0.51em")
+      //.attr("dx", "0.51em")
       .attr("text-anchor", "start")
       .text("Nem vett részt");
   
@@ -234,7 +234,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("id", function(d) {return d.country;})
       .attr("y", function(d) { return y(d.country); })
       .attr("x", function(d) { return 0; })	
-      .attr("dx", "0.31em")
+      //.attr("dx", "0.31em")
       .attr("text-anchor", "start")
       .text("Nem vett részt");     
   }
