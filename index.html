@@ -101,7 +101,7 @@ d.year = +d.year;
 var orszag = d3.nest()
   .key(function(d) { return d.country;})
   .entries(datab);
-console.log(orszag.key);
+console.log(orszag.data.key);
 
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
