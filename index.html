@@ -85,6 +85,9 @@ var svg = d3.select("svg"),
 var x = d3.scaleLinear().rangeRound([0, width]),
     y = d3.scaleBand().rangeRound([0, height]).padding(0.1);
 
+var color = d3.scale.ordinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00", "#ffffff"]);
+
 //var yAxis = d3.svg.axis()
 //    .scale(y)
 //    .orient("left");
@@ -110,7 +113,7 @@ d.year = +d.year;
 console.log(y.bandwidth());
 
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
-
+console.log(data);
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(datab.map(function(d) { return d.country; }));
   
@@ -269,6 +272,11 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .text("Nem vett részt");     
   }
 
+  function dokuk() {
+  data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+  
+	  
+  }
 });
 
 
