@@ -110,10 +110,10 @@ datab.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
 d.year = +d.year;
 });
-console.log(y.bandwidth());
+
 
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
-console.log(data);
+console.log(data.columns);
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(datab.map(function(d) { return d.country; }));
   
