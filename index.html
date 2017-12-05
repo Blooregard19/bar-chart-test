@@ -113,7 +113,7 @@ d.year = +d.year;
 
 
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
-console.log(data[0]);
+console.log(data[0].slice(2, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19));
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(datab.map(function(d) { return d.country; }));
   
