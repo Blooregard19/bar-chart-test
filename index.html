@@ -112,6 +112,14 @@ d3.request("visu_data_exp2.csv")
 
 datab.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
+d.obi_ebp = +d.obi_ebp.replace(",", ".");
+d.obi_eb = +d.obi_eb.replace(",", ".");
+d.obi_ar = +d.obi_ar.replace(",", ".");
+d.obi_cb = +d.obi_cb.replace(",", ".");
+d.obi_iyr = +d.obi_iyr.replace(",", ".");
+d.obi_myr = +d.obi_myr.replace(",", ".");
+d.obi_pbs = +d.obi_pbs.replace(",", ".");
+d.obi_yer = +d.obi_yer.replace(",", ".");
 d.year = +d.year;
 });
 
