@@ -91,9 +91,9 @@ var svg = d3.select("svg"),
 
 var x = d3.scaleLinear().rangeRound([0, width]),
     y = d3.scaleBand().rangeRound([0, height]).padding(0.1),
-    z = d3.scaleOrdinal().range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00", "#ffffff"]);
+    z = d3.scaleOrdinal().range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00", "#000000"]);
 //var color = d3.scaleOrdinal()
-//    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00", "#ffffff"]);
+//    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00", "#000000"]);
 
 //var yAxis = d3.svg.axis()
 //    .scale(y)
@@ -302,7 +302,7 @@ console.log(datam);
   //var keys = ["country"];
   var stack = d3.stack()
       .keys(keys);
-console.log(stack(datam));
+var teszt = stack(datam);
 	  //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
   x.domain([0, d3.max(datam, function(d) { return d.obi; })]);
