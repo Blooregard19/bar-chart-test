@@ -126,15 +126,13 @@ d.year = +d.year;
 
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 //var datam = data;
-//    datam = datam.forEach(function(d) { return {country: d.country, obi_ebp: +d.obi_ebp};
-//				      }
-//			 );
-//console.log(datam);
+var datam = data.forEach(function(d) { return valog(d); });
+console.log(datam);
 var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 var keys = ["country"];
 var stack = d3.stack()
     .keys(keys);
-//console.log(stack(datam));
+console.log(stack(datam));
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(datab.map(function(d) { return d.country; }));
   
