@@ -113,7 +113,19 @@ d.year = +d.year;
 
 
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+data.forEach(function(d) {
+var country = d.country,
+    obi_ebp = d.obi_ebp,
+    obi_eb = d.obi_eb,
+    obi_ar = d.obi_ar,
+    obi_cb = d.obi_cb,
+    obi_iyr = d.obi_iyr,
+    obi_myr = d.obi_myr,
+    obi_pbs = d.obi_pbs,
+    obi_yer = d.obi_yer;
+});
 var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
+var keys = ["country"];
 var stack = d3.stack()
     .keys(keys);
 console.log(stack(data));
