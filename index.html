@@ -297,7 +297,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   //var datam = data;
   var datam = data.map(function(d) { return valog(d); });
 console.log(datam);
-  var keys = data.columns.slice(1);
+  var keys = datam.columns.slice(1);
   //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
   
   var stack = d3.stack()
@@ -305,13 +305,13 @@ console.log(datam);
 console.log(stack(datam));
 	  //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
-  x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  x.domain([0, d3.max(datam, function(d) { return d.obi; })]);
   y.domain(datab.map(function(d) { return d.country; }));
   z.domain(keys);
 	  
   g.append("g")
     .selectAll("g")
-    .data(d3.stack().keys(keys)(data))
+    .data(d3.stack().keys(keys)(datam))
     .enter().append("g")
       .attr("fill", function(d) { return z(d.key); })
     .selectAll("rect")
