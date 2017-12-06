@@ -113,7 +113,7 @@ d.year = +d.year;
 
 
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
-datam = data.forEach(function(d) {
+var datam = data.forEach(function(d) {
 return {country: d.country,
     obi_ebp: +d.obi_ebp,
     obi_eb: +d.obi_eb,
