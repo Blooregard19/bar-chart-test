@@ -40,7 +40,8 @@ d3.csv("data.csv", function(d, i, columns) {
   x.domain(data.map(function(d) { return d.State; }));
   y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
   z.domain(keys);
-
+console.log(keys);
+console.log(d3.stack().keys(keys)(data));
   g.append("g")
     .selectAll("g")
     .data(d3.stack().keys(keys)(data))
