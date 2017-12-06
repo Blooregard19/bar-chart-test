@@ -71,7 +71,8 @@ label {
 </select>
 </div>
 
-<label><input type="checkbox"> Sorbarendezés</label>
+<label><input id = "sorting" type="checkbox"> Sorbarendezés</label>
+<label><input id = "stacking" type="checkbox"> Részletezés</label>
 <svg width="500" height="960"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
@@ -174,7 +175,8 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("text-anchor", "start")
       .text("Nem vett részt");
   
-  d3.select("input").on("change", change);
+  d3.select("#sorting").on("change", change);
+  d3.select("#stacking").on("change", dokuk);
   d3.select("#survy").on("change", evvalto);
 	
   function change() {
