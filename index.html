@@ -83,10 +83,10 @@ var svg = d3.select("svg"),
     height = +svg.attr("height") - margin.top - margin.bottom;
 
 var x = d3.scaleLinear().rangeRound([0, width]),
-    y = d3.scaleBand().rangeRound([0, height]).padding(0.1);
-
-var color = d3.scaleOrdinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00", "#ffffff"]);
+    y = d3.scaleBand().rangeRound([0, height]).padding(0.1),
+    z = d3.scaleOrdinal().range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00", "#ffffff"]);
+//var color = d3.scaleOrdinal()
+//    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00", "#ffffff"]);
 
 //var yAxis = d3.svg.axis()
 //    .scale(y)
@@ -113,7 +113,11 @@ d.year = +d.year;
 
 
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
-console.log(data.slice(1,3));
+var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
+var keys = ["country"];
+var stack = d3.stack()
+    .keys(keys);
+console.log(stack(data););
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(datab.map(function(d) { return d.country; }));
   
@@ -274,8 +278,11 @@ console.log(data.slice(1,3));
 
   function dokuk() {
   data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
-  
+  var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
+  x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  y.domain(datab.map(function(d) { return d.country; }));
+  z.domain(keys);
   }
 });
 
