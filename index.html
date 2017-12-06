@@ -96,7 +96,7 @@ var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var ssv = d3.dsvFormat(";");
 
-var valog(d) {
+function valog(d) {
 return {country: d.country, obi_ebp: +d.obi_ebp};
 }
 
