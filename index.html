@@ -95,7 +95,11 @@ var x = d3.scaleLinear().rangeRound([0, width]),
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var ssv = d3.dsvFormat(";");
-	
+
+var valog(d) {
+return {country: d.country, obi_ebp: +d.obi_ebp};
+}
+
 d3.request("visu_data_exp2.csv")
 	.mimeType("text/plain")
 	.response(function(xhr) { return ssv.parse(xhr.responseText)})
