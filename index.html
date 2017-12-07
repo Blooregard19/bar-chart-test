@@ -299,6 +299,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
 console.log(datam);
   //var keys = datam.columns.slice(1);
   var keys = ["obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
+  var cimke = ["Javaslat", "Elfogadott", "Számvevőszéki jelentés", "Polgárok költségvetése", "Évközi jelentés", "Féléves jelentés", "Irányelvek", "Éves jelentés"];
   //var keys = ["country"];
   var stack = d3.stack()
       .keys(keys);
@@ -328,7 +329,7 @@ console.log(stack(datam));
       .attr("font-size", 10)
       .attr("text-anchor", "end")
     .selectAll("g")
-    .data(keys.slice().reverse())
+    .data(cimke.reverse())
     .enter().append("g")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
