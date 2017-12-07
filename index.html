@@ -107,7 +107,7 @@ function valog(d) {
 return {country: d.country, obi_ebp: +d.obi_ebp, obi_eb: d.obi_eb, obi_ar: d.obi_ar, obi_cb: d.obi_cb, obi_iyr: d.obi_iyr, obi_myr: d.obi_myr, obi_pbs: d.obi_pbs, obi_yer: d.obi_yer};
 }
 
-d3.request("visu_data_exp2.csv")
+d3.request("visu_data_exp3.csv")
 	.mimeType("text/plain")
 	.response(function(xhr) { return ssv.parse(xhr.responseText)})
 	.get(function(datab) {
@@ -330,6 +330,7 @@ console.log(stack(datam));
       .attr("text-anchor", "end")
     .selectAll("g")
     .data(cimke.reverse())
+    //.data(keys.slice().reverse())
     .enter().append("g")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
