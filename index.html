@@ -328,8 +328,8 @@ console.log(stack(datam));
       .attr("font-size", 10)
       .attr("text-anchor", "end")
     .selectAll("g")
-    .data(cimke.reverse())
-    //.data(keys.slice().reverse())
+    //.data(cimke.reverse())
+    .data(keys.slice().reverse())
     .enter().append("g")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
@@ -343,7 +343,7 @@ console.log(stack(datam));
       .attr("x", width - 24)
       .attr("y", 9.5)
       .attr("dy", "0.32em")
-      .text(function(d) { return d; });
+      .text(function(d, i) { return cimke.reverse()[i]; });
 
   }
 });
