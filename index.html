@@ -397,8 +397,7 @@ console.log(stack(datam));
     .enter().append("g")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 //console.log(keys.slice().reverse());
-console.log(valasztott);
-  legend.append("rect")
+legend.append("rect")
       .attr("class", function(d, i) {return keys.slice().reverse()[i];})
       .attr("x", width - 19)
       .attr("width", 19)
