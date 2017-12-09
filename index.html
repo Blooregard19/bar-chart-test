@@ -208,6 +208,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("dy", "0.31em")
       .attr("text-anchor", "start")
       .text("Nem vett részt");
+  g.selectAll(".stacked").remove().exit();
 }  
 
 window.onload = alap;
@@ -337,14 +338,14 @@ alap();
   data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
   //var datam = data;
   var datam = data.map(function(d) { return valog(d); });
-console.log(datam);
+//console.log(datam);
   //var keys = datam.columns.slice(1);
   var keys = ["obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
   var cimke = ["Javaslat", "Elfogadott", "Számvevőszéki jelentés", "Polgárok költségvetése", "Évközi jelentés", "Féléves jelentés", "Irányelvek", "Éves jelentés"].reverse();
   //var keys = ["country"];
   var stack = d3.stack()
       .keys(keys);
-console.log(stack(datam));
+//console.log(stack(datam));
 	  //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
@@ -359,13 +360,13 @@ console.log(stack(datam));
     .selectAll("rect")
     .data(function(d) { return d; })
     .enter().append("rect")
-      .attr("class", "bar stacked")
+      .attr("class", "stacked")
       .attr("y", function(d) { return y(d.data.country); })
       .attr("x", function(d) { return x(d[0]); })
       .attr("height", y.bandwidth())
       .attr("width", function(d) { return x(d[1]) - x(d[0]); });
 
-  d3.selectAll(".base").remove().exit();
+  g.selectAll(".base").remove().exit();
 
   var legend = g.append("g")
       .attr("font-family", "sans-serif")
