@@ -426,8 +426,9 @@ legend.append("rect")
 
 function reszletezo() {
 var klikkelt = d3.select(this);
+var klikkelt_class = d3.select(this).attr("class");
 console.log(klikkelt.attr("class"));
-if (klikkelt.attr("class").indexOf("selected") !== -1 ) {
+if (klikkelt_class.indexOf("selected") !== -1 ) {
 	var valasztott = klikkelt.attr("id");
 	    console.log("kettes" + valasztott);
 	    d3.selectAll(".stacked").selectAll("rect")
@@ -439,7 +440,7 @@ if (klikkelt.attr("class").indexOf("selected") !== -1 ) {
 	d3.selectAll(".legend")
 	  .attr("class", "legend base");
 }
-if (klikkelt.attr("class").indexOf("fade") !== -1 ) {
+if (klikkelt_class.indexOf("fade") !== -1 ) {
 	var valasztott = klikkelt.attr("id");
 	console.log("harmas" + valasztott);
 	    d3.selectAll(".stacked:not(." + valasztott + ")").selectAll("rect")
@@ -447,7 +448,7 @@ if (klikkelt.attr("class").indexOf("fade") !== -1 ) {
               .duration(1000)
               .attr("width", 0) // use because svg has no zindex to hide bars so can't select visible bar underneath
               .style("opacity", 0);
-	    d3.selectAll("." + valasztott + ")").selectAll("rect")
+	    d3.selectAll("." + valasztott).selectAll("rect")
 	      .transition()
               .duration(1000)
 	      .attr("width", function(d) { return x(d[1]) - x(d[0]); })
@@ -457,7 +458,7 @@ if (klikkelt.attr("class").indexOf("fade") !== -1 ) {
 	  .attr("class", "legend fade");
 	klikkelt.attr("class", "legend selected");
 }
-if (klikkelt.attr("class").indexOf("base") !== -1 ) {
+if (klikkelt_class.indexOf("base") !== -1 ) {
 	 klikkelt.style("stroke", "black")
               .style("stroke-width", 2);
 	   var valasztott = klikkelt.attr("id");
