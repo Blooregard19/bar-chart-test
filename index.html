@@ -209,6 +209,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("text-anchor", "start")
       .text("Nem vett részt");
   g.selectAll(".stacked").remove().exit();
+  g.selectAll(".legend").remove().exit();
 }  
 
 window.onload = alap;
@@ -369,6 +370,7 @@ alap();
   g.selectAll(".base").remove().exit();
 
   var legend = g.append("g")
+      .attr("class", "legend")
       .attr("font-family", "sans-serif")
       .attr("font-size", 10)
       .attr("text-anchor", "end")
