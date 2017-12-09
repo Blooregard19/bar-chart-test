@@ -419,7 +419,7 @@ console.log(stack(datam));
 	  
 	  d3.selectAll(".stacked").selectAll("rect")
 	  .transition()
-          .ease("bounce")
+          .ease("easeBounce")
           .duration(1000)
           .delay(750)
           .attr("x", 0);
