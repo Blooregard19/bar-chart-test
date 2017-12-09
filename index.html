@@ -411,6 +411,7 @@ console.log(stack(datam));
 	      .style("stroke", "black")
               .style("stroke-width", 2);
 	    valasztott = this.class;
+	  console.log(valasztott);
 	  d3.selectAll(".stacked:not(." + valasztott + ")").selectAll("rect")
 	  .transition()
           .duration(1000)
