@@ -417,6 +417,7 @@ console.log(valasztott);
   }
 
 function reszletezo(valasztott) {
+console.log(valasztott);
 if (valasztott != "x") {
 	    if (valasztott === d3.select(this).attr("class")) {
 	    console.log("kettes");
@@ -441,7 +442,7 @@ if (valasztott != "x") {
 	      .style("opacity", 1);;
 	    }
 	  }
-console.log(valasztott);
+
 if (valasztott == "x") {
 	    d3.select(this)
 	      .style("stroke", "black")
