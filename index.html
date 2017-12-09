@@ -147,8 +147,6 @@ var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var ssv = d3.dsvFormat(";");
 
-var valasztott = "x";
-
 function valog(d) {
 return {country: d.country, obi_ebp: +d.obi_ebp, obi_eb: d.obi_eb, obi_ar: d.obi_ar, obi_cb: d.obi_cb, obi_iyr: d.obi_iyr, obi_myr: d.obi_myr, obi_pbs: d.obi_pbs, obi_yer: d.obi_yer};
 }
@@ -387,7 +385,7 @@ console.log(stack(datam));
       .attr("width", function(d) { return x(d[1]) - x(d[0]); });
 
   g.selectAll(".base").remove().exit();
-
+  var aktiv = "x";
   var legend = g.append("g")
       .attr("class", "legend")
       .attr("font-family", "sans-serif")
@@ -406,7 +404,7 @@ console.log(valasztott);
       .attr("width", 19)
       .attr("height", 19)
       .attr("fill", z)
-      .on("click", reszletezo);
+      .on("click", reszletezo(aktiv));
 
   legend.append("text")
       .attr("x", width - 24)
@@ -448,7 +446,7 @@ if (valasztott === "x") {
 	      .style("stroke", "black")
               .style("stroke-width", 2);
 	   var valasztott = d3.select(this).attr("class");
-	  valasztott = update(valasztott);
+	  //valasztott = update(valasztott);
 	  console.log("egyes" + valasztott);
 	  d3.selectAll(".stacked:not(." + valasztott + ")").selectAll("rect")
 	  .transition()
