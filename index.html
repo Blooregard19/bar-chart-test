@@ -468,6 +468,8 @@ if (klikkelt.attr("class").indexOf("selected") !== -1 ) {
 	      .attr("width", function(d) { return x(d[1]) - x(d[0]); })
               .attr("x", function(d) { return x(d[0]); })
 	      .style("opacity", 1);
+	d3.selectAll(".legend")
+	  .attr("class", "legend base");
 }
 //if (valasztott === "x") {
 //	  d3.selectAll(".stacked").selectAll("rect")
