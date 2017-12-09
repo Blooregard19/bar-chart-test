@@ -406,7 +406,7 @@ console.log(valasztott);
       .attr("width", 19)
       .attr("height", 19)
       .attr("fill", z)
-      .on("click", reszletezo);
+      .on("click", reszletezo(valasztott));
 
   legend.append("text")
       .attr("x", width - 24)
