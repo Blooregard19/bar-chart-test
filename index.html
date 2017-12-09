@@ -373,7 +373,7 @@ alap();
     .selectAll("rect")
     .data(function(d) { return d; })
     .enter().append("rect")
-      .attr("class", "stacked")
+      .attr("class", function(d, i) {return "stacked" + d.key[i];} )
       .attr("y", function(d) { return y(d.data.country); })
       .attr("x", function(d) { return x(d[0]); })
       .attr("height", y.bandwidth())
@@ -393,6 +393,7 @@ alap();
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
   legend.append("rect")
+      .attr("class", function(d, i) {return "legend" + d[i];})
       .attr("x", width - 19)
       .attr("width", 19)
       .attr("height", 19)
