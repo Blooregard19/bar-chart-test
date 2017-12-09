@@ -374,7 +374,7 @@ alap();
     .selectAll("rect")
     .data(function(d) { return d; })
     .enter().append("rect")
-      .attr("class", function(d, i) {return "stacked" + d.data.columns[i + 1];} )
+      .attr("class", function(d, i) {return "stacked" + d.data.keys[i + 1];} )
       .attr("y", function(d) { return y(d.data.country); })
       .attr("x", function(d) { return x(d[0]); })
       .attr("height", y.bandwidth())
