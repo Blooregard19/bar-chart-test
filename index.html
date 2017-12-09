@@ -363,7 +363,7 @@ alap();
   //var keys = ["country"];
   var stack = d3.stack()
       .keys(keys);
-//console.log(stack(datam));
+console.log(stack(datam));
 	  //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
@@ -396,7 +396,7 @@ alap();
     .data(keys.slice().reverse())
     .enter().append("g")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-console.log(keys.slice().reverse());
+//console.log(keys.slice().reverse());
   legend.append("rect")
       .attr("class", function(d, i) {return keys.slice().reverse()[i];})
       .attr("x", width - 19)
