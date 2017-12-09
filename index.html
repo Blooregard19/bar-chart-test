@@ -406,7 +406,7 @@ console.log(valasztott);
       .attr("height", 19)
       .attr("fill", z)
       .on("click", function(d) {
-	  if (valasztott === "x") {
+	  if (valasztott == "x") {
 	    d3.select(this)
 	      .style("stroke", "black")
               .style("stroke-width", 2);
@@ -425,7 +425,7 @@ console.log(valasztott);
           //.delay(750)
           //.attr("x", 0);
 
-	  } else if (valasztott != "x") {
+	  } else if (valasztott !== "x") {
 	    if (valasztott === d3.select(this).attr("class")) {
 	    d3.selectAll(".stacked").selectAll("rect")
 	      .transition()
