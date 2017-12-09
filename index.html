@@ -374,7 +374,7 @@ console.log(stack(datam));
     .selectAll("g")
     .data(d3.stack().keys(keys)(datam))
     .enter().append("g")
-      .attr("class", function(d, i) {return "stacked" + Object.keys(d.data)[i + 1];} )
+      //.attr("class", function(d, i) {return "stacked" + Object.keys(d.data)[i + 1];} )
       .attr("fill", function(d) { return z(d.key); })
     .selectAll("rect")
     .data(function(d) { return d; })
