@@ -373,7 +373,7 @@ alap();
   //var keys = ["country"];
   var stack = d3.stack()
       .keys(keys);
-console.log(stack(datam));
+//console.log(stack(datam));
 	  //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
@@ -427,10 +427,10 @@ legend.append("rect")
 function reszletezo() {
 var klikkelt = d3.select(this);
 var klikkelt_class = d3.select(this).attr("class");
-console.log(klikkelt.attr("class"));
+//console.log(klikkelt.attr("class"));
 if (klikkelt_class.indexOf("selected") !== -1 ) {
 	var valasztott = klikkelt.attr("id");
-	    console.log("kettes" + valasztott);
+	    //console.log("kettes" + valasztott);
 	    d3.selectAll(".stacked").selectAll("rect")
 	      .transition()
               .duration(1000)
@@ -443,7 +443,7 @@ if (klikkelt_class.indexOf("selected") !== -1 ) {
 }
 if (klikkelt_class.indexOf("fade") !== -1 ) {
 	var valasztott = klikkelt.attr("id");
-	console.log("harmas" + valasztott);
+	//console.log("harmas" + valasztott);
 	    d3.selectAll(".stacked:not(." + valasztott + ")").selectAll("rect")
 	      .transition()
               .duration(1000)
@@ -464,7 +464,7 @@ if (klikkelt_class.indexOf("base") !== -1 ) {
 	 klikkelt.style("stroke", "black")
               .style("stroke-width", 2);
 	   var valasztott = klikkelt.attr("id");
-	  console.log("egyes" + valasztott);
+	  //console.log("egyes" + valasztott);
 	d3.selectAll(".stacked:not(." + valasztott + ")").selectAll("rect")
 	  .transition()
           .duration(1000)
