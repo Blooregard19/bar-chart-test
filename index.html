@@ -426,7 +426,7 @@ function reszletezo() {
 var klikkelt = d3.select(this);
 var klikkelt_class = d3.select(this).attr("class");
 //console.log(klikkelt.attr("class"));
-if (klikkelt_class.indexOf("selected") !== -1 ) {
+if (klikkelt_class.indexOf("clicked") !== -1 ) {
 	var valasztott = klikkelt.attr("id");
 	    //console.log("kettes" + valasztott);
 	    d3.selectAll(".stacked").selectAll("rect")
@@ -456,7 +456,7 @@ if (klikkelt_class.indexOf("fade") !== -1 ) {
 	d3.selectAll(".legend:not(#" + valasztott + ")")
 	  .attr("class", "legend fade")
 	  .style("stroke", "none");
-	klikkelt.attr("class", "legend selected");
+	klikkelt.attr("class", "legend clicked");
 }
 if (klikkelt_class.indexOf("base") !== -1 ) {
 	 klikkelt.style("stroke", "black")
@@ -477,7 +477,7 @@ if (klikkelt_class.indexOf("base") !== -1 ) {
 	d3.selectAll(".legend:not(#" + valasztott + ")")
 	  .attr("class", "legend fade")
 	  .style("stroke", "none");
-	klikkelt.attr("class", "legend selected");
+	klikkelt.attr("class", "legend clicked");
 }
 //if (valasztott === "x") {
 //	  d3.selectAll(".stacked").selectAll("rect")
