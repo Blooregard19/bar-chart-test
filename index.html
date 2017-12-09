@@ -405,8 +405,18 @@ console.log(valasztott);
       .attr("width", 19)
       .attr("height", 19)
       .attr("fill", z)
-      .on("click", function(d) {
-	  if (valasztott == "x") {
+      .on("click", reszletezo);
+
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d, i) { return cimke[i]; });
+
+  }
+
+function reszletezo() {
+if (valasztott == "x") {
 	    d3.select(this)
 	      .style("stroke", "black")
               .style("stroke-width", 2);
@@ -447,18 +457,8 @@ console.log(valasztott);
               //.attr("x", function(d) { return x(d[0]); })
 	      //.style("opacity", 1);;
 	    }
-	  }
-          });
-
-  legend.append("text")
-      .attr("x", width - 24)
-      .attr("y", 9.5)
-      .attr("dy", "0.32em")
-      .text(function(d, i) { return cimke[i]; });
-
-  }
-
-
+	  }	
+}
 });
 
 
