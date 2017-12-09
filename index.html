@@ -374,7 +374,7 @@ alap();
     .selectAll("rect")
     .data(function(d) { return d; })
     .enter().append("rect")
-      .attr("class", function(d, i) {return "stacked " + keys[i];} )
+      .attr("class", function(d, i) {return "stacked " + d.key;} )
       .attr("y", function(d) { return y(d.data.country); })
       .attr("x", function(d) { return x(d[0]); })
       .attr("height", y.bandwidth())
@@ -394,7 +394,7 @@ alap();
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 console.log(keys.slice().reverse());
   legend.append("rect")
-      .attr("class", function(d, i) {return d[i];})
+      .attr("class", function(d, i) {return keys.slice().reverse()[i];})
       .attr("x", width - 19)
       .attr("width", 19)
       .attr("height", 19)
