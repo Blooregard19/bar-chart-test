@@ -416,7 +416,7 @@ console.log(valasztott);
 
   }
 
-function reszletezo() {
+function reszletezo(valasztott) {
 console.log(valasztott);
 if (valasztott !== "x") {
 	    if (valasztott === d3.select(this).attr("class")) {
@@ -448,6 +448,7 @@ if (valasztott === "x") {
 	      .style("stroke", "black")
               .style("stroke-width", 2);
 	   var valasztott = d3.select(this).attr("class");
+	  valasztott = update(valasztott);
 	  console.log("egyes" + valasztott);
 	  d3.selectAll(".stacked:not(." + valasztott + ")").selectAll("rect")
 	  .transition()
