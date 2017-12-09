@@ -416,9 +416,9 @@ console.log(valasztott);
 
   }
 
-function reszletezo(valasztott) {
+function reszletezo() {
 console.log(valasztott);
-if (valasztott != "x") {
+if (valasztott !== "x") {
 	    if (valasztott === d3.select(this).attr("class")) {
 	    console.log("kettes" + valasztott);
 	    d3.selectAll(".stacked").selectAll("rect")
@@ -443,7 +443,7 @@ if (valasztott != "x") {
 	    }
 	  }
 
-if (valasztott == "x") {
+if (valasztott === "x") {
 	    d3.select(this)
 	      .style("stroke", "black")
               .style("stroke-width", 2);
