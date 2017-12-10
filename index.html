@@ -472,7 +472,7 @@ if (klikkelt_class.indexOf("fade") !== -1 ) {
 	      .transition()
               .duration(1000)
 	      .attr("width", function(d) { return x(d[1]) - x(d[0]); })
-              .attr("x", function(d) { return x(d[0]); })
+              .attr("x", 0)
 	      .style("opacity", 1);
 	d3.selectAll(".legend:not(#" + valasztott + ")")
 	  .attr("class", "legend fade")
