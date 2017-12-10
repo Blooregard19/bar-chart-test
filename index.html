@@ -266,8 +266,8 @@ alap();
     
     if ((d3.select('input[name="reszlet"]').property("checked") == true)) {
     var rendez = d3.select(".legend .clicked").attr("id");
-    console.log(rendez);
-    var data = data.map(function(d) { return {sorolo: d[rendez]}; });
+    var data = data.map(function(d) { return {sorolo: d[rendez], country: d.country}; });
+    console.log(data);
     var y0 = y.domain(data.sort(this.checked
         ? function(a, b) { return b.sorolo - a.sorolo; }
         : function(a, b) { return d3.ascending(a.country, b.country); })
