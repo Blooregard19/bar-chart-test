@@ -262,28 +262,6 @@ alap();
         : function(a, b) { return d3.ascending(a.country, b.country); })
         .map(function(d) { return d.country; }))
         .copy();
-    
-    svg.selectAll(".bar")
-        .sort(function(a, b) { return y0(a.country) - y0(b.country); });
-
-    var transition = svg.transition().duration(550),
-        delay = function(d, i) { return i * 25; };
-
-    transition.selectAll(".bar")
-        .delay(delay)
-        .attr("y", function(d) { return y0(d.country); });
-
-    transition.selectAll(".text")
-        .delay(delay)
-        .attr("y", function(d) { return y0(d.country); });
-	  
-    transition.select(".axis--y")
-	 .call(d3.axisLeft(y))
-      .selectAll("g")
-	 .delay(delay)
-        //.attr("x", -9)
-        //.attr("dx", "0.32em")
-        ;
     }
     
     if ((d3.select('input[name="reszlet"]').property("checked") == true)) {
@@ -295,28 +273,6 @@ alap();
         : function(a, b) { return d3.ascending(a.country, b.country); })
         .map(function(d) { return d.country; }))
         .copy();
-
-    svg.selectAll(".bar")
-        .sort(function(a, b) { return y0(a.data.country) - y0(b.data.country); });
-
-    var transition = svg.transition().duration(550),
-        delay = function(d, i) { return i * 25; };
-
-    transition.selectAll(".bar")
-        .delay(delay)
-        .attr("y", function(d) { return y0(d.data.country); });
-
-    transition.selectAll(".text")
-        .delay(delay)
-        .attr("y", function(d) { return y0(d.data.country); });
-	  
-    transition.select(".axis--y")
-	 .call(d3.axisLeft(y))
-      .selectAll("g")
-	 .delay(delay)
-        //.attr("x", -9)
-        //.attr("dx", "0.32em")
-        ;
     }
     d3.select(".grid").remove().exit();
 
@@ -327,6 +283,33 @@ alap();
           .tickSize(-height)
           .tickFormat("")
 	    );
+
+    svg.selectAll(".bar.base")
+        .sort(function(a, b) { return y0(a.country) - y0(b.country); });
+    svg.selectAll(".bar.stacked")
+        .sort(function(a, b) { return y0(a.data.country) - y0(b.data.country); });
+
+    var transition = svg.transition().duration(550),
+        delay = function(d, i) { return i * 25; };
+
+    transition.selectAll(".bar.stacked")
+        .delay(delay)
+        .attr("y", function(d) { return y0(d.country); });
+    transition.selectAll(".bar.stacked")
+        .delay(delay)
+        .attr("y", function(d) { return y0(d.data.country); });
+
+    transition.selectAll(".text")
+        .delay(delay)
+        .attr("y", function(d) { return y0(d.country); });
+	  
+    transition.select(".axis--y")
+	 .call(d3.axisLeft(y))
+      .selectAll("g")
+	 .delay(delay)
+        //.attr("x", -9)
+        //.attr("dx", "0.32em")
+        ;
 
     }
 
