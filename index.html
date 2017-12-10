@@ -266,12 +266,12 @@ alap();
     
     if ((d3.select('input[name="reszlet"]').property("checked") == true)) {
     var rendez = d3.select(".legend .clicked").attr("class");
-    var data = data.map(function(d) { return {sorolo: d. + rendez}; });
-    var y0 = y.domain(data.sort(this.checked
-        ? function(a, b) { return b.sorolo - a.sorolo; }
-        : function(a, b) { return d3.ascending(a.country, b.country); })
-        .map(function(d) { return d.country; }))
-        .copy();
+    //var data = data.map(function(d) { return {sorolo: d. + rendez}; });
+    //var y0 = y.domain(data.sort(this.checked
+    //    ? function(a, b) { return b.sorolo - a.sorolo; }
+    //    : function(a, b) { return d3.ascending(a.country, b.country); })
+    //    .map(function(d) { return d.country; }))
+    //    .copy();
     }
     d3.select(".grid").remove().exit();
 
