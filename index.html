@@ -47,7 +47,7 @@
   fill: brown;
 }
 
-.selected {
+.bar.selected {
   fill: brown;	
 }
 
@@ -314,7 +314,7 @@ alap();
     }
 
   function szinez() {
-    d3.selectAll(".bar").attr("class", "bar");
+    d3.selectAll(".bar").attr("class", "bar base");
     d3.select(this).attr("class", "bar selected");
   }
 
