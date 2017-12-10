@@ -286,16 +286,16 @@ alap();
 
     svg.selectAll(".bar.base")
         .sort(function(a, b) { return y0(a.country) - y0(b.country); });
-    svg.selectAll(".bar.stacked")
+    svg.selectAll(".bar.stacked").selectAll("rect")
         .sort(function(a, b) { return y0(a.data.country) - y0(b.data.country); });
 
     var transition = svg.transition().duration(550),
         delay = function(d, i) { return i * 25; };
 
-    transition.selectAll(".bar.stacked")
+    transition.selectAll(".bar.base")
         .delay(delay)
         .attr("y", function(d) { return y0(d.country); });
-    transition.selectAll(".bar.stacked")
+    transition.selectAll(".bar.stacked").selectAll("rect")
         .delay(delay)
         .attr("y", function(d) { return y0(d.data.country); });
 
