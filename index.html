@@ -39,11 +39,11 @@
   height: 100%;
 }
 
-.bar .base {
+.bar.base {
   fill: steelblue;
 }
 
-.bar .base:hover {
+.bar.base:hover {
   fill: brown;
 }
 
@@ -215,7 +215,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   g.selectAll(".bar")
     .data(data, function(d) {return d.country;})
     .enter().append("rect")
-      .attr("class", function(d) {return "bar base";})
+      .attr("class", "bar base")
       .attr("id", function(d) {return d.country;})
       .attr("y", function(d) { return y(d.country); })
       //.attr("x", function(d) { return x(d.frequency); })
