@@ -262,6 +262,16 @@ alap();
         .map(function(d) { return d.country; }))
         .copy();
 
+    d3.select(".grid").remove().exit();
+
+    g.append("g")			
+      .attr("class", "grid")
+      .attr("transform", "translate(0," + height + ")")
+      .call(make_x_gridlines()
+          .tickSize(-height)
+          .tickFormat("")
+	    );
+
     svg.selectAll(".bar")
         .sort(function(a, b) { return y0(a.country) - y0(b.country); });
 
