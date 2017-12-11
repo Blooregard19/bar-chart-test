@@ -236,8 +236,9 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   g.selectAll(".legend").remove().exit();
 }  
 
-window.onload = alap;
-
+//window.onload = alap;
+window.addEventListener("load", alap);
+	
   d3.select("#sorting").on("change", change);
   d3.select("#stacking").on("change", valtoz);
   d3.select("#survy").on("change", evvalto);
