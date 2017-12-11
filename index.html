@@ -182,6 +182,60 @@ d.obi_yer = +d.obi_yer.replace(",", ".");
 d.year = +d.year;
 });
 
+data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+
+  x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  y.domain(datab.map(function(d) { return d.country; }));
+  
+  g.append("g")			
+      .attr("class", "grid")
+      .attr("transform", "translate(0," + height + ")")
+      .call(make_x_gridlines()
+          .tickSize(-height)
+          .tickFormat("")
+	    );
+
+  g.append("g")
+      .attr("class", "axis axis--y")
+      .call(d3.axisLeft(y));
+  //.append("text")
+  //    .attr("transform", "rotate(-90)")
+  //    .attr("x", 6)
+  //    .attr("dx", "0.71em")
+  //    .attr("text-anchor", "end")
+  //    .text("Frequency");
+
+  g.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));  
+    //.call(d3.axisBottom(x).ticks(10, "%"));
+
+  g.selectAll(".bar")
+    .data(data, function(d) {return d.country;})
+    .enter().append("rect")
+      .attr("class", "bar base")
+      .attr("id", function(d) {return d.country;})
+      .attr("y", function(d) { return y(d.country); })
+      //.attr("x", function(d) { return x(d.frequency); })
+      .attr("x", function(d) { return 0; })
+      .attr("height", y.bandwidth())
+      .attr("width", function(d) { return x(d.obi); })
+      .on("click", szinez );
+  g.selectAll(".text")
+    .data(data.filter(function(d) {return d.co_code == "";}), function(d) {return d.country;})
+    .enter().append("text")
+      .attr("id", function(d) {return d.country;})
+      .attr("y", function(d) { return y(d.country); })
+      .attr("x", function(d) { return 0; })	
+      .attr("dy", "0.31em")
+      .attr("text-anchor", "start")
+      .text("Nem vett részt");
+
+  d3.select("#sorting").on("change", change);
+  d3.select("#stacking").on("change", valtoz);
+  d3.select("#survy").on("change", evvalto);
+	
 function alap() {
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
@@ -237,11 +291,9 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
 }  
 
 //window.onload = alap;
-window.addEventListener("load", alap);
+//window.addEventListener("load", alap);
 	
-  d3.select("#sorting").on("change", change);
-  d3.select("#stacking").on("change", valtoz);
-  d3.select("#survy").on("change", evvalto);
+  
 
 function valtoz() {
 if ((d3.select('input[name="reszlet"]').property("checked") == true)) {
