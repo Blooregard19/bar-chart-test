@@ -237,7 +237,10 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
 	
 function alap() {
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
-
+  g.selectAll(".bar").remove().exit();
+  g.selectAll(".legend").remove().exit();
+  g.selectAll(".grid").remove().exit();
+	
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(datab.map(function(d) { return d.country; }));
   
@@ -285,8 +288,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("dy", "0.31em")
       .attr("text-anchor", "start")
       .text("Nem vett részt");
-  g.selectAll(".stacked").remove().exit();
-  g.selectAll(".legend").remove().exit();
+  
 }  
 
 //window.onload = alap;
@@ -451,8 +453,11 @@ alap();
 
   function dokuk() {
   data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+  var datam = data.sort(d3.select('input[name="rendez"]').checked
+        ? function(a, b) { return b.obi - a.obi; }
+        : function(a, b) { return d3.ascending(a.country, b.country); })
   //var datam = data;
-  var datam = data.map(function(d) { return valog(d); });
+  var datam = datam.map(function(d) { return valog(d); });
 //console.log(datam);
   //var keys = datam.columns.slice(1);
   var keys = ["obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
@@ -464,10 +469,7 @@ alap();
 	  //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
-  y.domain(data.sort(d3.select('input[name="rendez"]').checked
-        ? function(a, b) { return b.obi - a.obi; }
-        : function(a, b) { return d3.ascending(a.country, b.country); })
-        .map(function(d) { return d.country; }))
+  y.domain(datam.map(function(d) { return d.country; }))
         .copy();
   z.domain(keys);
 	  
