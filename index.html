@@ -453,7 +453,7 @@ alap();
 
   function dokuk() {
   data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
-  var datam = data.sort(d3.select('input[name="rendez"]').checked
+  var datam = data.sort(document.getElementById("sorting").checked
         ? function(a, b) { return b.obi - a.obi; }
         : function(a, b) { return d3.ascending(a.country, b.country); })
   //var datam = data;
