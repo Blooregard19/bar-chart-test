@@ -202,7 +202,13 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));  
     //.call(d3.axisBottom(x).ticks(10, "%"));
-
+  g.append("g")			
+      .attr("class", "grid")
+      .attr("transform", "translate(0," + height + ")")
+      .call(make_x_gridlines()
+          .tickSize(-height)
+          .tickFormat("")
+	    );
   g.selectAll(".bar")
     .data(data, function(d) {return d.country;})
     .enter().append("rect")
@@ -223,13 +229,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("dy", "0.31em")
       .attr("text-anchor", "start")
       .text("Nem vett részt");
-   g.append("g")			
-      .attr("class", "grid")
-      .attr("transform", "translate(0," + height + ")")
-      .call(make_x_gridlines()
-          .tickSize(-height)
-          .tickFormat("")
-	    );
+   
 	
   d3.select("#sorting").on("change", change);
   d3.select("#stacking").on("change", valtoz);
