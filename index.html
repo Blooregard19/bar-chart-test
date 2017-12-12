@@ -308,6 +308,7 @@ alap();
 
 	
   function change() {
+    g.selectAll(".grid").remove().exit();
     data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
     if ((d3.select('input[name="reszlet"]').property("checked") == false)) {
     // Copy-on-write since tweens are evaluated after a delay.
@@ -328,15 +329,14 @@ alap();
         .map(function(d) { return d.country; }))
         .copy();
     }
-    //d3.select(".grid").remove().exit();
-
-    //g.append("g")			
-    //  .attr("class", "grid")
-    //  .attr("transform", "translate(0," + height + ")")
-    //  .call(make_x_gridlines()
-    //      .tickSize(-height)
-    //      .tickFormat("")
-//	    );
+    
+    g.append("g")			
+      .attr("class", "grid")
+      .attr("transform", "translate(0," + height + ")")
+      .call(make_x_gridlines()
+          .tickSize(-height)
+          .tickFormat("")
+	    );
 
     svg.selectAll(".bar.base")
         .sort(function(a, b) { return y0(a.country) - y0(b.country); });
