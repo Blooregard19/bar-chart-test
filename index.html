@@ -457,6 +457,7 @@ alap();
         ? function(a, b) { return b.obi - a.obi; }
         : function(a, b) { return d3.ascending(a.country, b.country); })
   //var datam = data;
+console.log(datam);
   var datam = datam.map(function(d) { return valog(d); });
 //console.log(datam);
   //var keys = datam.columns.slice(1);
@@ -465,6 +466,8 @@ alap();
   //var keys = ["country"];
   var stack = d3.stack()
       .keys(keys);
+console.log(data);
+console.log(datam);
 console.log(stack(datam));
 	  //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
