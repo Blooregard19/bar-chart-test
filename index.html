@@ -244,7 +244,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(datab.map(function(d) { return d.country; }));
   
-  g.append("g")			
+  g.append("g")		
       .attr("class", "grid")
       .attr("transform", "translate(0," + height + ")")
       .call(make_x_gridlines()
@@ -308,7 +308,7 @@ alap();
 
 	
   function change() {
-    g.selectAll(".grid").remove().exit();
+    
     data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
     if ((d3.select('input[name="reszlet"]').property("checked") == false)) {
     // Copy-on-write since tweens are evaluated after a delay.
@@ -330,13 +330,13 @@ alap();
         .copy();
     }
     
-    g.append("g")			
-      .attr("class", "grid")
-      .attr("transform", "translate(0," + height + ")")
-      .call(make_x_gridlines()
-          .tickSize(-height)
-          .tickFormat("")
-	    );
+    //g.append("g")			
+    //  .attr("class", "grid")
+    //  .attr("transform", "translate(0," + height + ")")
+    //  .call(make_x_gridlines()
+    //      .tickSize(-height)
+    //      .tickFormat("")
+//	    );
 
     svg.selectAll(".bar.base")
         .sort(function(a, b) { return y0(a.country) - y0(b.country); });
