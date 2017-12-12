@@ -464,7 +464,11 @@ alap();
 	  //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
-  y.domain(datab.map(function(d) { return d.country; }));
+  y.domain(data.sort(d3.select('input[name="rendez"]').checked
+        ? function(a, b) { return b.obi - a.obi; }
+        : function(a, b) { return d3.ascending(a.country, b.country); })
+        .map(function(d) { return d.country; }))
+        .copy();
   z.domain(keys);
 	  
   g.append("g")
