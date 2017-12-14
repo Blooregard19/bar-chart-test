@@ -247,6 +247,8 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   
   g.selectAll("path.xgrid").data(ticks).enter()
 	.append("path")
+	.attr("class", "xgrid")
+	.attr("stroke", "black")
 	.attr("d", function(d) {
        return "M" + x(d) + " " + 140 + "L" + x(d) + " " + (660);
      });
