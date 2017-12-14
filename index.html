@@ -214,13 +214,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));  
     //.call(d3.axisBottom(x).ticks(10, "%"));
-  var ticks = x.ticks(4)
   
-  g.selectAll("path.xgrid").data(ticks).enter()
-	.append("path")
-	.attr("d", function(d) {
-       return "M" + x(d) + " " + 140 + "L" + x(d) + " " + (660);
-     });
   //g.append("g")			
   //    .attr("class", "grid")
   //    .attr("transform", "translate(0," + height + ")")
@@ -249,7 +243,14 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("text-anchor", "start")
       .text("Nem vett részt");
    
-	
+  var ticks = x.ticks(4)
+  
+  g.selectAll("path.xgrid").data(ticks).enter()
+	.append("path")
+	.attr("d", function(d) {
+       return "M" + x(d) + " " + 140 + "L" + x(d) + " " + (660);
+     });
+
   d3.select("#sorting").on("change", change);
   d3.select("#stacking").on("change", valtoz);
   d3.select("#survy").on("change", evvalto);
