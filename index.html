@@ -199,7 +199,7 @@ function ready(error, datab, lang) {
 //}, function(error, data) {
  // if (error) throw error;
 var nyelv = d3.select('input[name="langsel"]:checked').node().value;
-console.log(nyelv);
+//console.log(nyelv);
 document.getElementById("lblangeng").innerHTML = lang[0][nyelv];
 document.getElementById("lblangfra").innerHTML = lang[1][nyelv];
 document.getElementById("lblangesp").innerHTML = lang[2][nyelv];
@@ -211,7 +211,15 @@ var cimke = new Array(8);
 for (var i = 0; i < cimke.length; i++ ) {
 cimke[i] = lang[8 + i][nyelv];
 }
-console.log(cimke);
+var cimke = cimke.reverse();
+//console.log(cimke);
+datab.forEach(function(datab) {
+  var result = lang.filter(function(langs) {
+  return langs.id === datab.country;
+  });
+  datab.countrytext = (result[0] !== undefined) ? result[0][nyelv] : null;
+});
+console.log(datab);	
 datab.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
 d.obi_ebp = +d.obi_ebp.replace(",", ".");
@@ -297,14 +305,14 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(datab.map(function(d) { return d.country; }));
   
-  g.append("g")		
-      .attr("class", "grid")
-      .attr("transform", "translate(0," + height + ")")
-      .call(make_x_gridlines()
-          .tickSize(-height)
-          .tickFormat("")
-	    );
-
+  //g.append("g")		
+  //    .attr("class", "grid")
+  //    .attr("transform", "translate(0," + height + ")")
+  //    .call(make_x_gridlines()
+  //        .tickSize(-height)
+  //        .tickFormat("")
+//	    );
+d3.select("path.xgrid").remove().exit();
   g.append("g")
       .attr("class", "axis axis--y")
       .call(d3.axisLeft(y));
@@ -341,7 +349,13 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("dy", "0.31em")
       .attr("text-anchor", "start")
       .text(dnptext);
-  
+  g.selectAll("path.xgrid").data(ticks).enter()
+	.append("path")
+	.attr("class", "xgrid")
+	.attr("stroke", "lightgrey")
+	.attr("d", function(d) {
+       return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
+     });
 }  
 
 //window.onload = alap;
@@ -390,7 +404,7 @@ alap();
     //      .tickSize(-height)
     //      .tickFormat("")
 //	    );
-
+d3.select("path.xgrid").remove().exit();
     svg.selectAll(".bar.base")
         .sort(function(a, b) { return y0(a.country) - y0(b.country); });
     svg.selectAll(".bar.stacked").selectAll("rect")
@@ -417,6 +431,13 @@ alap();
         //.attr("x", -9)
         //.attr("dx", "0.32em")
         ;
+    g.selectAll("path.xgrid").data(ticks).enter()
+	.append("path")
+	.attr("class", "xgrid")
+	.attr("stroke", "lightgrey")
+	.attr("d", function(d) {
+       return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
+     });
 
     }
 
@@ -461,15 +482,15 @@ alap();
   //    .attr("transform", "translate(0," + height + ")")
   //    .call(d3.axisBottom(x));  
     //.call(d3.axisBottom(x).ticks(10, "%"));
-    d3.select(".grid").remove().exit();
+    d3.select("path.xgrid").remove().exit();
 
-    g.append("g")			
-      .attr("class", "grid")
-      .attr("transform", "translate(0," + height + ")")
-      .call(make_x_gridlines()
-          .tickSize(-height)
-          .tickFormat("")
-	    );
+    //g.append("g")			
+    //  .attr("class", "grid")
+    //  .attr("transform", "translate(0," + height + ")")
+    //  .call(make_x_gridlines()
+    //      .tickSize(-height)
+    //      .tickFormat("")
+//	    );
 
   var chart = g.selectAll(".bar")
     .data(data, function(d) {return d.country;});
@@ -501,7 +522,14 @@ alap();
       .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
       .attr("font-family", "Arial")
       .attr("text-anchor", "start")
-      .text("Nem vett részt");     
+      .text("Nem vett részt");
+  g.selectAll("path.xgrid").data(ticks).enter()
+	.append("path")
+	.attr("class", "xgrid")
+	.attr("stroke", "lightgrey")
+	.attr("d", function(d) {
+       return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
+     });
   }
 
   function dokuk() {
@@ -540,7 +568,7 @@ alap();
       .attr("width", function(d) { return x(d[1]) - x(d[0]); });
 
   g.selectAll(".base").remove().exit();
-
+d3.select("path.xgrid").remove().exit();
   var legend = g.append("g")
       .attr("class", "legend")
       .attr("font-family", "sans-serif")
@@ -566,7 +594,13 @@ legend.append("rect")
       .attr("y", 9.5)
       .attr("dy", "0.32em")
       .text(function(d, i) { return cimke[i]; });
-
+  g.selectAll("path.xgrid").data(ticks).enter()
+	.append("path")
+	.attr("class", "xgrid")
+	.attr("stroke", "lightgrey")
+	.attr("d", function(d) {
+       return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
+     });
   }
 
 function reszletezo() {
