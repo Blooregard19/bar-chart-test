@@ -134,10 +134,11 @@ label #stacking {
 <label><input name = "reszlet" id = "stacking" type="checkbox"> Részletezés</label>
 </div>
 <div id = "langbox">
-<form action="">
-  <input type = "radio" name = "langsel" value = "eng">English
-  <input type = "radio" name = "langsel" value = "hun">Magyar
-  <input type = "radio" name = "langsel" value = "esp">Espanol	
+<form id = "langselector">
+  <input id = "langeng" type = "radio" name = "langsel" value = "eng" checked /><label id = "lblangeng" for = "langeng">English</label>
+  <input id = "langfra" type = "radio" name = "langsel" value = "fra"><label id = "lblangfra" for = "langfra">French</label>
+  <input id = "langesp" type = "radio" name = "langsel" value = "esp"><label id = "lblangesp" for = "langesp">Spanish</label>
+  <input id = "langlang1" type = "radio" name = "langsel" value = "lang1"><label id = "lblanglang1" for = "langlang1">Hungarian</label>
 </form>
 </div>
 </div>
@@ -197,8 +198,9 @@ function ready(error, datab, lang) {
 //  return d;
 //}, function(error, data) {
  // if (error) throw error;
-var nyelv = lang.slice(0, 4);
+var nyelv = d3.select('input[name="langsel"]:checked').node().value;
 console.log(nyelv);
+document.getElementById("lblangeng").innerHTML = lang[0][nyelv];
 datab.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
 d.obi_ebp = +d.obi_ebp.replace(",", ".");
