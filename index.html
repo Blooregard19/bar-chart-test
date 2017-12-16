@@ -201,6 +201,17 @@ function ready(error, datab, lang) {
 var nyelv = d3.select('input[name="langsel"]:checked').node().value;
 console.log(nyelv);
 document.getElementById("lblangeng").innerHTML = lang[0][nyelv];
+document.getElementById("lblangfra").innerHTML = lang[1][nyelv];
+document.getElementById("lblangesp").innerHTML = lang[2][nyelv];
+document.getElementById("lblanglang1").innerHTML = lang[3][nyelv];
+document.getElementById("lbsortbox").innerHTML = lang[5][nyelv];
+document.getElementById("lbstackbox").innerHTML = lang[6][nyelv];
+var dnptext = lang[7][nyelv];
+var cimke[];
+for (var i = 0; i < 8; i++ ) {
+cimke[i] = lang[8 + i][nyelv];
+}
+console.log[cimke];
 datab.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
 d.obi_ebp = +d.obi_ebp.replace(",", ".");
@@ -261,7 +272,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("x", function(d) { return 0; })	
       .attr("dy", "0.31em")
       .attr("text-anchor", "start")
-      .text("Nem vett részt");
+      .text(dnptext);
    
   var ticks = x.ticks(4)
   
@@ -329,7 +340,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("x", function(d) { return 0; })	
       .attr("dy", "0.31em")
       .attr("text-anchor", "start")
-      .text("Nem vett részt");
+      .text(dnptext);
   
 }  
 
@@ -503,7 +514,7 @@ alap();
 //console.log(datam);
   //var keys = datam.columns.slice(1);
   var keys = ["obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
-  var cimke = ["Javaslat", "Elfogadott", "Számvevőszéki jelentés", "Polgárok költségvetése", "Évközi jelentés", "Féléves jelentés", "Irányelvek", "Éves jelentés"].reverse();
+  //var cimke = ["Javaslat", "Elfogadott", "Számvevőszéki jelentés", "Polgárok költségvetése", "Évközi jelentés", "Féléves jelentés", "Irányelvek", "Éves jelentés"].reverse();
   //var keys = ["country"];
   var stack = d3.stack()
       .keys(keys);
