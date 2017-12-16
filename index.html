@@ -164,10 +164,7 @@ var x = d3.scaleLinear().rangeRound([0, width]),
 //var yAxis = d3.svg.axis()
 //    .scale(y)
 //    .orient("left");
-d3.selectAll('input[name="langsel"]').on("change", queue()
-    .defer(hucsv, "visu_data_exp3.csv")
-    .defer(hucsv, "lang_file.csv")
-    .await(ready));
+d3.selectAll('input[name="langsel"]').on("change", futtat);
 
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -186,6 +183,13 @@ queue()
     .defer(hucsv, "lang_file.csv")
     .await(ready);
 
+function futtat() {
+queue()
+    .defer(hucsv, "visu_data_exp3.csv")
+    .defer(hucsv, "lang_file.csv")
+    .await(ready);
+}
+	
 function valog(d) {
 return {country: d.country, countrytext:d.countrytext, obi_ebp: +d.obi_ebp, obi_eb: d.obi_eb, obi_ar: d.obi_ar, obi_cb: d.obi_cb, obi_iyr: d.obi_iyr, obi_myr: d.obi_myr, obi_pbs: d.obi_pbs, obi_yer: d.obi_yer};
 }
