@@ -236,11 +236,11 @@ d.year = +d.year;
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
-  y.domain(datab.map(function(d) { return d.country; }));
+  y.domain(datab.map(function(d) { return d.countrytext; }));
   
  g.append("g")
       .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y).tickFormat(function(d) {return data[d].countrytext;}));
+      .call(d3.axisLeft(y));
   //.append("text")
   //    .attr("transform", "rotate(-90)")
   //    .attr("x", 6)
@@ -303,7 +303,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   g.selectAll(".grid").remove().exit();
 	
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
-  y.domain(datab.map(function(d) { return d.country; }));
+  y.domain(datab.map(function(d) { return d.countrytext; }));
   
   //g.append("g")		
   //    .attr("class", "grid")
@@ -381,19 +381,19 @@ alap();
     // Copy-on-write since tweens are evaluated after a delay.
     var y0 = y.domain(data.sort(this.checked
         ? function(a, b) { return b.obi - a.obi; }
-        : function(a, b) { return d3.ascending(a.country, b.country); })
-        .map(function(d) { return d.country; }))
+        : function(a, b) { return d3.ascending(a.countrytext, b.countrytext); })
+        .map(function(d) { return d.countrytext; }))
         .copy();
     }
     
     if ((d3.select('input[name="reszlet"]').property("checked") == true)) {
     var rendez = d3.select(".legend .clicked").attr("id");
-    var data = data.map(function(d) { return {sorolo: d[rendez], country: d.country}; });
+    var data = data.map(function(d) { return {sorolo: d[rendez], country: d.countrytext}; });
     console.log(data);
     var y0 = y.domain(data.sort(this.checked
         ? function(a, b) { return b.sorolo - a.sorolo; }
-        : function(a, b) { return d3.ascending(a.country, b.country); })
-        .map(function(d) { return d.country; }))
+        : function(a, b) { return d3.ascending(a.countrytext, b.countrytext); })
+        .map(function(d) { return d.countrytext; }))
         .copy();
     }
     
@@ -406,23 +406,23 @@ alap();
 //	    );
 d3.select("path.xgrid").remove().exit();
     svg.selectAll(".bar.base")
-        .sort(function(a, b) { return y0(a.country) - y0(b.country); });
+        .sort(function(a, b) { return y0(a.countrytext) - y0(b.countrytext); });
     svg.selectAll(".bar.stacked").selectAll("rect")
-        .sort(function(a, b) { return y0(a.data.country) - y0(b.data.country); });
+        .sort(function(a, b) { return y0(a.data.countrytext) - y0(b.data.countrytext); });
 
     var transition = svg.transition().duration(550),
         delay = function(d, i) { return i * 25; };
 
     transition.selectAll(".bar.base")
         .delay(delay)
-        .attr("y", function(d) { return y0(d.country); });
+        .attr("y", function(d) { return y0(d.countrytext); });
     transition.selectAll(".bar.stacked").selectAll("rect")
         .delay(delay)
-        .attr("y", function(d) { return y0(d.data.country); });
+        .attr("y", function(d) { return y0(d.data.countrytext); });
 
     transition.selectAll(".text")
         .delay(delay)
-        .attr("y", function(d) { return y0(d.country); });
+        .attr("y", function(d) { return y0(d.countrytext); });
 	  
     transition.select(".axis--y")
 	 .call(d3.axisLeft(y))
@@ -456,8 +456,8 @@ d3.select("path.xgrid").remove().exit();
 
     y.domain(data.sort(this.checked
         ? function(a, b) { return b.obi - a.obi; }
-        : function(a, b) { return d3.ascending(a.country, b.country); })
-        .map(function(d) { return d.country; }))
+        : function(a, b) { return d3.ascending(a.countrytext, b.countrytext); })
+        .map(function(d) { return d.countrytext; }))
         .copy();
 
     var transition = svg.transition().duration(550),
@@ -536,7 +536,7 @@ d3.select("path.xgrid").remove().exit();
   data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
   var datam = data.sort(document.getElementById("sorting").checked
         ? function(a, b) { return b.obi - a.obi; }
-        : function(a, b) { return d3.ascending(a.country, b.country); })
+        : function(a, b) { return d3.ascending(a.countrytext, b.countrytext); })
   //var datam = data;
   var datam = datam.map(function(d) { return valog(d); });
 //console.log(datam);
@@ -549,7 +549,7 @@ d3.select("path.xgrid").remove().exit();
   //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
-  y.domain(datam.map(function(d) { return d.country; }))
+  y.domain(datam.map(function(d) { return d.countrytext; }))
         .copy();
   z.domain(keys);
 	  
