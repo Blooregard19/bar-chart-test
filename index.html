@@ -184,9 +184,9 @@ queue()
     .await(ready);
 
 function futtat() {
-d3.selectAll("g").remove().exit();
-var g = svg.append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+d3.selectAll(".axis").remove().exit();
+d3.selectAll("rect").remove().exit();
+d3.selectAll("path").remove().exit();
 queue()
     .defer(hucsv, "visu_data_exp3.csv")
     .defer(hucsv, "lang_file.csv")
