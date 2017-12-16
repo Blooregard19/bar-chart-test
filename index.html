@@ -164,6 +164,7 @@ var x = d3.scaleLinear().rangeRound([0, width]),
 //var yAxis = d3.svg.axis()
 //    .scale(y)
 //    .orient("left");
+d3.select('input[name="langsel"]').on("change", ready);
 
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -562,7 +563,7 @@ d3.select("path.xgrid").remove().exit();
     .selectAll("rect")
     .data(function(d) { return d; })
     .enter().append("rect")
-      .attr("y", function(d) { return y(d.data.country); })
+      .attr("y", function(d) { return y(d.data.countrytext); })
       .attr("x", function(d) { return x(d[0]); })
       .attr("height", y.bandwidth())
       .attr("width", function(d) { return x(d[1]) - x(d[0]); });
