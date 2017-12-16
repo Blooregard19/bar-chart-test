@@ -128,10 +128,10 @@ label #stacking {
 </select>
 </div>
 <div id = "sortbox">
-<label id = "lbsortbox"><input name = "rendez" id = "sorting" type="checkbox"> Sorbarendezés</label>
+<input name = "rendez" id = "sorting" type="checkbox"><label id = "lbsortbox">Sorbarendezés</label>
 </div>
 <div id = "stackbox">
-<label id = "lbstackbox"><input name = "reszlet" id = "stacking" type="checkbox"> Részletezés</label>
+<input name = "reszlet" id = "stacking" type="checkbox"><label id = "lbstackbox">Részletezés</label>
 </div>
 <div id = "langbox">
 <form id = "langselector">
@@ -208,7 +208,7 @@ document.getElementById("lbsortbox").innerHTML = lang[5][nyelv];
 document.getElementById("lbstackbox").innerHTML = lang[6][nyelv];
 var dnptext = lang[7][nyelv];
 var cimke = new Array(8);
-for (var i = 0; i < 8; i++ ) {
+for (var i = 0; i < cimke.length; i++ ) {
 cimke[i] = lang[8 + i][nyelv];
 }
 console.log[cimke];
