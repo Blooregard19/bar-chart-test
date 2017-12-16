@@ -240,7 +240,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   
  g.append("g")
       .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y));
+      .call(d3.axisLeft(y)).tickFormat(function(d) {return data[d].countrytext;});
   //.append("text")
   //    .attr("transform", "rotate(-90)")
   //    .attr("x", 6)
@@ -522,7 +522,7 @@ d3.select("path.xgrid").remove().exit();
       .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
       .attr("font-family", "Arial")
       .attr("text-anchor", "start")
-      .text("Nem vett részt");
+      .text(dnptext);
   g.selectAll("path.xgrid").data(ticks).enter()
 	.append("path")
 	.attr("class", "xgrid")
