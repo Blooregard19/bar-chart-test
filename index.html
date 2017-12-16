@@ -240,7 +240,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   
  g.append("g")
       .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y)).tickFormat(function(d) {return data[d].countrytext;});
+      .call(d3.axisLeft(y).tickFormat(function(d) {return data[d].countrytext;}));
   //.append("text")
   //    .attr("transform", "rotate(-90)")
   //    .attr("x", 6)
