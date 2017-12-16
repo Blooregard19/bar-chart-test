@@ -313,7 +313,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   //        .tickSize(-height)
   //        .tickFormat("")
 //	    );
-d3.select("path.xgrid").remove().exit();
+d3.selectAll(".xgrid").remove().exit();
   g.append("g")
       .attr("class", "axis axis--y")
       .call(d3.axisLeft(y));
@@ -405,7 +405,7 @@ alap();
     //      .tickSize(-height)
     //      .tickFormat("")
 //	    );
-d3.select("path.xgrid").remove().exit();
+d3.selectAll(".xgrid").remove().exit();
     svg.selectAll(".bar.base")
         .sort(function(a, b) { return y0(a.countrytext) - y0(b.countrytext); });
     svg.selectAll(".bar.stacked").selectAll("rect")
@@ -483,7 +483,7 @@ d3.select("path.xgrid").remove().exit();
   //    .attr("transform", "translate(0," + height + ")")
   //    .call(d3.axisBottom(x));  
     //.call(d3.axisBottom(x).ticks(10, "%"));
-    d3.select("path.xgrid").remove().exit();
+    d3.selectAll(".xgrid").remove().exit();
 
     //g.append("g")			
     //  .attr("class", "grid")
@@ -569,7 +569,7 @@ d3.select("path.xgrid").remove().exit();
       .attr("width", function(d) { return x(d[1]) - x(d[0]); });
 
   g.selectAll(".base").remove().exit();
-d3.select("path.xgrid").remove().exit();
+d3.selectAll(".xgrid").remove().exit();
   var legend = g.append("g")
       .attr("class", "legend")
       .attr("font-family", "sans-serif")
