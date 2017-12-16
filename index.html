@@ -197,8 +197,8 @@ function ready(error, datab, lang) {
 //  return d;
 //}, function(error, data) {
  // if (error) throw error;
-
-console.log(lang);
+var nyelv = lang.slice(0, 4);
+console.log(nyelv);
 datab.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
 d.obi_ebp = +d.obi_ebp.replace(",", ".");
