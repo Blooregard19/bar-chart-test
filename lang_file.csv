@@ -1,119 +1,119 @@
-id;eng;fra;esp;lang1;lang2
-english;English;;;Angol;
-french;French;;;Francia;
-spanish;Spanish;;;Spanyol;
-language1;Hungarian;;;Magyar;
-language2;;;;;
-sorting;Sort countries;;;SorbarendezÈs;
-stacked;Stack documents;;;RÈszletezÈs;
-dnparticipate;Did not participate;;;Nem vett rÈszt;
-ebp;Executive's Budget Proposal;;;KˆltsÈgvetÈsi javaslat;
-eb;Enacted Budget;;;Elfogadott kˆltsÈgvetÈs;
-ar;Audit Report;;;Sz·mvevıszÈki jelentÈs;
-cb;Citizens' Budget;;;Polg·rok kˆltsÈgvetÈse;
-iyr;In-Year Report;;;…vkˆzi jelentÈs;
-myr;Mid-Year Review;;;FÈlÈves jelentÈs;
-pbs;Pre-Budget Statement;;;KˆltsÈgvetÈsi ir·nyelvek;
-yer;Year-End Review;;;…ves jelentÈs;
-Afghanistan;Afghanistan;;;Afganiszt·n;
-Albania;Albania;;;Alb·nia;
-Algeria;Algeria;;;AlgÈria;
-Angola;Angola;;;Angola;
-Argentina;Argentina;;;ArgentÌna;
-Azerbaijan;Azerbaijan;;;Azerbajdzs·n;
-Bangladesh;Bangladesh;;;Banglades;
-Benin;Benin;;;Benin;
-Bolivia;Bolivia;;;BolÌvia;
-Bosnia and Herzegovina;Bosnia and Herzegovina;;;Bosznia Ès Hercegovina;
-Botswana;Botswana;;;Botswana;
-Brazil;Brazil;;;BrazÌlia;
-Bulgaria;Bulgaria;;;Bulg·ria;
-Burkina Faso;Burkina Faso;;;Burkina Faso;
-Cambodia;Cambodia;;;Kambodzsa;
-Cameroon;Cameroon;;;Kamerun;
-Chad;Chad;;;Cs·d;
-Chile;Chile;;;Chile;
-China;China;;;KÌna;
-Colombia;Colombia;;;Kolumbia;
-Costa Rica;Costa Rica;;;Costa Rica;
-Croatia;Croatia;;;Horv·torsz·g;
-Czech Republic;Czech Republic;;;Csehorsz·g;
-Dem. Rep. of Congo;Dem. Rep. of Congo;;;Dem. Rep. of Congo;
-Dominican Republic;Dominican Republic;;;Dominican Republic;
-Ecuador;Ecuador;;;Ecuador;
-Egypt;Egypt;;;Egyiptom;
-El Salvador;El Salvador;;;El Salvador;
-Equatorial Guinea;Equatorial Guinea;;;EgyenlÌtıi Guniea;
-Fiji;Fiji;;;Fiji;
-France;France;;;Franciaorsz·g;
-Georgia;Georgia;;;Georgia;
-Germany;Germany;;;NÈmetorsz·g;
-Ghana;Ghana;;;Gh·na;
-Guatemala;Guatemala;;;Guatemala;
-Honduras;Honduras;;;Honduras;
-Hungary;Hungary;;;Magyarorsz·g;
-India;India;;;India;
-Indonesia;Indonesia;;;IndonÈzia;
-Iraq;Iraq;;;Irak;
-Italy;Italy;;;Olaszorsz·g;
-Jordan;Jordan;;;Jordan;
-Kazakhstan;Kazakhstan;;;Kazakhstan;
-Kenya;Kenya;;;Kenya;
-Kyrgyz Republic;Kyrgyz Republic;;;Kyrgyz Republic;
-Lebanon;Lebanon;;;Lebanon;
-Liberia;Liberia;;;Liberia;
-Macedonia;Macedonia;;;Macedonia;
-Malawi;Malawi;;;Malawi;
-Malaysia;Malaysia;;;Malaysia;
-Mali;Mali;;;Mali;
-Mexico;Mexico;;;Mexico;
-Mongolia;Mongolia;;;Mongolia;
-Morocco;Morocco;;;Morocco;
-Mozambique;Mozambique;;;Mozambique;
-Myanmar;Myanmar;;;Myanmar;
-Namibia;Namibia;;;Namibia;
-Nepal;Nepal;;;Nepal;
-New Zealand;New Zealand;;;New Zealand;
-Nicaragua;Nicaragua;;;Nicaragua;
-Niger;Niger;;;Niger;
-Nigeria;Nigeria;;;Nigeria;
-Norway;Norway;;;Norway;
-Pakistan;Pakistan;;;Pakistan;
-Papua New Guinea;Papua New Guinea;;;Papua New Guinea;
-Peru;Peru;;;Peru;
-Philippines;Philippines;;;Philippines;
-Poland;Poland;;;Poland;
-Portugal;Portugal;;;Portugal;
-Qatar;Qatar;;;Qatar;
-Romania;Romania;;;Romania;
-Russia;Russia;;;Russia;
-Rwanda;Rwanda;;;Rwanda;
-Sao Tome e Principe;Sao Tome e Principe;;;Sao Tome e Principe;
-Saudi Arabia;Saudi Arabia;;;Saudi Arabia;
-Senegal;Senegal;;;Senegal;
-Serbia;Serbia;;;Serbia;
-Sierra Leone;Sierra Leone;;;Sierra Leone;
-Slovakia;Slovakia;;;Slovakia;
-Slovenia;Slovenia;;;Slovenia;
-South Africa;South Africa;;;South Africa;
-South Korea;South Korea;;;South Korea;
-Spain;Spain;;;Spain;
-Sri Lanka;Sri Lanka;;;Sri Lanka;
-Sudan;Sudan;;;Sudan;
-Sweden;Sweden;;;Sweden;
-Tajikistan;Tajikistan;;;Tajikistan;
-Tanzania;Tanzania;;;Tanzania;
-Thailand;Thailand;;;Thailand;
-Timor-Leste;Timor-Leste;;;Timor-Leste;
-Trinidad and Tobago;Trinidad and Tobago;;;Trinidad and Tobago;
-Tunisia;Tunisia;;;Tunisia;
-Turkey;Turkey;;;Turkey;
-Uganda;Uganda;;;Uganda;
-Ukraine;Ukraine;;;Ukraine;
-United Kingdom;United Kingdom;;;United Kingdom;
-United States;United States;;;United States;
-Venezuela;Venezuela;;;Venezuela;
-Vietnam;Vietnam;;;Vietnam;
-Yemen;Yemen;;;Yemen;
-Zambia;Zambia;;;Zambia;
-Zimbabwe;Zimbabwe;;;Zimbabwe;
+"";"id";"eng";"fra";"esp";"lang1";"lang2"
+"1";"english";"English";NA;NA;"Angol";NA
+"2";"french";"French";NA;NA;"Francia";NA
+"3";"spanish";"Spanish";NA;NA;"Spanyol";NA
+"4";"language1";"Hungarian";NA;NA;"Magyar";NA
+"5";"language2";"";NA;NA;"";NA
+"6";"sorting";"Sort countries";NA;NA;"Sorbarendez√©s";NA
+"7";"stacked";"Stack documents";NA;NA;"R√©szletez√©s";NA
+"8";"dnparticipate";"Did not participate";NA;NA;"Nem vett r√©szt";NA
+"9";"ebp";"Executive's Budget Proposal";NA;NA;"K√∂lts√©gvet√©si javaslat";NA
+"10";"eb";"Enacted Budget";NA;NA;"Elfogadott k√∂lts√©gvet√©s";NA
+"11";"ar";"Audit Report";NA;NA;"Sz√°mvev≈ësz√©ki jelent√©s";NA
+"12";"cb";"Citizens' Budget";NA;NA;"Polg√°rok k√∂lts√©gvet√©se";NA
+"13";"iyr";"In-Year Report";NA;NA;"√âvk√∂zi jelent√©s";NA
+"14";"myr";"Mid-Year Review";NA;NA;"F√©l√©ves jelent√©s";NA
+"15";"pbs";"Pre-Budget Statement";NA;NA;"K√∂lts√©gvet√©si ir√°nyelvek";NA
+"16";"yer";"Year-End Review";NA;NA;"√âves jelent√©s";NA
+"17";"Afghanistan";"Afghanistan";NA;NA;"Afganiszt√°n";NA
+"18";"Albania";"Albania";NA;NA;"Alb√°nia";NA
+"19";"Algeria";"Algeria";NA;NA;"Alg√©ria";NA
+"20";"Angola";"Angola";NA;NA;"Angola";NA
+"21";"Argentina";"Argentina";NA;NA;"Argent√≠na";NA
+"22";"Azerbaijan";"Azerbaijan";NA;NA;"Azerbajdzs√°n";NA
+"23";"Bangladesh";"Bangladesh";NA;NA;"Banglades";NA
+"24";"Benin";"Benin";NA;NA;"Benin";NA
+"25";"Bolivia";"Bolivia";NA;NA;"Bol√≠via";NA
+"26";"Bosnia and Herzegovina";"Bosnia and Herzegovina";NA;NA;"Bosznia √©s Hercegovina";NA
+"27";"Botswana";"Botswana";NA;NA;"Botswana";NA
+"28";"Brazil";"Brazil";NA;NA;"Braz√≠lia";NA
+"29";"Bulgaria";"Bulgaria";NA;NA;"Bulg√°ria";NA
+"30";"Burkina Faso";"Burkina Faso";NA;NA;"Burkina Faso";NA
+"31";"Cambodia";"Cambodia";NA;NA;"Kambodzsa";NA
+"32";"Cameroon";"Cameroon";NA;NA;"Kamerun";NA
+"33";"Chad";"Chad";NA;NA;"Cs√°d";NA
+"34";"Chile";"Chile";NA;NA;"Chile";NA
+"35";"China";"China";NA;NA;"K√≠na";NA
+"36";"Colombia";"Colombia";NA;NA;"Kolumbia";NA
+"37";"Costa Rica";"Costa Rica";NA;NA;"Costa Rica";NA
+"38";"Croatia";"Croatia";NA;NA;"Horv√°torsz√°g";NA
+"39";"Czech Republic";"Czech Republic";NA;NA;"Csehorsz√°g";NA
+"40";"Dem. Rep. of Congo";"Dem. Rep. of Congo";NA;NA;"Dem. Rep. of Congo";NA
+"41";"Dominican Republic";"Dominican Republic";NA;NA;"Dominican Republic";NA
+"42";"Ecuador";"Ecuador";NA;NA;"Ecuador";NA
+"43";"Egypt";"Egypt";NA;NA;"Egyiptom";NA
+"44";"El Salvador";"El Salvador";NA;NA;"El Salvador";NA
+"45";"Equatorial Guinea";"Equatorial Guinea";NA;NA;"Egyenl√≠t≈ëi Guniea";NA
+"46";"Fiji";"Fiji";NA;NA;"Fiji";NA
+"47";"France";"France";NA;NA;"Franciaorsz√°g";NA
+"48";"Georgia";"Georgia";NA;NA;"Georgia";NA
+"49";"Germany";"Germany";NA;NA;"N√©metorsz√°g";NA
+"50";"Ghana";"Ghana";NA;NA;"Gh√°na";NA
+"51";"Guatemala";"Guatemala";NA;NA;"Guatemala";NA
+"52";"Honduras";"Honduras";NA;NA;"Honduras";NA
+"53";"Hungary";"Hungary";NA;NA;"Magyarorsz√°g";NA
+"54";"India";"India";NA;NA;"India";NA
+"55";"Indonesia";"Indonesia";NA;NA;"Indon√©zia";NA
+"56";"Iraq";"Iraq";NA;NA;"Irak";NA
+"57";"Italy";"Italy";NA;NA;"Olaszorsz√°g";NA
+"58";"Jordan";"Jordan";NA;NA;"Jordan";NA
+"59";"Kazakhstan";"Kazakhstan";NA;NA;"Kazakhstan";NA
+"60";"Kenya";"Kenya";NA;NA;"Kenya";NA
+"61";"Kyrgyz Republic";"Kyrgyz Republic";NA;NA;"Kyrgyz Republic";NA
+"62";"Lebanon";"Lebanon";NA;NA;"Lebanon";NA
+"63";"Liberia";"Liberia";NA;NA;"Liberia";NA
+"64";"Macedonia";"Macedonia";NA;NA;"Macedonia";NA
+"65";"Malawi";"Malawi";NA;NA;"Malawi";NA
+"66";"Malaysia";"Malaysia";NA;NA;"Malaysia";NA
+"67";"Mali";"Mali";NA;NA;"Mali";NA
+"68";"Mexico";"Mexico";NA;NA;"Mexico";NA
+"69";"Mongolia";"Mongolia";NA;NA;"Mongolia";NA
+"70";"Morocco";"Morocco";NA;NA;"Morocco";NA
+"71";"Mozambique";"Mozambique";NA;NA;"Mozambique";NA
+"72";"Myanmar";"Myanmar";NA;NA;"Myanmar";NA
+"73";"Namibia";"Namibia";NA;NA;"Namibia";NA
+"74";"Nepal";"Nepal";NA;NA;"Nepal";NA
+"75";"New Zealand";"New Zealand";NA;NA;"New Zealand";NA
+"76";"Nicaragua";"Nicaragua";NA;NA;"Nicaragua";NA
+"77";"Niger";"Niger";NA;NA;"Niger";NA
+"78";"Nigeria";"Nigeria";NA;NA;"Nigeria";NA
+"79";"Norway";"Norway";NA;NA;"Norway";NA
+"80";"Pakistan";"Pakistan";NA;NA;"Pakistan";NA
+"81";"Papua New Guinea";"Papua New Guinea";NA;NA;"Papua New Guinea";NA
+"82";"Peru";"Peru";NA;NA;"Peru";NA
+"83";"Philippines";"Philippines";NA;NA;"Philippines";NA
+"84";"Poland";"Poland";NA;NA;"Poland";NA
+"85";"Portugal";"Portugal";NA;NA;"Portugal";NA
+"86";"Qatar";"Qatar";NA;NA;"Qatar";NA
+"87";"Romania";"Romania";NA;NA;"Romania";NA
+"88";"Russia";"Russia";NA;NA;"Russia";NA
+"89";"Rwanda";"Rwanda";NA;NA;"Rwanda";NA
+"90";"Sao Tome e Principe";"Sao Tome e Principe";NA;NA;"Sao Tome e Principe";NA
+"91";"Saudi Arabia";"Saudi Arabia";NA;NA;"Saudi Arabia";NA
+"92";"Senegal";"Senegal";NA;NA;"Senegal";NA
+"93";"Serbia";"Serbia";NA;NA;"Serbia";NA
+"94";"Sierra Leone";"Sierra Leone";NA;NA;"Sierra Leone";NA
+"95";"Slovakia";"Slovakia";NA;NA;"Slovakia";NA
+"96";"Slovenia";"Slovenia";NA;NA;"Slovenia";NA
+"97";"South Africa";"South Africa";NA;NA;"South Africa";NA
+"98";"South Korea";"South Korea";NA;NA;"South Korea";NA
+"99";"Spain";"Spain";NA;NA;"Spain";NA
+"100";"Sri Lanka";"Sri Lanka";NA;NA;"Sri Lanka";NA
+"101";"Sudan";"Sudan";NA;NA;"Sudan";NA
+"102";"Sweden";"Sweden";NA;NA;"Sweden";NA
+"103";"Tajikistan";"Tajikistan";NA;NA;"Tajikistan";NA
+"104";"Tanzania";"Tanzania";NA;NA;"Tanzania";NA
+"105";"Thailand";"Thailand";NA;NA;"Thailand";NA
+"106";"Timor-Leste";"Timor-Leste";NA;NA;"Timor-Leste";NA
+"107";"Trinidad and Tobago";"Trinidad and Tobago";NA;NA;"Trinidad and Tobago";NA
+"108";"Tunisia";"Tunisia";NA;NA;"Tunisia";NA
+"109";"Turkey";"Turkey";NA;NA;"Turkey";NA
+"110";"Uganda";"Uganda";NA;NA;"Uganda";NA
+"111";"Ukraine";"Ukraine";NA;NA;"Ukraine";NA
+"112";"United Kingdom";"United Kingdom";NA;NA;"United Kingdom";NA
+"113";"United States";"United States";NA;NA;"United States";NA
+"114";"Venezuela";"Venezuela";NA;NA;"Venezuela";NA
+"115";"Vietnam";"Vietnam";NA;NA;"Vietnam";NA
+"116";"Yemen";"Yemen";NA;NA;"Yemen";NA
+"117";"Zambia";"Zambia";NA;NA;"Zambia";NA
+"118";"Zimbabwe";"Zimbabwe";NA;NA;"Zimbabwe";NA
