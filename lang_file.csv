@@ -1,119 +1,132 @@
-"";"id";"eng";"fra";"esp";"lang1";"lang2"
-"1";"english";"English";NA;NA;"Angol";NA
-"2";"french";"French";NA;NA;"Francia";NA
-"3";"spanish";"Spanish";NA;NA;"Spanyol";NA
-"4";"language1";"Hungarian";NA;NA;"Magyar";NA
-"5";"language2";"";NA;NA;"";NA
-"6";"sorting";"Sort countries";NA;NA;"Sorbarendezés";NA
-"7";"stacked";"Stack documents";NA;NA;"Részletezés";NA
-"8";"dnparticipate";"Did not participate";NA;NA;"Nem vett részt";NA
-"9";"ebp";"Executive's Budget Proposal";NA;NA;"Költségvetési javaslat";NA
-"10";"eb";"Enacted Budget";NA;NA;"Elfogadott költségvetés";NA
-"11";"ar";"Audit Report";NA;NA;"Számvevőszéki jelentés";NA
-"12";"cb";"Citizens' Budget";NA;NA;"Polgárok költségvetése";NA
-"13";"iyr";"In-Year Report";NA;NA;"Évközi jelentés";NA
-"14";"myr";"Mid-Year Review";NA;NA;"Féléves jelentés";NA
-"15";"pbs";"Pre-Budget Statement";NA;NA;"Költségvetési irányelvek";NA
-"16";"yer";"Year-End Review";NA;NA;"Éves jelentés";NA
-"17";"Afghanistan";"Afghanistan";NA;NA;"Afganisztán";NA
-"18";"Albania";"Albania";NA;NA;"Albánia";NA
-"19";"Algeria";"Algeria";NA;NA;"Algéria";NA
-"20";"Angola";"Angola";NA;NA;"Angola";NA
-"21";"Argentina";"Argentina";NA;NA;"Argentína";NA
-"22";"Azerbaijan";"Azerbaijan";NA;NA;"Azerbajdzsán";NA
-"23";"Bangladesh";"Bangladesh";NA;NA;"Banglades";NA
-"24";"Benin";"Benin";NA;NA;"Benin";NA
-"25";"Bolivia";"Bolivia";NA;NA;"Bolívia";NA
-"26";"Bosnia and Herzegovina";"Bosnia and Herzegovina";NA;NA;"Bosznia és Hercegovina";NA
-"27";"Botswana";"Botswana";NA;NA;"Botswana";NA
-"28";"Brazil";"Brazil";NA;NA;"Brazília";NA
-"29";"Bulgaria";"Bulgaria";NA;NA;"Bulgária";NA
-"30";"Burkina Faso";"Burkina Faso";NA;NA;"Burkina Faso";NA
-"31";"Cambodia";"Cambodia";NA;NA;"Kambodzsa";NA
-"32";"Cameroon";"Cameroon";NA;NA;"Kamerun";NA
-"33";"Chad";"Chad";NA;NA;"Csád";NA
-"34";"Chile";"Chile";NA;NA;"Chile";NA
-"35";"China";"China";NA;NA;"Kína";NA
-"36";"Colombia";"Colombia";NA;NA;"Kolumbia";NA
-"37";"Costa Rica";"Costa Rica";NA;NA;"Costa Rica";NA
-"38";"Croatia";"Croatia";NA;NA;"Horvátország";NA
-"39";"Czech Republic";"Czech Republic";NA;NA;"Csehország";NA
-"40";"Dem. Rep. of Congo";"Dem. Rep. of Congo";NA;NA;"Dem. Rep. of Congo";NA
-"41";"Dominican Republic";"Dominican Republic";NA;NA;"Dominican Republic";NA
-"42";"Ecuador";"Ecuador";NA;NA;"Ecuador";NA
-"43";"Egypt";"Egypt";NA;NA;"Egyiptom";NA
-"44";"El Salvador";"El Salvador";NA;NA;"El Salvador";NA
-"45";"Equatorial Guinea";"Equatorial Guinea";NA;NA;"Egyenlítői Guniea";NA
-"46";"Fiji";"Fiji";NA;NA;"Fiji";NA
-"47";"France";"France";NA;NA;"Franciaország";NA
-"48";"Georgia";"Georgia";NA;NA;"Georgia";NA
-"49";"Germany";"Germany";NA;NA;"Németország";NA
-"50";"Ghana";"Ghana";NA;NA;"Ghána";NA
-"51";"Guatemala";"Guatemala";NA;NA;"Guatemala";NA
-"52";"Honduras";"Honduras";NA;NA;"Honduras";NA
-"53";"Hungary";"Hungary";NA;NA;"Magyarország";NA
-"54";"India";"India";NA;NA;"India";NA
-"55";"Indonesia";"Indonesia";NA;NA;"Indonézia";NA
-"56";"Iraq";"Iraq";NA;NA;"Irak";NA
-"57";"Italy";"Italy";NA;NA;"Olaszország";NA
-"58";"Jordan";"Jordan";NA;NA;"Jordan";NA
-"59";"Kazakhstan";"Kazakhstan";NA;NA;"Kazakhstan";NA
-"60";"Kenya";"Kenya";NA;NA;"Kenya";NA
-"61";"Kyrgyz Republic";"Kyrgyz Republic";NA;NA;"Kyrgyz Republic";NA
-"62";"Lebanon";"Lebanon";NA;NA;"Lebanon";NA
-"63";"Liberia";"Liberia";NA;NA;"Liberia";NA
-"64";"Macedonia";"Macedonia";NA;NA;"Macedonia";NA
-"65";"Malawi";"Malawi";NA;NA;"Malawi";NA
-"66";"Malaysia";"Malaysia";NA;NA;"Malaysia";NA
-"67";"Mali";"Mali";NA;NA;"Mali";NA
-"68";"Mexico";"Mexico";NA;NA;"Mexico";NA
-"69";"Mongolia";"Mongolia";NA;NA;"Mongolia";NA
-"70";"Morocco";"Morocco";NA;NA;"Morocco";NA
-"71";"Mozambique";"Mozambique";NA;NA;"Mozambique";NA
-"72";"Myanmar";"Myanmar";NA;NA;"Myanmar";NA
-"73";"Namibia";"Namibia";NA;NA;"Namibia";NA
-"74";"Nepal";"Nepal";NA;NA;"Nepal";NA
-"75";"New Zealand";"New Zealand";NA;NA;"New Zealand";NA
-"76";"Nicaragua";"Nicaragua";NA;NA;"Nicaragua";NA
-"77";"Niger";"Niger";NA;NA;"Niger";NA
-"78";"Nigeria";"Nigeria";NA;NA;"Nigeria";NA
-"79";"Norway";"Norway";NA;NA;"Norway";NA
-"80";"Pakistan";"Pakistan";NA;NA;"Pakistan";NA
-"81";"Papua New Guinea";"Papua New Guinea";NA;NA;"Papua New Guinea";NA
-"82";"Peru";"Peru";NA;NA;"Peru";NA
-"83";"Philippines";"Philippines";NA;NA;"Philippines";NA
-"84";"Poland";"Poland";NA;NA;"Poland";NA
-"85";"Portugal";"Portugal";NA;NA;"Portugal";NA
-"86";"Qatar";"Qatar";NA;NA;"Qatar";NA
-"87";"Romania";"Romania";NA;NA;"Romania";NA
-"88";"Russia";"Russia";NA;NA;"Russia";NA
-"89";"Rwanda";"Rwanda";NA;NA;"Rwanda";NA
-"90";"Sao Tomé and Príncipe";"Sao Tomé and Príncipe";NA;NA;"Sao Tomé és Príncipe";NA
-"91";"Saudi Arabia";"Saudi Arabia";NA;NA;"Saudi Arabia";NA
-"92";"Senegal";"Senegal";NA;NA;"Senegal";NA
-"93";"Serbia";"Serbia";NA;NA;"Serbia";NA
-"94";"Sierra Leone";"Sierra Leone";NA;NA;"Sierra Leone";NA
-"95";"Slovakia";"Slovakia";NA;NA;"Slovakia";NA
-"96";"Slovenia";"Slovenia";NA;NA;"Slovenia";NA
-"97";"South Africa";"South Africa";NA;NA;"South Africa";NA
-"98";"South Korea";"South Korea";NA;NA;"South Korea";NA
-"99";"Spain";"Spain";NA;NA;"Spain";NA
-"100";"Sri Lanka";"Sri Lanka";NA;NA;"Sri Lanka";NA
-"101";"Sudan";"Sudan";NA;NA;"Sudan";NA
-"102";"Sweden";"Sweden";NA;NA;"Sweden";NA
-"103";"Tajikistan";"Tajikistan";NA;NA;"Tajikistan";NA
-"104";"Tanzania";"Tanzania";NA;NA;"Tanzania";NA
-"105";"Thailand";"Thailand";NA;NA;"Thailand";NA
-"106";"Timor-Leste";"Timor-Leste";NA;NA;"Timor-Leste";NA
-"107";"Trinidad and Tobago";"Trinidad and Tobago";NA;NA;"Trinidad and Tobago";NA
-"108";"Tunisia";"Tunisia";NA;NA;"Tunisia";NA
-"109";"Turkey";"Turkey";NA;NA;"Turkey";NA
-"110";"Uganda";"Uganda";NA;NA;"Uganda";NA
-"111";"Ukraine";"Ukraine";NA;NA;"Ukraine";NA
-"112";"United Kingdom";"United Kingdom";NA;NA;"United Kingdom";NA
-"113";"United States";"United States";NA;NA;"United States";NA
-"114";"Venezuela";"Venezuela";NA;NA;"Venezuela";NA
-"115";"Vietnam";"Vietnam";NA;NA;"Vietnam";NA
-"116";"Yemen";"Yemen";NA;NA;"Yemen";NA
-"117";"Zambia";"Zambia";NA;NA;"Zambia";NA
-"118";"Zimbabwe";"Zimbabwe";NA;NA;"Zimbabwe";NA
+﻿;id;eng;fra;esp;lang1;lang2
+1;english;English;;;Angol;
+2;french;French;;;Francia;
+3;spanish;Spanish;;;Spanyol;
+4;language1;Hungarian;;;Magyar;
+5;language2;;;;;
+6;sorting;Sort countries;;;Sorbarendezés;
+7;stacked;Stack documents;;;Részletezés;
+8;dnparticipate;Did not participate;;;Nem vett részt;
+9;ebp;Executive's Budget Proposal;;;Költségvetési javaslat;
+10;eb;Enacted Budget;;;Elfogadott költségvetés;
+11;ar;Audit Report;;;Számvevőszéki javaslat;
+12;cb;Citizens' Budget;;;Polgárok költségvetése;
+13;iyr;In-Year Report;;;Évközi jelentés;
+14;myr;Mid-Year Review;;;Féléves jelentés;
+15;pbs;Pre-Budget Statement;;;Költségvetési irányelvek;
+16;yer;Year-End Review;;;Éves jelentés;
+17;Afghanistan;Afghanistan;;;Afganisztán;
+18;Albania;Albania;;;Albánia;
+19;Algeria;Algeria;;;Algéria;
+20;Angola;Angola;;;Angola;
+21;Argentina;Argentina;;;Argentína;
+22;Australia;Australia;;;Ausztrália;
+23;Azerbaijan;Azerbaijan;;;Azerbajdzsán;
+24;Bangladesh;Bangladesh;;;Bangladesh;
+25;Benin;Benin;;;Benin;
+26;Bolivia;Bolivia;;;Bolívia;
+27;Bosnia and Herzegovina;Bosnia and Herzegovina;;;Bosznia és Hercegovina;
+28;Botswana;Botswana;;;Botswana;
+29;Brazil;Brazil;;;Brazília;
+30;Bulgaria;Bulgaria;;;Bulgária;
+31;Burkina Faso;Burkina Faso;;;Burkina Faso;
+32;Burundi;Burundi;;;Burundi;
+33;Cambodia;Cambodia;;;Kambodzsa;
+34;Cameroon;Cameroon;;;Kamerun;
+35;Canada;Canada;;;Kanada;
+36;Chad;Chad;;;Csád;
+37;Chile;Chile;;;Chile;
+38;China;China;;;Kína;
+39;Colombia;Colombia;;;Kolumbia;
+40;Comoros;Comoros;;;Comore-szigetek;
+41;Costa Rica;Costa Rica;;;Costa Rica;
+42;Cote d'Ivoire;Cote d'Ivoire;;;Elefántcsontpart;
+43;Croatia;Croatia;;;Horvátország;
+44;Czech Republic;Czech Republic;;;Csehország;
+45;Democratic Republic of Congo;Democratic Republic of Congo;;;Kongói Demokratikus Köztársaság;
+46;Dominican Republic;Dominican Republic;;;Dominikai Köztársaság;
+47;Ecuador;Ecuador;;;Ecuador;
+48;Egypt;Egypt;;;Egyiptom;
+49;El Salvador;El Salvador;;;El Salvador;
+50;Equatorial Guinea;Equatorial Guinea;;;Egyenlítői Guinea;
+51;Fiji;Fiji;;;Fidzsi-szigetek;
+52;France;France;;;Franciaország;
+53;Georgia;Georgia;;;Gerogia;
+54;Germany;Germany;;;Németország;
+55;Ghana;Ghana;;;Ghána;
+56;Guatemala;Guatemala;;;Guatemala;
+57;Honduras;Honduras;;;Hondura;
+58;Hungary;Hungary;;;Magyarország;
+59;India;India;;;India;
+60;Indonesia;Indonesia;;;Indonézia;
+61;Iraq;Iraq;;;Irak;
+62;Italy;Italy;;;Olaszország;
+63;Japan;Japan;;;Japán;
+64;Jordan;Jordan;;;Jordánia;
+65;Kazakhstan;Kazakhstan;;;Kazahsztán;
+66;Kenya;Kenya;;;Kenya;
+67;Kyrgyz Republic;Kyrgyz Republic;;;Kirgizisztán;
+68;Lebanon;Lebanon;;;Libanon;
+69;Lesotho;Lesotho;;;Lesotho;
+70;Liberia;Liberia;;;Libéria;
+71;Macedonia;Macedonia;;;Macedónia;
+72;Madagascar;Madagascar;;;Madagaszkár;
+73;Malawi;Malawi;;;Malawi;
+74;Malaysia;Malaysia;;;Malajzia;
+75;Mali;Mali;;;Mali;
+76;Mexico;Mexico;;;Mexikó;
+77;Moldova;Moldova;;;Moldova;
+78;Mongolia;Mongolia;;;Mongólia;
+79;Morocco;Morocco;;;Marokkó;
+80;Mozambique;Mozambique;;;Mozambik;
+81;Myanmar;Myanmar;;;Mianmar;
+82;Namibia;Namibia;;;Namíbia;
+83;Nepal;Nepal;;;Nepál;
+84;New Zealand;New Zealand;;;Új-Zéland;
+85;Nicaragua;Nicaragua;;;Nicaragua;
+86;Niger;Niger;;;Niger;
+87;Nigeria;Nigeria;;;Nigéria;
+88;Norway;Norway;;;Norvégia;
+89;Pakistan;Pakistan;;;Pakisztán;
+90;Papua New Guinea;Papua New Guinea;;;Pápua Új-Guinea;
+91;Paraguay;Paraguay;;;Paraguay;
+92;Peru;Peru;;;Peru;
+93;Philippines;Philippines;;;Fülöp-szigetek;
+94;Poland;Poland;;;Lengyelország;
+95;Portugal;Portugal;;;Portugália;
+96;Qatar;Qatar;;;Katar;
+97;Romania;Romania;;;Románia;
+98;Russia;Russia;;;Oroszország;
+99;Rwanda;Rwanda;;;Ruanda;
+100;Sao Tome and Principe;Sao Tome and Principe;;;Sao Tomé és Príncipe;
+101;Saudi Arabia;Saudi Arabia;;;Szaúd-Arábia;
+102;Senegal;Senegal;;;Szenegál;
+103;Serbia;Serbia;;;Szerbia;
+104;Sierra Leone;Sierra Leone;;;Sierra Leone;
+105;Slovakia;Slovakia;;;Szlovákia;
+106;Slovenia;Slovenia;;;Szlovénia;
+107;Somalia;Somalia;;;Szomália;
+108;South Africa;South Africa;;;Dél-Afrika;
+109;South Korea;South Korea;;;Dél-Korea;
+110;South Sudan;South Sudan;;;Dél-Szudán;
+111;Spain;Spain;;;Spanyolország;
+112;Sri Lanka;Sri Lanka;;;Sri Lanka;
+113;Sudan;Sudan;;;Szudán;
+114;Swaziland;Swaziland;;;Szváziföld;
+115;Sweden;Sweden;;;Svédország;
+116;Tajikistan;Tajikistan;;;Tadzsikisztán;
+117;Tanzania;Tanzania;;;Tanzánia;
+118;Thailand;Thailand;;;Thaiföld;
+119;Timor-Leste;Timor-Leste;;;Kelet-Timor;
+120;Trinidad and Tobago;Trinidad and Tobago;;;Trinidad és Tobago;
+121;Tunisia;Tunisia;;;Tunézia;
+122;Turkey;Turkey;;;Törökország;
+123;Uganda;Uganda;;;Uganda;
+124;Ukraine;Ukraine;;;Ukrajna;
+125;United Kingdom;United Kingdom;;;Egyesült Királyság;
+126;United States;United States;;;Amerikai Egyesült Államok;
+127;Venezuela;Venezuela;;;Venezuela;
+128;Vietnam;Vietnam;;;Vietnam;
+129;Yemen;Yemen;;;Jemen;
+130;Zambia;Zambia;;;Zambia;
+131;Zimbabwe;Zimbabwe;;;Zimbabwe;
