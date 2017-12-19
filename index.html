@@ -118,6 +118,14 @@ label #stacking {
 }
 </style>
 <div id = "fejlec">
+<div id = "langbox">
+<form id = "langselector">
+  <input id = "langeng" type = "radio" name = "langsel" value = "eng" checked /><label id = "lblangeng" for = "langeng">Angol</label>
+  <input id = "langfra" type = "radio" name = "langsel" value = "fra"><label id = "lblangfra" for = "langfra">French</label>
+  <input id = "langesp" type = "radio" name = "langsel" value = "esp"><label id = "lblangesp" for = "langesp">Spanish</label>
+  <input id = "langlang1" type = "radio" name = "langsel" value = "lang1"><label id = "lblanglang1" for = "langlang1">Hungarian</label>
+</form>
+</div>
 <div id = "evval">
 <select id = "survy">
   <option value="2006">2006</option>
@@ -133,19 +141,19 @@ label #stacking {
 <div id = "stackbox">
 <input name = "reszlet" id = "stacking" type="checkbox"><label id = "lbstackbox">Részletezés</label>
 </div>
-<div id = "langbox">
-<form id = "langselector">
-  <input id = "langeng" type = "radio" name = "langsel" value = "eng" checked /><label id = "lblangeng" for = "langeng">Angol</label>
-  <input id = "langfra" type = "radio" name = "langsel" value = "fra"><label id = "lblangfra" for = "langfra">French</label>
-  <input id = "langesp" type = "radio" name = "langsel" value = "esp"><label id = "lblangesp" for = "langesp">Spanish</label>
-  <input id = "langlang1" type = "radio" name = "langsel" value = "lang1"><label id = "lblanglang1" for = "langlang1">Hungarian</label>
-</form>
-</div>
 </div>
 <div id = "main">
+<div id = "barchartbox">
 <svg width="800" height="1540"></svg>
 <script src="d3.v4.min.js"></script>
 <script src="queue.v1.min.js"></script>
+</div>
+<div id = "logotextboxes">
+<img src = "IBP_logo.jpg">
+<img src = "logo.png">
+<div id = "helptext">
+</div>
+</div>
 </div>
 <script>
 
