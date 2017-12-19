@@ -290,6 +290,8 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("y", function(d) { return y(d.countrytext); })
       .attr("x", function(d) { return 0; })	
       .attr("dy", "0.31em")
+      .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
+      .attr("font-family", "Arial")
       .attr("text-anchor", "start")
       .text(dnptext);
    
@@ -312,6 +314,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   g.selectAll(".bar").remove().exit();
   g.selectAll(".legend").remove().exit();
   g.selectAll(".grid").remove().exit();
+  g.selectAll("text").remove().exit();
 	
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   y.domain(datab.map(function(d) { return d.countrytext; }));
@@ -358,6 +361,8 @@ d3.selectAll(".xgrid").remove().exit();
       .attr("y", function(d) { return y(d.countrytext); })
       .attr("x", function(d) { return 0; })	
       .attr("dy", "0.31em")
+      .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
+      .attr("font-family", "Arial")
       .attr("text-anchor", "start")
       .text(dnptext);
   g.selectAll("path.xgrid").data(ticks).enter()
