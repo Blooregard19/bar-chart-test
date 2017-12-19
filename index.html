@@ -187,6 +187,7 @@ function futtat() {
 d3.selectAll(".axis").remove().exit();
 d3.selectAll("rect").remove().exit();
 d3.selectAll("path").remove().exit();
+g.selectAll("text").remove().exit();
 queue()
     .defer(hucsv, "visu_data_exp4.csv")
     .defer(hucsv, "lang_file.csv")
@@ -290,7 +291,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("id", function(d) {return d.country;})
       .attr("y", function(d) { return y(d.countrytext); })
       .attr("x", function(d) { return 0; })	
-      .attr("dy", "0.31em")
+      .attr("dy", function(d) {return y.bandwidth() + "px";})
       .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
       .attr("font-family", "Arial")
       .attr("text-anchor", "start")
@@ -362,7 +363,7 @@ d3.selectAll(".xgrid").remove().exit();
       .attr("id", function(d) {return d.country;})
       .attr("y", function(d) { return y(d.countrytext); })
       .attr("x", function(d) { return 0; })	
-      .attr("dy", "0.31em")
+      .attr("dy", function(d) {return y.bandwidth() + "px";})
       .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
       .attr("font-family", "Arial")
       .attr("text-anchor", "start")
