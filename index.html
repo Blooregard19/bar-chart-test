@@ -33,13 +33,15 @@
 #sortbox {
   /*position: absolute;*/
   display: inline-block;
-  height: 100%;
+  height: 25px;
+  vertical-align:bottom;
 }
 
 #stackbox {
   /*position: absolute;*/
   display: inline-block;
-  height: 100%;
+  height: 25px;
+  vertical-align:bottom;
 }
 
 #langbox {
@@ -317,6 +319,12 @@ for (var i = 0; i < cimke.length; i++ ) {
 cimke[i] = lang[8 + i][nyelv];
 }
 var cimke = cimke.reverse();
+d3.select("#lbsortbox")
+	.style("font-family", "Cabin")
+	.style("font-size", "13px");
+d3.select("#lbstackbox")
+	.style("font-family", "Cabin")
+	.style("font-size", "13px");
 //console.log(cimke);
 datab.forEach(function(datab) {
   var result = lang.filter(function(langs) {
