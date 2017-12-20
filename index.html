@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
 <style>
 
 #fo {
@@ -42,6 +45,29 @@
 #langbox {
   display: inline-block;
   height: 100%;	
+}
+
+#langselector {
+  display: inline-block;
+}
+#langselector input[type="radio"] {
+  display: none;
+}
+#langselector label {
+  display: inline-block;
+  background-color: #ddd;
+  padding: 4px 11px;
+  font-family: Cabin;
+  font-size: 13px;
+  cursor: pointer;
+}
+#langselector input[type="radio"]:checked+label {
+  background-color: #779126;
+  color: #fff;
+}
+#langselector input[type="radio"]:disabled+label {
+  background-color:#ddd;
+  color: #ddd;
 }
 
 #barchartbox {
@@ -87,7 +113,13 @@ label #stacking {
   /*top: 50px;*/
   /*right: 150px;*/
 }
-	
+
+#helptext {
+  width: 300px;
+  font-family: Cabin;
+  margin: auto;
+}
+
 #evval {
   /*position: absolute;*/
   /*top: 10px;*/
@@ -104,7 +136,7 @@ label #stacking {
    border-radius: 5px;
    background-color: #779126;
 }
-#evval #srvy {
+#evval #survy {
    /*background: transparent;*/
    background: #779126;
    border: none;
@@ -167,8 +199,8 @@ label #stacking {
 <script src="queue.v1.min.js"></script>
 </div>
 <div id = "logotextboxes">
-<img src = "IBP_logo.jpg">
-<img src = "logo.png">
+<img src = "IBP_logo.jpg" height = "100" width = "100">
+<img src = "logo.png" height = "100" width = "100">
 <div id = "helptext">
 Sample text
 </div>
