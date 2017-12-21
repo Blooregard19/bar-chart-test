@@ -1,6 +1,6 @@
 # bar-chart-test
 
-Teszt: https://rawgit.com/Blooregard19/bar-chart-test/master/index.html
+Teszt: https://rawgit.com/Blooregard19/bar-chart-test/master/index2.html
 
 https://stackoverflow.com/questions/34488854/d3-js-bar-chart-sorting-cant-figure-out-how-to-sort-x-axis-labels-along-with-b
 
