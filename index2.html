@@ -352,12 +352,14 @@ cimke[i] = lang[8 + i][nyelv];
 var cimke = cimke.reverse();
 d3.select("#lbsortbox")
 	.style("font-family", "Cabin")
-	.style("font-size", "13px");
-//	.style("vertical-align", "8px");
+	.style("font-size", "13px")
+	.style("vertical-align", "2px")
+	.style("margin-left", "3px");
 d3.select("#lbstackbox")
 	.style("font-family", "Cabin")
-	.style("font-size", "13px");
-//	.style("vertical-align", "8px");
+	.style("font-size", "13px")
+	.style("vertical-align", "2px")
+	.style("margin-left", "3px");
 //console.log(cimke);
 datab.forEach(function(datab) {
   var result = lang.filter(function(langs) {
