@@ -164,7 +164,9 @@ label input[type=checkbox] {
 label span {/* <-- style the artificial checkbox */
   height: 10px;
   width: 10px;
-  border: 1px solid grey;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
   display: inline-block;
   position: relative;
 }
@@ -347,12 +349,12 @@ cimke[i] = lang[8 + i][nyelv];
 var cimke = cimke.reverse();
 d3.select("#lbsortbox")
 	.style("font-family", "Cabin")
-	.style("font-size", "13px")
-	.style("vertical-align", "8px");
+	.style("font-size", "13px");
+//	.style("vertical-align", "8px");
 d3.select("#lbstackbox")
 	.style("font-family", "Cabin")
-	.style("font-size", "13px")
-	.style("vertical-align", "8px");
+	.style("font-size", "13px");
+//	.style("vertical-align", "8px");
 //console.log(cimke);
 datab.forEach(function(datab) {
   var result = lang.filter(function(langs) {
