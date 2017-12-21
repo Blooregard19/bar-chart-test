@@ -336,7 +336,7 @@ document.getElementById("lblangeng").innerHTML = lang[0][nyelv];
 document.getElementById("lblangfra").innerHTML = lang[1][nyelv];
 document.getElementById("lblangesp").innerHTML = lang[2][nyelv];
 document.getElementById("lblanglang1").innerHTML = lang[3][nyelv];
-//document.getElementById("lbsortbox").innerHTML = lang[5][nyelv];
+document.getElementById("lbsortbox").innerHTML = lang[5][nyelv];
 document.getElementById("lbstackbox").innerHTML = lang[6][nyelv];
 document.getElementById("helptext").innerHTML = lang[131][nyelv];
 var dnptext = lang[7][nyelv];
@@ -345,10 +345,10 @@ for (var i = 0; i < cimke.length; i++ ) {
 cimke[i] = lang[8 + i][nyelv];
 }
 var cimke = cimke.reverse();
-//d3.select("#lbsortbox")
-//	.style("font-family", "Cabin")
-//	.style("font-size", "13px")
-//	.style("vertical-align", "8px");
+d3.select("#lbsortbox")
+	.style("font-family", "Cabin")
+	.style("font-size", "13px")
+	.style("vertical-align", "8px");
 d3.select("#lbstackbox")
 	.style("font-family", "Cabin")
 	.style("font-size", "13px")
