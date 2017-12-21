@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
+<style>
+
+#fo {
+  position:relative;
+  /*width: 100%;*/
+  /*min-width: 950px;*/
+  /*height: 100%;*/
+  /*min-height: 450px;*/
+  margin: 0 auto;
+  /*padding: 0 5px;*/
+  /*top: 30px;*/
+}
+	
+#fejlec {
+  font: 10px sans-serif;
+  position: static;
+  display: inline-block;
+}
+
+#main {
+  position:absolute;
+  height: 1580px;
+  /*min-height:550px;*/
+  width: 99%;
+  /*top: 260px;*/
+}
+	
+#sortbox {
+  /*position: absolute;*/
+  display: inline-block;
+  height: 25px;
+  vertical-align:bottom;
+}
+
+#stackbox {
+  /*position: absolute;*/
+  display: inline-block;
+  height: 25px;
+  vertical-align:bottom;
+}
+
+#langbox {
+  display: inline-block;
+  height: 100%;	
+}
+
+#langselector {
+  display: inline-block;
+}
+#langselector input[type="radio"] {
+  display: none;
+}
+#langselector label {
+  display: inline-block;
+  background-color: #ddd;
+  padding: 4px 11px;
+  font-family: Cabin;
+  font-size: 13px;
+  cursor: pointer;
+}
+#langselector input[type="radio"]:checked+label {
+  background-color: #779126;
+  color: #fff;
+}
+#langselector input[type="radio"]:disabled+label {
+  background-color:#ddd;
+  color: #ddd;
+}
+
+#barchartbox {
+  display: inline-block;
+  height: 100%;
+}
+	
+#logotextboxes {
+  position: absolute;
+  display: inline-block;
+  height: 100%;
+  text-align:center;
+}
+
+img {
+    vertical-align: top;
+}
+
+.bar.base {
+  fill: steelblue;
+}
+
+.bar.base:hover {
+  fill: brown;
+}
+
+.bar.base.selected {
+  fill: brown;	
+}
+
+.axis--x path {
+  display: none;
+}
+
+label #sorting {
+  /*position: absolute;*/
+  /*top: 10px;*/
+  /*right: 150px;*/
+}
+
+label #stacking {
+  /*position: absolute;*/
+  /*top: 50px;*/
+  /*right: 150px;*/
+}
+
+.regular-checkbox {
+	-webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+.regular-checkbox:active, .regular-checkbox:checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+.regular-checkbox:checked {
+	background-color: #779126;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+.regular-checkbox:checked:after {
+	content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: #fafafa;
+}
+.regular-checkbox label {
+  padding: 4px 11px;
+  font-family: Cabin;
+  font-size: 13px;	
+}
+	
+#helptext {
+  width: 300px;
+  font-family: Cabin;
+  margin: auto;
+}
+
+#evval {
+  /*position: absolute;*/
+  /*top: 10px;*/
+  /*left: 10px;*/
+  display: inline-block;
+}
+#evval {
+   /*background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;*/
+   height: 25px;
+   /*overflow: hidden;*/
+   width: 80px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   background-color: #779126;
+}
+#evval #survy {
+   /*background: transparent;*/
+   background: #779126;
+   border: none;
+   font-size: 12px;
+   height: 25px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 79px;
+   color: #fff;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+.legend .fade {
+  opacity: 0.5;
+}
+
+.legend .fade {
+  opacity: 0.5;
+}
+</style>
+<div id = "fejlec">
+<div id = "langbox">
+<form id = "langselector">
+  <input id = "langeng" type = "radio" name = "langsel" value = "eng" checked /><label id = "lblangeng" for = "langeng">Angol</label>
+  <input id = "langfra" type = "radio" name = "langsel" value = "fra"><label id = "lblangfra" for = "langfra">French</label>
+  <input id = "langesp" type = "radio" name = "langsel" value = "esp"><label id = "lblangesp" for = "langesp">Spanish</label>
+  <input id = "langlang1" type = "radio" name = "langsel" value = "lang1"><label id = "lblanglang1" for = "langlang1">Hungarian</label>
+  <input id = "langlang2" type = "radio" name = "langsel" value = "lang2"><label id = "lblanglang2" for = "langlang2">Language2</label>
+</form>
+</div>
+<div id = "evval">
+<select id = "survy">
+  <option value="2006">2006</option>
+  <option value="2008">2008</option>
+  <option value="2010">2010</option>
+  <option value="2012">2012</option>
+  <option value="2015" selected>2015</option>
+  <option value="2017">2017</option>
+</select>
+</div>
+<div id = "sortbox">
+<input class="regular-checkbox" name = "rendez" id = "sorting" type="checkbox"><label id = "lbsortbox">Sorbarendezés</label>
+</div>
+<div id = "stackbox">
+<input class="regular-checkbox" name = "reszlet" id = "stacking" type="checkbox"><label id = "lbstackbox">Részletezés</label>
+</div>
+</div>
+<div id = "main">
+<div id = "barchartbox" style="width:850px;">
+<svg width="800" height="1540"></svg>
+<script src="d3.v4.min.js"></script>
+<script src="queue.v1.min.js"></script>
+</div>
+<div id = "logotextboxes">
+<img src = "IBP_logo.jpg" height = "100" width = "100">
+<img src = "logo.png" height = "100" width = "100">
+<div id = "helptext">
+Sample text
+</div>
+</div>
+</div>
+<script>
+
+
+var svg = d3.select("#main").select("svg"),
+    margin = {top: 20, right: 20, bottom: 30, left: 140},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom;
+
+var x = d3.scaleLinear().rangeRound([0, width]),
+    y = d3.scaleBand().rangeRound([0, height]).padding(0.1),
+    z = d3.scaleOrdinal().range(["#000000", "#ff8c00", "#d0743c", "#a05d56", "#6b486b", "#7b6888", "#8a89a6", "#98abc5"]);
+//var color = d3.scaleOrdinal()
+//    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00", "#000000"]);
+
+//var yAxis = d3.svg.axis()
+//    .scale(y)
+//    .orient("left");
+d3.selectAll('input[name="langsel"]').on("change", futtat);
+
+var g = svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var ssv = d3.dsvFormat(";");
+
+function hucsv(adat, callback) {
+  d3.request(adat)
+	.mimeType("text/plain")
+	.response(function(xhr) { return ssv.parse(xhr.responseText);})
+      .get(function(data) {callback(null, data);});
+  
+}; 
+
+queue()
+    .defer(hucsv, "visu_data_exp4.csv")
+    .defer(hucsv, "lang_file.csv")
+    .await(ready);
+
+function futtat() {
+d3.selectAll(".axis").remove().exit();
+d3.selectAll("rect").remove().exit();
+d3.selectAll("path").remove().exit();
+g.selectAll("text").remove().exit();
+queue()
+    .defer(hucsv, "visu_data_exp4.csv")
+    .defer(hucsv, "lang_file.csv")
+    .await(ready);
+}
+	
+function valog(d) {
+return {country: d.country, countrytext:d.countrytext, obi_ebp: +d.obi_ebp, obi_eb: d.obi_eb, obi_ar: d.obi_ar, obi_cb: d.obi_cb, obi_iyr: d.obi_iyr, obi_myr: d.obi_myr, obi_pbs: d.obi_pbs, obi_yer: d.obi_yer};
+}
+
+//d3.request("visu_data_exp3.csv")
+//	.mimeType("text/plain")
+//	.response(function(xhr) { return ssv.parse(xhr.responseText)})
+//	.get(function(datab) {
+
+function ready(error, datab, lang) {
+  if (error) throw error;
+//d3.tsv("data.tsv", function(d) {
+//  d.frequency = +d.frequency;
+//  return d;
+//}, function(error, data) {
+ // if (error) throw error;
+var nyelv = d3.select('input[name="langsel"]:checked').node().value;
+//console.log(nyelv);
+document.getElementById("lblangeng").innerHTML = lang[0][nyelv];
+document.getElementById("lblangfra").innerHTML = lang[1][nyelv];
+document.getElementById("lblangesp").innerHTML = lang[2][nyelv];
+document.getElementById("lblanglang1").innerHTML = lang[3][nyelv];
+document.getElementById("lbsortbox").innerHTML = lang[5][nyelv];
+document.getElementById("lbstackbox").innerHTML = lang[6][nyelv];
+document.getElementById("helptext").innerHTML = lang[131][nyelv];
+var dnptext = lang[7][nyelv];
+var cimke = new Array(8);
+for (var i = 0; i < cimke.length; i++ ) {
+cimke[i] = lang[8 + i][nyelv];
+}
+var cimke = cimke.reverse();
+d3.select("#lbsortbox")
+	.style("font-family", "Cabin")
+	.style("font-size", "13px")
+	.style("vertical-align", "8px");
+d3.select("#lbstackbox")
+	.style("font-family", "Cabin")
+	.style("font-size", "13px")
+	.style("vertical-align", "8px");
+//console.log(cimke);
+datab.forEach(function(datab) {
+  var result = lang.filter(function(langs) {
+  return langs.id === datab.country;
+  });
+  datab.countrytext = (result[0] !== undefined) ? result[0][nyelv] : null;
+});
+console.log(datab);	
+datab.forEach(function(d) {
+d.obi = +d.obi.replace(",", ".");
+d.obi_ebp = +d.obi_ebp.replace(",", ".");
+d.obi_eb = +d.obi_eb.replace(",", ".");
+d.obi_ar = +d.obi_ar.replace(",", ".");
+d.obi_cb = +d.obi_cb.replace(",", ".");
+d.obi_iyr = +d.obi_iyr.replace(",", ".");
+d.obi_myr = +d.obi_myr.replace(",", ".");
+d.obi_pbs = +d.obi_pbs.replace(",", ".");
+d.obi_yer = +d.obi_yer.replace(",", ".");
+d.year = +d.year;
+});
+
+data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+
+  x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  y.domain(datab.map(function(d) { return d.countrytext; }));
+  
+ g.append("g")
+      .attr("class", "axis axis--y")
+      .call(d3.axisLeft(y));
+  //.append("text")
+  //    .attr("transform", "rotate(-90)")
+  //    .attr("x", 6)
+  //    .attr("dx", "0.71em")
+  //    .attr("text-anchor", "end")
+  //    .text("Frequency");
+
+  g.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));  
+    //.call(d3.axisBottom(x).ticks(10, "%"));
+  
+  //g.append("g")			
+  //    .attr("class", "grid")
+  //    .attr("transform", "translate(0," + height + ")")
+  //    .call(make_x_gridlines()
+  //        .tickSize(-height)
+  //        .tickFormat("")
+//	    );
+  g.selectAll(".bar")
+    .data(data, function(d) {return d.country;})
+    .enter().append("rect")
+      .attr("class", "bar base")
+      .attr("id", function(d) {return d.country;})
+      .attr("y", function(d) { return y(d.countrytext); })
+      //.attr("x", function(d) { return x(d.frequency); })
+      .attr("x", function(d) { return 0; })
+      .attr("height", y.bandwidth())
+      .attr("width", function(d) { return x(d.obi); })
+      .on("click", szinez );
+  g.selectAll(".text")
+    .data(data.filter(function(d) {return d.co_code == "";}), function(d) {return d.country;})
+    .enter().append("text")
+      .attr("class", "text")
+      .attr("id", function(d) {return d.country;})
+      .attr("y", function(d) { return y(d.countrytext); })
+      .attr("x", function(d) { return 0; })	
+      .attr("dy", function(d) {return y.bandwidth() + "px";})
+      .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
+      .attr("font-family", "Arial")
+      .attr("text-anchor", "start")
+      .text(dnptext);
+   
+  var ticks = x.ticks(4)
+  
+  g.selectAll("path.xgrid").data(ticks).enter()
+	.append("path")
+	.attr("class", "xgrid")
+	.attr("stroke", "lightgrey")
+	.attr("d", function(d) {
+       return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
+     });
+
+  d3.select("#sorting").on("change", change);
+  d3.select("#stacking").on("change", valtoz);
+  d3.select("#survy").on("change", evvalto);
+	
+function alap() {
+data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+  g.selectAll(".bar").remove().exit();
+  g.selectAll(".legend").remove().exit();
+  g.selectAll(".grid").remove().exit();
+  g.selectAll("text").remove().exit();
+	
+  x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  y.domain(datab.map(function(d) { return d.countrytext; }));
+  
+  //g.append("g")		
+  //    .attr("class", "grid")
+  //    .attr("transform", "translate(0," + height + ")")
+  //    .call(make_x_gridlines()
+  //        .tickSize(-height)
+  //        .tickFormat("")
+//	    );
+d3.selectAll(".xgrid").remove().exit();
+  g.append("g")
+      .attr("class", "axis axis--y")
+      .call(d3.axisLeft(y));
+  //.append("text")
+  //    .attr("transform", "rotate(-90)")
+  //    .attr("x", 6)
+  //    .attr("dx", "0.71em")
+  //    .attr("text-anchor", "end")
+  //    .text("Frequency");
+
+  g.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));  
+    //.call(d3.axisBottom(x).ticks(10, "%"));
+
+  g.selectAll(".bar")
+    .data(data, function(d) {return d.country;})
+    .enter().append("rect")
+      .attr("class", "bar base")
+      .attr("id", function(d) {return d.country;})
+      .attr("y", function(d) { return y(d.countrytext); })
+      //.attr("x", function(d) { return x(d.frequency); })
+      .attr("x", function(d) { return 0; })
+      .attr("height", y.bandwidth())
+      .attr("width", function(d) { return x(d.obi); })
+      .on("click", szinez );
+  g.selectAll(".text")
+    .data(data.filter(function(d) {return d.co_code == "";}), function(d) {return d.country;})
+    .enter().append("text")
+      .attr("class", "text")
+      .attr("id", function(d) {return d.country;})
+      .attr("y", function(d) { return y(d.countrytext); })
+      .attr("x", function(d) { return 0; })	
+      .attr("dy", function(d) {return y.bandwidth() + "px";})
+      .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
+      .attr("font-family", "Arial")
+      .attr("text-anchor", "start")
+      .text(dnptext);
+  g.selectAll("path.xgrid").data(ticks).enter()
+	.append("path")
+	.attr("class", "xgrid")
+	.attr("stroke", "lightgrey")
+	.attr("d", function(d) {
+       return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
+     });
+}  
+
+//window.onload = alap;
+//window.addEventListener("load", alap);
+	
+  
+
+function valtoz() {
+if ((d3.select('input[name="reszlet"]').property("checked") == true)) {
+dokuk();
+}
+if ((d3.select('input[name="reszlet"]').property("checked") == false)) {
+g.selectAll(".axis").remove().exit();
+alap();
+}
+}
+
+	
+  function change() {
+    
+    data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+    if ((d3.select('input[name="reszlet"]').property("checked") == false)) {
+    // Copy-on-write since tweens are evaluated after a delay.
+    var y0 = y.domain(data.sort(this.checked
+        ? function(a, b) { return b.obi - a.obi; }
+        : function(a, b) { return d3.ascending(a.countrytext, b.countrytext); })
+        .map(function(d) { return d.countrytext; }))
+        .copy();
+    }
+    
+    if ((d3.select('input[name="reszlet"]').property("checked") == true)) {
+    var rendez = d3.select(".legend .clicked").attr("id");
+    var data = data.map(function(d) { return {sorolo: d[rendez], countrytext: d.countrytext}; });
+    console.log(data);
+    var y0 = y.domain(data.sort(this.checked
+        ? function(a, b) { return b.sorolo - a.sorolo; }
+        : function(a, b) { return d3.ascending(a.countrytext, b.countrytext); })
+        .map(function(d) { return d.countrytext; }))
+        .copy();
+    }
+    
+    //g.append("g")			
+    //  .attr("class", "grid")
+    //  .attr("transform", "translate(0," + height + ")")
+    //  .call(make_x_gridlines()
+    //      .tickSize(-height)
+    //      .tickFormat("")
+//	    );
+d3.selectAll(".xgrid").remove().exit();
+    svg.selectAll(".bar.base")
+        .sort(function(a, b) { return y0(a.countrytext) - y0(b.countrytext); });
+    svg.selectAll(".bar.stacked").selectAll("rect")
+        .sort(function(a, b) { return y0(a.data.countrytext) - y0(b.data.countrytext); });
+
+    var transition = svg.transition().duration(550),
+        delay = function(d, i) { return i * 25; };
+
+    transition.selectAll(".bar.base")
+        .delay(delay)
+        .attr("y", function(d) { return y0(d.countrytext); });
+    transition.selectAll(".bar.stacked").selectAll("rect")
+        .delay(delay)
+        .attr("y", function(d) { return y0(d.data.countrytext); });
+
+    transition.selectAll(".text")
+        .delay(delay)
+        .attr("y", function(d) { return y0(d.countrytext); });
+	  
+    transition.select(".axis--y")
+	 .call(d3.axisLeft(y))
+      .selectAll("g")
+	 .delay(delay)
+        //.attr("x", -9)
+        //.attr("dx", "0.32em")
+        ;
+    g.selectAll("path.xgrid").data(ticks).enter()
+	.append("path")
+	.attr("class", "xgrid")
+	.attr("stroke", "lightgrey")
+	.attr("d", function(d) {
+       return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
+     });
+
+    }
+
+  function szinez() {
+    d3.selectAll(".bar").attr("class", "bar base");
+    d3.select(this).attr("class", "bar base selected");
+  }
+
+  function make_x_gridlines() {		
+    return d3.axisBottom(x)
+        .ticks(5)
+  }
+	
+  function evvalto() {
+    data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+
+    y.domain(data.sort(this.checked
+        ? function(a, b) { return b.obi - a.obi; }
+        : function(a, b) { return d3.ascending(a.countrytext, b.countrytext); })
+        .map(function(d) { return d.countrytext; }))
+        .copy();
+
+    var transition = svg.transition().duration(550),
+	delay = function(d, i) { return i * 25; };
+    
+  //x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  //y.domain(data.map(function(d) { return d.country; }));
+  
+  transition.select(".axis--y")
+  //    .attr("class", "axis axis--y")
+      .call(d3.axisLeft(y))
+    .selectAll("g").delay(300);
+  //.append("text")
+  //    .attr("transform", "rotate(-90)")
+  //    .attr("x", 6)
+  //    .attr("dx", "0.71em")
+  //    .attr("text-anchor", "end")
+  //    .text("Frequency");
+
+  //g.append("g")
+  //    .attr("class", "axis axis--x")
+  //    .attr("transform", "translate(0," + height + ")")
+  //    .call(d3.axisBottom(x));  
+    //.call(d3.axisBottom(x).ticks(10, "%"));
+    d3.selectAll(".xgrid").remove().exit();
+
+    //g.append("g")			
+    //  .attr("class", "grid")
+    //  .attr("transform", "translate(0," + height + ")")
+    //  .call(make_x_gridlines()
+    //      .tickSize(-height)
+    //      .tickFormat("")
+//	    );
+
+  var chart = g.selectAll(".bar")
+    .data(data, function(d) {return d.country;});
+  chart.exit().remove();
+  chart.enter().append("rect")
+         .attr("class", function(d) {return "bar";})
+         .attr("id", function(d) {return d.country;})
+         .attr("y", function(d) { return y(d.countrytext); })
+         .attr("x", function(d) { return 0; })
+         .attr("height", y.bandwidth())
+         .attr("width", function(d) { return 0; })
+         .on("click", szinez )
+       .merge(chart)
+         .transition().duration(550).delay(300)
+         .attr("y", function(d) { return y(d.countrytext); })
+         .attr("x", function(d) { return 0; })
+         .attr("height", y.bandwidth())
+         .attr("width", function(d) { return x(d.obi); });
+  
+  var szoveg = g.selectAll(".text")
+    .data(data.filter(function(d) {return d.co_code == "";}), function(d) {return d.country;});
+  szoveg.exit().remove();
+  szoveg.enter().append("text")
+      .attr("class", "text")
+      .attr("id", function(d) {return d.country;})
+      .attr("y", function(d) { return y(d.countrytext); })
+      .attr("x", function(d) { return 0; })	
+      .attr("dy", function(d) {return y.bandwidth() + "px";})
+      .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
+      .attr("font-family", "Arial")
+      .attr("text-anchor", "start")
+      .text(dnptext);
+  g.selectAll("path.xgrid").data(ticks).enter()
+	.append("path")
+	.attr("class", "xgrid")
+	.attr("stroke", "lightgrey")
+	.attr("d", function(d) {
+       return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
+     });
+  }
+
+  function dokuk() {
+  data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+  var datam = data.sort(document.getElementById("sorting").checked
+        ? function(a, b) { return b.obi - a.obi; }
+        : function(a, b) { return d3.ascending(a.countrytext, b.countrytext); })
+  //var datam = data;
+  var datam = datam.map(function(d) { return valog(d); });
+//console.log(datam);
+  //var keys = datam.columns.slice(1);
+  var keys = ["obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
+  //var cimke = ["Javaslat", "Elfogadott", "Számvevőszéki jelentés", "Polgárok költségvetése", "Évközi jelentés", "Féléves jelentés", "Irányelvek", "Éves jelentés"].reverse();
+  //var keys = ["country"];
+  var stack = d3.stack()
+      .keys(keys);
+  //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
+	  
+  x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  y.domain(datam.map(function(d) { return d.countrytext; }))
+        .copy();
+  z.domain(keys);
+	  
+  g.append("g")
+    .selectAll("g")
+    .data(d3.stack().keys(keys)(datam))
+    .enter().append("g")
+      .attr("class", function(d, i) {return "bar stacked " + d.key;} )
+      .attr("fill", function(d) { return z(d.key); })
+    .selectAll("rect")
+    .data(function(d) { return d; })
+    .enter().append("rect")
+      .attr("y", function(d) { return y(d.data.countrytext); })
+      .attr("x", function(d) { return x(d[0]); })
+      .attr("height", y.bandwidth())
+      .attr("width", function(d) { return x(d[1]) - x(d[0]); });
+
+  g.selectAll(".base").remove().exit();
+d3.selectAll(".xgrid").remove().exit();
+  var legend = g.append("g")
+      .attr("class", "legend")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    //.data(cimke.reverse())
+    .data(keys.slice().reverse())
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+//console.log(keys.slice().reverse());
+legend.append("rect")
+      .attr("id", function(d, i) {return keys.slice().reverse()[i];})
+      .attr("class", "legend base")
+      .attr("x", width - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", z)
+      .on("click", reszletezo);
+
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d, i) { return cimke[i]; });
+  g.selectAll("path.xgrid").data(ticks).enter()
+	.append("path")
+	.attr("class", "xgrid")
+	.attr("stroke", "lightgrey")
+	.attr("d", function(d) {
+       return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
+     });
+  }
+
+function reszletezo() {
+var klikkelt = d3.select(this);
+var klikkelt_class = d3.select(this).attr("class");
+//console.log(klikkelt.attr("class"));
+if (klikkelt_class.indexOf("clicked") !== -1 ) {
+	var valasztott = klikkelt.attr("id");
+	    //console.log("kettes" + valasztott);
+	    d3.selectAll(".stacked").selectAll("rect")
+	      .transition()
+              .duration(1000)
+	      .attr("width", function(d) { return x(d[1]) - x(d[0]); })
+              .attr("x", function(d) { return x(d[0]); })
+	      .style("opacity", 1);
+	d3.selectAll(".legend")
+	  .attr("class", "legend base")
+	  .style("stroke", "none");
+}
+if (klikkelt_class.indexOf("fade") !== -1 ) {
+	var valasztott = klikkelt.attr("id");
+	//console.log("harmas" + valasztott);
+	    d3.selectAll(".stacked:not(." + valasztott + ")").selectAll("rect")
+	      .transition()
+              .duration(1000)
+              .attr("width", 0) // use because svg has no zindex to hide bars so can't select visible bar underneath
+              .style("opacity", 0);
+	    d3.selectAll("." + valasztott).selectAll("rect")
+	      .transition()
+              .duration(1000)
+	      .attr("width", function(d) { return x(d[1]) - x(d[0]); })
+              .attr("x", 0)
+	      .style("opacity", 1);
+	d3.selectAll(".legend:not(#" + valasztott + ")")
+	  .attr("class", "legend fade")
+	  .style("stroke", "none");
+	klikkelt.attr("class", "legend clicked");
+}
+if (klikkelt_class.indexOf("base") !== -1 ) {
+	 klikkelt.style("stroke", "black")
+              .style("stroke-width", 2);
+	   var valasztott = klikkelt.attr("id");
+	  //console.log("egyes" + valasztott);
+	d3.selectAll(".stacked:not(." + valasztott + ")").selectAll("rect")
+	  .transition()
+          .duration(1000)
+          .attr("width", 0) // use because svg has no zindex to hide bars so can't select visible bar underneath
+          .style("opacity", 0);
+	d3.selectAll(".stacked").selectAll("rect")
+	  .transition()
+          .ease(d3.easeBounce)
+          .duration(1000)
+          .delay(750)
+          .attr("x", 0);
+	d3.selectAll(".legend:not(#" + valasztott + ")")
+	  .attr("class", "legend fade")
+	  .style("stroke", "none");
+	klikkelt.attr("class", "legend clicked");
+}
+//if (valasztott === "x") {
+//	  d3.selectAll(".stacked").selectAll("rect")
+//	  .transition()
+//          .ease(d3.easeBounce)
+//          .duration(1000)
+//          .delay(750)
+//          .attr("x", 0);
+//  }
+//if (valasztott === d3.select(this).attr("class")) {
+//	    console.log("kettes" + valasztott);
+//	    d3.selectAll(".stacked").selectAll("rect")
+//	      .transition()
+//              .duration(1000)
+//	      .attr("width", function(d) { return x(d[1]) - x(d[0]); })
+//              .attr("x", function(d) { return x(d[0]); })
+//	      .style("opacity", 1);
+//	    } else {
+//	    console.log("harmas" + valasztott);
+//	    d3.selectAll(".stacked:not(." + valasztott + ")").selectAll("rect")
+//	      .transition()
+//              .duration(1000)
+//              .attr("width", 0) // use because svg has no zindex to hide bars so can't select visible bar underneath
+//              .style("opacity", 0);
+//	    d3.selectAll("." + valasztott + ")").selectAll("rect")
+//	      .transition()
+//              .duration(1000)
+//	      .attr("width", function(d) { return x(d[1]) - x(d[0]); })
+//              .attr("x", function(d) { return x(d[0]); })
+//	      .style("opacity", 1);
+//	    }
+	  
+}
+	
+
+}; //script vége
+
+
+</script>
