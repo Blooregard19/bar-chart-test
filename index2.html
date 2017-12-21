@@ -111,11 +111,11 @@ label #sorting {
   /*right: 150px;*/
 }
 
-/*label #stacking {
+label #stacking {
   /*position: absolute;*/
   /*top: 50px;*/
   /*right: 150px;*/
-}*/
+}
 
 /*.regular-checkbox {
 	-webkit-appearance: none;
@@ -149,7 +149,7 @@ label #sorting {
   font-family: Cabin;
   font-size: 13px;	
 }*/
-
+/*
 input[type="checkbox"] { position: absolute; opacity: 0; z-index: -1; }
 input[type="checkbox"]+span { font: 16pt sans-serif; color: #000; }
 input[type="checkbox"]+span:before { font: 16pt FontAwesome; content: '\00f096'; display: inline-block; width: 16pt; padding: 2px 0 0 3px; margin-right: 0.5em; }
@@ -157,6 +157,23 @@ input[type="checkbox"]:checked+span:before { content: '\00f046'; }
 input[type="checkbox"]:focus+span:before { outline: 1px dotted #aaa; }
 input[type="checkbox"]:disabled+span { color: #999; }
 input[type="checkbox"]:not(:disabled)+span:hover:before { text-shadow: 0 1px 2px #77F; }
+*/
+label input[type=checkbox] {
+  display: none;/* <-- hide the default checkbox */
+}
+label span {/* <-- style the artificial checkbox */
+  height: 10px;
+  width: 10px;
+  border: 1px solid grey;
+  display: inline-block;
+  position: relative;
+}
+[type=checkbox]:checked + span:before {/* <-- style its checked state..with a ticked icon */
+  content: '\2714';
+  position: absolute;
+  top: -5px;
+  left: 0;
+}
 
 #helptext {
   width: 300px;
@@ -230,10 +247,10 @@ input[type="checkbox"]:not(:disabled)+span:hover:before { text-shadow: 0 1px 2px
 </select>
 </div>
 <div id = "sortbox">
-<label><input class="regular-checkbox" name = "rendez" id = "sorting" type="checkbox"><span><label id = "lbsortbox">Sorbarendezés</label></span><label>
+<label><input class="regular-checkbox" name = "rendez" id = "sorting" type="checkbox"><span></span><label id = "lbsortbox">Sorbarendezés</label><label>
 </div>
 <div id = "stackbox">
-<label><input class="regular-checkbox" name = "reszlet" id = "stacking" type="checkbox"><span><label id = "lbstackbox">Részletezés</label></span></label>
+<label><input class="regular-checkbox" name = "reszlet" id = "stacking" type="checkbox"><span></span><label id = "lbstackbox">Részletezés</label></label>
 </div>
 </div>
 <div id = "main">
