@@ -14,6 +14,9 @@ https://bl.ocks.org/RandomEtc/cff3610e7dd47bef2d01
 https://stackoverflow.com/questions/21869612/d3-update-bar-chart-data-onclick
 
 részletezésből alapba átmenetelnél meg kellene őriznie a sorrendet
+
 évváltásnál is megőrizhetné a sorrendet
+
 jelmagyarázat elhelyezése, hogy ne lógjon bele az ábrába
+
 oszlopdiagramnál funkciók között rendezni: sorbarendezés után részletezés gombnál oda-vissza váltva nem egyeznek az oszlopok és az oldalléc
