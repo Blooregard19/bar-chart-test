@@ -380,6 +380,7 @@ d.obi_pbs = +d.obi_pbs.replace(",", ".");
 d.obi_yer = +d.obi_yer.replace(",", ".");
 d.year = +d.year;
 });
+datab = datab.sort(function(a, b) {return d3.ascending(a.countrytext, b.countrytext);});
 
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
@@ -449,7 +450,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
 	
 function alap() {
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
-data = data.sort(function(a, b) {return d3.ascending(a.countrytext, b.countrytext);});
+
   g.selectAll(".bar").remove().exit();
   g.selectAll(".legend").remove().exit();
   g.selectAll(".grid").remove().exit();
