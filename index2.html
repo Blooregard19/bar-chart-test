@@ -460,7 +460,7 @@ var data = data.sort(document.getElementById("sorting").checked
   g.selectAll("text").remove().exit();
 	
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
-  y.domain(datab.map(function(d) { return d.countrytext; }));
+  //y.domain(datab.map(function(d) { return d.countrytext; }));
   
   //g.append("g")		
   //    .attr("class", "grid")
@@ -598,7 +598,7 @@ d3.selectAll(".xgrid").remove().exit();
 	.attr("d", function(d) {
        return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
      });
-
+    return y;
     }
 
   function szinez() {
@@ -710,8 +710,8 @@ d3.selectAll(".xgrid").remove().exit();
   //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
-  y.domain(datam.map(function(d) { return d.countrytext; }))
-        .copy();
+  //y.domain(datam.map(function(d) { return d.countrytext; }))
+  //      .copy();
   z.domain(keys);
 	  
   g.append("g")
