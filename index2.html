@@ -548,6 +548,7 @@ alap();
     
     if ((d3.select('input[name="reszlet"]').property("checked") == true)) {
     var rendez = d3.select(".legend .clicked").attr("id");
+    if (d3.select(".legend .clicked").empty()) {var rendez = "obi";}
     var data = data.map(function(d) { return {sorolo: d[rendez], countrytext: d.countrytext}; });
     console.log(data);
     var y0 = y.domain(data.sort(this.checked
