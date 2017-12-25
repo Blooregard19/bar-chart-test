@@ -443,7 +443,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
        return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
      });
 
-  d3.select("#sorting").on("change", change);
+  d3.select("#sorting").on("click", change);
   d3.select("#stacking").on("change", valtoz);
   d3.select("#survy").on("change", evvalto);
 	
@@ -521,7 +521,6 @@ d3.selectAll(".xgrid").remove().exit();
 function valtoz() {
 if ((d3.select('input[name="reszlet"]').property("checked") == true)) {
 dokuk();
-d3.select('input[name="rendez"]').property("checked", false);
 }
 if ((d3.select('input[name="reszlet"]').property("checked") == false)) {
 g.selectAll(".axis").remove().exit();
