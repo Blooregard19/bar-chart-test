@@ -260,7 +260,7 @@ label span {/* <-- style the artificial checkbox */
 </div>
 <div id = "main">
 <div id = "barchartbox" style="width:850px;">
-<svg width="800" height="1540"></svg>
+<svg width="830" height="1540"></svg>
 <script src="d3.v4.min.js"></script>
 <script src="queue.v1.min.js"></script>
 </div>
@@ -276,7 +276,7 @@ Sample text
 
 
 var svg = d3.select("#main").select("svg"),
-    margin = {top: 20, right: 20, bottom: 30, left: 140},
+    margin = {top: 20, right: 5, bottom: 30, left: 140},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
@@ -443,7 +443,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
        return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
      });
 
-  d3.select("#sorting").on("change", change);
+  d3.select("#sorting").on("click", change);
   d3.select("#stacking").on("change", valtoz);
   d3.select("#survy").on("change", evvalto);
 	
@@ -520,9 +520,11 @@ d3.selectAll(".xgrid").remove().exit();
 
 function valtoz() {
 if ((d3.select('input[name="reszlet"]').property("checked") == true)) {
+d3.select('input[name="rendez"]').property("checked", false);
 dokuk();
 }
 if ((d3.select('input[name="reszlet"]').property("checked") == false)) {
+d3.select('input[name="rendez"]').property("checked", false);
 g.selectAll(".axis").remove().exit();
 alap();
 }
@@ -607,6 +609,7 @@ d3.selectAll(".xgrid").remove().exit();
   }
 	
   function evvalto() {
+    d3.select('input[name="rendez"]').property("checked", false);
     data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
     y.domain(data.sort(this.checked
@@ -738,14 +741,14 @@ d3.selectAll(".xgrid").remove().exit();
 legend.append("rect")
       .attr("id", function(d, i) {return keys.slice().reverse()[i];})
       .attr("class", "legend base")
-      .attr("x", width - 19)
+      .attr("x", width)
       .attr("width", 19)
       .attr("height", 19)
       .attr("fill", z)
       .on("click", reszletezo);
 
   legend.append("text")
-      .attr("x", width - 24)
+      .attr("x", width - 19)
       .attr("y", 9.5)
       .attr("dy", "0.32em")
       .text(function(d, i) { return cimke[i]; });
