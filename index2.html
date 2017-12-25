@@ -450,6 +450,9 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
 	
 function alap() {
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+var data = data.sort(document.getElementById("sorting").checked
+        ? function(a, b) { return b.obi - a.obi; }
+        : function(a, b) { return d3.ascending(a.countrytext, b.countrytext); })
 
   g.selectAll(".bar").remove().exit();
   g.selectAll(".legend").remove().exit();
@@ -527,7 +530,6 @@ dokuk();
 if ((d3.select('input[name="reszlet"]').property("checked") == false)) {
 g.selectAll(".axis").remove().exit();
 alap();
-d3.select('input[name="rendez"]').property("checked", false);
 }
 }
 
