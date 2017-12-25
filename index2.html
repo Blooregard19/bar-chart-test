@@ -782,6 +782,7 @@ if (klikkelt_class.indexOf("clicked") !== -1 ) {
 	  .style("stroke", "none");
 }
 if (klikkelt_class.indexOf("fade") !== -1 ) {
+	d3.select('input[name="rendez"]').property("checked", false);
 	var valasztott = klikkelt.attr("id");
 	//console.log("harmas" + valasztott);
 	    d3.selectAll(".stacked:not(." + valasztott + ")").selectAll("rect")
@@ -801,6 +802,7 @@ if (klikkelt_class.indexOf("fade") !== -1 ) {
 	klikkelt.attr("class", "legend clicked");
 }
 if (klikkelt_class.indexOf("base") !== -1 ) {
+	d3.select('input[name="rendez"]').property("checked", false);
 	 klikkelt.style("stroke", "black")
               .style("stroke-width", 2);
 	   var valasztott = klikkelt.attr("id");
