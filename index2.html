@@ -629,10 +629,9 @@ d3.selectAll(".xgrid").remove().exit();
   }
 	
   function evvalto() {
-    //d3.select('input[name="rendez"]').property("checked", false);
     data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
-    y.domain(data.sort(this.checked
+    y.domain(data.sort(document.getElementById("sorting").checked
         ? function(a, b) { return b.obi - a.obi; }
         : function(a, b) { return d3.ascending(a.countrytext, b.countrytext); })
         .map(function(d) { return d.countrytext; }))
@@ -708,6 +707,7 @@ d3.selectAll(".xgrid").remove().exit();
 	.attr("d", function(d) {
        return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
      });
+  d3.select('input[name="rendez"]').property("checked", false);
   }
 
   function dokuk() {
