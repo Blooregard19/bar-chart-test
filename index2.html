@@ -442,7 +442,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("id", function(d) {return d.country;})
       .attr("y", function(d) { return y(d.countrytext); })
       .attr("x", function(d) { return 0; })	
-      .attr("dy", function(d) {return y.bandwidth() + "px";})
+      .attr("dy", function(d) {return y.bandwidth()-1 + "px";})
       .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
       .attr("font-family", "Arial")
       .attr("text-anchor", "start")
@@ -518,7 +518,7 @@ d3.selectAll(".xgrid").remove().exit();
       .attr("id", function(d) {return d.country;})
       .attr("y", function(d) { return y(d.countrytext); })
       .attr("x", function(d) { return 0; })	
-      .attr("dy", function(d) {return y.bandwidth() + "px";})
+      .attr("dy", function(d) {return y.bandwidth()-1 + "px";})
       .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
       .attr("font-family", "Arial")
       .attr("text-anchor", "start")
@@ -629,7 +629,7 @@ d3.selectAll(".xgrid").remove().exit();
   }
 	
   function evvalto() {
-    d3.select('input[name="rendez"]').property("checked", false);
+    //d3.select('input[name="rendez"]').property("checked", false);
     data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
     y.domain(data.sort(this.checked
@@ -696,7 +696,7 @@ d3.selectAll(".xgrid").remove().exit();
       .attr("id", function(d) {return d.country;})
       .attr("y", function(d) { return y(d.countrytext); })
       .attr("x", function(d) { return 0; })	
-      .attr("dy", function(d) {return y.bandwidth() + "px";})
+      .attr("dy", function(d) {return y.bandwidth()-1 + "px";})
       .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
       .attr("font-family", "Arial")
       .attr("text-anchor", "start")
