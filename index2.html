@@ -42,7 +42,6 @@
   padding-left: 3px;
   padding-top: 4px;
   padding-bottom: 4px;
-
 }
 
 #stackbox {
@@ -50,6 +49,8 @@
   display: inline-block;
   height: 25px;
   vertical-align:bottom;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 #langbox {
@@ -560,7 +561,7 @@ alap();
     }
     
     if ((d3.select('input[name="reszlet"]').property("checked") == true)) {
-    var osztaly = d3.select("rect .legend #obi_yer").attr("class");
+    var osztaly = d3.select("rect.legend#obi_yer").attr("class");
     console.log(osztaly);
     var rendez = (osztaly == "legend base") ? "obi" : d3.select(".legend .clicked").attr("id");
     //if (d3.select(".legend .clicked").empty()) {var rendez = "obi";}
