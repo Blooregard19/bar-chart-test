@@ -381,7 +381,7 @@ datab.forEach(function(datab) {
   });
   datab.countrytext = (result[0] !== undefined) ? result[0][nyelv] : null;
 });
-console.log(datab);	
+//console.log(datab);	
 datab.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
 d.obi_ebp = +d.obi_ebp.replace(",", ".");
@@ -720,9 +720,9 @@ function evvalto() {
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   z.domain(keys);
   g.selectAll("g")
-    .data(d3.stack().keys(keys)(datam), function(d) {return d.data.country;})
+    .data(d3.stack().keys(keys)(datam))
     .selectAll("rect")
-    .data(function(d) { return d; })
+    .data(function(d) { return d; }, function(d) {return d.data.country;})
     .transition().duration(500)
       .attr("y", function(d) { return y(d.data.countrytext); })
       .attr("x", function(d) { return x(d[0]); })
@@ -759,12 +759,12 @@ function evvalto() {
 	  
   g.append("g")
     .selectAll("g")
-    .data(d3.stack().keys(keys)(datam), function(d) {return d.data.country;})
+    .data(d3.stack().keys(keys)(datam))
     .enter().append("g")
       .attr("class", function(d, i) {return "bar stacked " + d.key;} )
       .attr("fill", function(d) { return z(d.key); })
     .selectAll("rect")
-    .data(function(d) { return d; })
+    .data(function(d) { return d; }, function(d) {return d.data.country;})
     .enter().append("rect")
       .attr("y", function(d) { return y(d.data.countrytext); })
       .attr("x", function(d) { return x(d[0]); })
