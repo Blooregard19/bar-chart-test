@@ -749,7 +749,7 @@ function evvalto() {
   //var keys = ["country"];
   var stack = d3.stack()
       .keys(keys);
-  console.log(stack);
+  console.log(stack(datam));
   //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
