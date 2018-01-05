@@ -36,6 +36,13 @@
   display: inline-block;
   height: 25px;
   vertical-align:bottom;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-left-color: #ccc;
+  padding-left: 3px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+
 }
 
 #stackbox {
@@ -47,7 +54,13 @@
 
 #langbox {
   display: inline-block;
-  height: 100%;	
+  height: 100%;
+  border-right-style: solid;
+  border-right-width: thin;
+  border-right-color: #ccc;
+  padding-right: 3px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 #langselector {
@@ -547,9 +560,10 @@ alap();
     }
     
     if ((d3.select('input[name="reszlet"]').property("checked") == true)) {
-    var rendez = d3.select(".legend .clicked").attr("id");
-    console.log(rendez);
-    if (d3.select(".legend .clicked").empty()) {var rendez = "obi";}
+    var osztaly = d3.select("rect .legend #obi_yer").attr("class");
+    console.log(osztaly);
+    var rendez = (osztaly == "legend base") ? "obi" : d3.select(".legend .clicked").attr("id");
+    //if (d3.select(".legend .clicked").empty()) {var rendez = "obi";}
     var data = data.map(function(d) { return {sorolo: d[rendez], countrytext: d.countrytext}; });
     console.log(data);
     var y0 = y.domain(data.sort(this.checked
