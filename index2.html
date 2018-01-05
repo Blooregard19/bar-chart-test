@@ -429,7 +429,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("y", function(d) { return y(d.countrytext); })
       .attr("x", function(d) { return 0; })	
       .attr("dy", function(d) {return y.bandwidth() + "px";})
-      .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
+      .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
       .attr("font-family", "Arial")
       .attr("text-anchor", "start")
       .text(dnptext);
@@ -505,7 +505,7 @@ d3.selectAll(".xgrid").remove().exit();
       .attr("y", function(d) { return y(d.countrytext); })
       .attr("x", function(d) { return 0; })	
       .attr("dy", function(d) {return y.bandwidth() + "px";})
-      .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
+      .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
       .attr("font-family", "Arial")
       .attr("text-anchor", "start")
       .text(dnptext);
@@ -548,6 +548,7 @@ alap();
     
     if ((d3.select('input[name="reszlet"]').property("checked") == true)) {
     var rendez = d3.select(".legend .clicked").attr("id");
+    console.log(rendez);
     if (d3.select(".legend .clicked").empty()) {var rendez = "obi";}
     var data = data.map(function(d) { return {sorolo: d[rendez], countrytext: d.countrytext}; });
     console.log(data);
@@ -681,7 +682,7 @@ d3.selectAll(".xgrid").remove().exit();
       .attr("y", function(d) { return y(d.countrytext); })
       .attr("x", function(d) { return 0; })	
       .attr("dy", function(d) {return y.bandwidth() + "px";})
-      .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
+      .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
       .attr("font-family", "Arial")
       .attr("text-anchor", "start")
       .text(dnptext);
