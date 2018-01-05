@@ -743,6 +743,7 @@ function evvalto() {
       .attr("font-family", "Arial")
       .attr("text-anchor", "start")
       .text(dnptext);
+  d3.selectAll(".xgrid").remove().exit();
   g.selectAll("path.xgrid").data(ticks).enter()
 	.append("path")
 	.attr("class", "xgrid")
@@ -769,7 +770,28 @@ function evvalto() {
     .transition()
       .attr("x", 0)
       .attr("width", function(d) { return x(d[1]) - x(d[0]); });
-  }
+  var szoveg = g.selectAll(".text")
+    .data(data.filter(function(d) {return d.co_code == "";}), function(d) {return d.country;});
+  szoveg.exit().remove();
+  szoveg.enter().append("text")
+      .attr("class", "text")
+      .attr("id", function(d) {return d.country;})
+      .attr("y", function(d) { return y(d.countrytext); })
+      .attr("x", function(d) { return 0; })	
+      .attr("dy", function(d) {return y.bandwidth()-1 + "px";})
+      .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
+      .attr("font-family", "Arial")
+      .attr("text-anchor", "start")
+      .text(dnptext);
+  d3.selectAll(".xgrid").remove().exit();
+  g.selectAll("path.xgrid").data(ticks).enter()
+	.append("path")
+	.attr("class", "xgrid")
+	.attr("stroke", "lightgrey")
+	.attr("d", function(d) {
+       return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
+     });
+    }
   }
 }
 
