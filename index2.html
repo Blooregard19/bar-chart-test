@@ -721,8 +721,11 @@ function evvalto() {
   z.domain(keys);
   
   keys.forEach(function(key, key_index) {
-  var barsel = g.select("bar." + key).selectAll("rect").data(stack(datam)[key_index], function(d) {return d.data.country;});
-  barsel.transition().attr("y", function(d) { return y(d.data.countrytext); })
+  console.log(key);
+  var barsel = d3.select("bar.stacked." + key).selectAll("rect").data(stack(datam)[key_index], function(d) {return d.data.country;});
+  console.log(stack(datam)[key_index]);
+  barsel.transition()
+      .attr("y", function(d) { return y(d.data.countrytext); })
       .attr("x", function(d) { return x(d[0]); })
       .attr("height", y.bandwidth())
       .attr("width", function(d) { return x(d[1]) - x(d[0]); });
