@@ -708,7 +708,7 @@ function evvalto() {
 	.attr("d", function(d) {
        return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
      });
-  d3.select('input[name="rendez"]').property("checked", false);
+  
   }
   if (d3.select('input[name="reszlet"]').property("checked") == true) {
   data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
@@ -793,6 +793,7 @@ function evvalto() {
      });
     }
   }
+  d3.select('input[name="rendez"]').property("checked", false);
 }
 
   function dokuk() {
