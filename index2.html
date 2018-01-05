@@ -719,15 +719,23 @@ function evvalto() {
       .keys(keys);
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   z.domain(keys);
-  g.selectAll("g")
-    .data(d3.stack().keys(keys)(datam))
-    .selectAll("rect")
-    .data(function(d) { return d; }, function(d) {return d.data.country;})
-    .transition().duration(500)
-      .attr("y", function(d) { return y(d.data.countrytext); })
+  
+  keys.forEach(function(key, key_index) {
+  var barsel = g.select("bar." + key).selectAll("rect").data(stack(datam)[key_index], function(d) {return d.data.country;});
+  barsel.transition().attr("y", function(d) { return y(d.data.countrytext); })
       .attr("x", function(d) { return x(d[0]); })
       .attr("height", y.bandwidth())
       .attr("width", function(d) { return x(d[1]) - x(d[0]); });
+    });
+  //g.selectAll("g")
+  //  .data(d3.stack().keys(keys)(datam))
+  //  .selectAll("rect")
+  //  .data(function(d) { return d; }, function(d) {return d.data.country;})
+  //  .transition().duration(500)
+  //    .attr("y", function(d) { return y(d.data.countrytext); })
+  //    .attr("x", function(d) { return x(d[0]); })
+  //    .attr("height", y.bandwidth())
+  //    .attr("width", function(d) { return x(d[1]) - x(d[0]); });
   }
   if (d3.select("rect.legend#obi_yer").attr("class") != "legend base") {
   
