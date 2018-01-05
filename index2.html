@@ -722,7 +722,7 @@ function evvalto() {
   
   keys.forEach(function(key, key_index) {
   console.log(key);
-  var barsel = d3.select("bar.stacked." + key).selectAll("rect").data(stack(datam)[key_index], function(d) {return d.data.country;});
+  var barsel = d3.select(".bar.stacked." + key).selectAll("rect").data(stack(datam)[key_index], function(d) {return d.data.country;});
   console.log(stack(datam)[key_index]);
   barsel.transition()
       .attr("y", function(d) { return y(d.data.countrytext); })
@@ -760,7 +760,7 @@ function evvalto() {
   //var keys = ["country"];
   var stack = d3.stack()
       .keys(keys);
-  console.log(stack(datam));
+  //console.log(stack(datam));
   //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
