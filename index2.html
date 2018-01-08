@@ -327,6 +327,8 @@ d3.selectAll(".axis").remove().exit();
 d3.selectAll("rect").remove().exit();
 d3.selectAll("path").remove().exit();
 g.selectAll("text").remove().exit();
+d3.select('input[name="rendez"]').property("checked", false);
+d3.select('input[name="reszlet"]').property("checked", false);
 queue()
     .defer(hucsv, "visu_data_exp4.csv")
     .defer(hucsv, "lang_file.csv")
