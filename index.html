@@ -2,6 +2,7 @@
 <meta charset="utf-8">
 <head>
   <meta charset="utf-8">
+  <title>OBI Survey Chart</title>
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
 <style>
 
@@ -35,6 +36,12 @@
   display: inline-block;
   height: 25px;
   vertical-align:bottom;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-left-color: #ccc;
+  padding-left: 3px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 #stackbox {
@@ -42,11 +49,19 @@
   display: inline-block;
   height: 25px;
   vertical-align:bottom;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 #langbox {
   display: inline-block;
-  height: 100%;	
+  height: 100%;
+  border-right-style: solid;
+  border-right-width: thin;
+  border-right-color: #ccc;
+  padding-right: 3px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 #langselector {
@@ -116,7 +131,7 @@ label #stacking {
   /*right: 150px;*/
 }
 
-.regular-checkbox {
+/*.regular-checkbox {
 	-webkit-appearance: none;
 	background-color: #fafafa;
 	border: 1px solid #cacece;
@@ -147,8 +162,38 @@ label #stacking {
   padding: 4px 11px;
   font-family: Cabin;
   font-size: 13px;	
+}*/
+/*
+input[type="checkbox"] { position: absolute; opacity: 0; z-index: -1; }
+input[type="checkbox"]+span { font: 16pt sans-serif; color: #000; }
+input[type="checkbox"]+span:before { font: 16pt FontAwesome; content: '\00f096'; display: inline-block; width: 16pt; padding: 2px 0 0 3px; margin-right: 0.5em; }
+input[type="checkbox"]:checked+span:before { content: '\00f046'; }
+input[type="checkbox"]:focus+span:before { outline: 1px dotted #aaa; }
+input[type="checkbox"]:disabled+span { color: #999; }
+input[type="checkbox"]:not(:disabled)+span:hover:before { text-shadow: 0 1px 2px #77F; }
+*/
+label input[type=checkbox] {
+  display: none;/* <-- hide the default checkbox */
 }
-	
+label span {/* <-- style the artificial checkbox */
+  height: 18px;
+  width: 18px;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+  display: inline-block;
+  position: relative;
+  top: 2.5px;
+}
+[type=checkbox]:checked + span:before {/* <-- style its checked state..with a ticked icon (easier if only the background is colored and leave out the content)*/
+  content: '\2714';
+  font: 20pt Cabin;
+  position: absolute;
+  top: -9px;
+  left: 0px;
+  color: #779126;
+  }
+
 #helptext {
   width: 300px;
   font-family: Cabin;
@@ -221,20 +266,20 @@ label #stacking {
 </select>
 </div>
 <div id = "sortbox">
-<input class="regular-checkbox" name = "rendez" id = "sorting" type="checkbox"><label id = "lbsortbox">Sorbarendezés</label>
+<label><input class="regular-checkbox" name = "rendez" id = "sorting" type="checkbox"><span></span><label id = "lbsortbox" for = "sorting">Sorbarendezés</label><label>
 </div>
 <div id = "stackbox">
-<input class="regular-checkbox" name = "reszlet" id = "stacking" type="checkbox"><label id = "lbstackbox">Részletezés</label>
+<label><input class="regular-checkbox" name = "reszlet" id = "stacking" type="checkbox"><span></span><label id = "lbstackbox" for = "stacking">Részletezés</label></label>
 </div>
 </div>
 <div id = "main">
 <div id = "barchartbox" style="width:850px;">
-<svg width="800" height="1540"></svg>
+<svg width="830" height="1540"></svg>
 <script src="d3.v4.min.js"></script>
 <script src="queue.v1.min.js"></script>
 </div>
 <div id = "logotextboxes">
-<img src = "IBP_logo.jpg" height = "100" width = "100">
+<!--<img src = "IBP_logo.jpg" height = "100" width = "100">-->
 <img src = "logo.png" height = "100" width = "100">
 <div id = "helptext">
 Sample text
@@ -245,7 +290,7 @@ Sample text
 
 
 var svg = d3.select("#main").select("svg"),
-    margin = {top: 20, right: 20, bottom: 30, left: 140},
+    margin = {top: 20, right: 5, bottom: 30, left: 140},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
@@ -282,6 +327,8 @@ d3.selectAll(".axis").remove().exit();
 d3.selectAll("rect").remove().exit();
 d3.selectAll("path").remove().exit();
 g.selectAll("text").remove().exit();
+d3.select('input[name="rendez"]').property("checked", false);
+d3.select('input[name="reszlet"]').property("checked", false);
 queue()
     .defer(hucsv, "visu_data_exp4.csv")
     .defer(hucsv, "lang_file.csv")
@@ -322,11 +369,13 @@ var cimke = cimke.reverse();
 d3.select("#lbsortbox")
 	.style("font-family", "Cabin")
 	.style("font-size", "13px")
-	.style("vertical-align", "8px");
+	.style("vertical-align", "2px")
+	.style("margin-left", "3px");
 d3.select("#lbstackbox")
 	.style("font-family", "Cabin")
 	.style("font-size", "13px")
-	.style("vertical-align", "8px");
+	.style("vertical-align", "2px")
+	.style("margin-left", "3px");
 //console.log(cimke);
 datab.forEach(function(datab) {
   var result = lang.filter(function(langs) {
@@ -334,7 +383,7 @@ datab.forEach(function(datab) {
   });
   datab.countrytext = (result[0] !== undefined) ? result[0][nyelv] : null;
 });
-console.log(datab);	
+//console.log(datab);	
 datab.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
 d.obi_ebp = +d.obi_ebp.replace(",", ".");
@@ -347,6 +396,7 @@ d.obi_pbs = +d.obi_pbs.replace(",", ".");
 d.obi_yer = +d.obi_yer.replace(",", ".");
 d.year = +d.year;
 });
+datab = datab.sort(function(a, b) {return d3.ascending(a.countrytext, b.countrytext);});
 
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
@@ -394,8 +444,8 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("id", function(d) {return d.country;})
       .attr("y", function(d) { return y(d.countrytext); })
       .attr("x", function(d) { return 0; })	
-      .attr("dy", function(d) {return y.bandwidth() + "px";})
-      .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
+      .attr("dy", function(d) {return y.bandwidth()-1 + "px";})
+      .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
       .attr("font-family", "Arial")
       .attr("text-anchor", "start")
       .text(dnptext);
@@ -410,19 +460,23 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
        return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
      });
 
-  d3.select("#sorting").on("change", change);
+  d3.select("#sorting").on("click", change);
   d3.select("#stacking").on("change", valtoz);
   d3.select("#survy").on("change", evvalto);
 	
 function alap() {
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+var data = data.sort(document.getElementById("sorting").checked
+        ? function(a, b) { return b.obi - a.obi; }
+        : function(a, b) { return d3.ascending(a.countrytext, b.countrytext); })
+
   g.selectAll(".bar").remove().exit();
   g.selectAll(".legend").remove().exit();
   g.selectAll(".grid").remove().exit();
   g.selectAll("text").remove().exit();
 	
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
-  y.domain(datab.map(function(d) { return d.countrytext; }));
+  //y.domain(datab.map(function(d) { return d.countrytext; }));
   
   //g.append("g")		
   //    .attr("class", "grid")
@@ -466,8 +520,8 @@ d3.selectAll(".xgrid").remove().exit();
       .attr("id", function(d) {return d.country;})
       .attr("y", function(d) { return y(d.countrytext); })
       .attr("x", function(d) { return 0; })	
-      .attr("dy", function(d) {return y.bandwidth() + "px";})
-      .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
+      .attr("dy", function(d) {return y.bandwidth()-1 + "px";})
+      .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
       .attr("font-family", "Arial")
       .attr("text-anchor", "start")
       .text(dnptext);
@@ -509,7 +563,10 @@ alap();
     }
     
     if ((d3.select('input[name="reszlet"]').property("checked") == true)) {
-    var rendez = d3.select(".legend .clicked").attr("id");
+    var osztaly = d3.select("rect.legend#obi_yer").attr("class");
+    console.log(osztaly);
+    var rendez = (osztaly == "legend base") ? "obi" : d3.select(".legend .clicked").attr("id");
+    //if (d3.select(".legend .clicked").empty()) {var rendez = "obi";}
     var data = data.map(function(d) { return {sorolo: d[rendez], countrytext: d.countrytext}; });
     console.log(data);
     var y0 = y.domain(data.sort(this.checked
@@ -560,7 +617,7 @@ d3.selectAll(".xgrid").remove().exit();
 	.attr("d", function(d) {
        return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
      });
-
+    return y;
     }
 
   function szinez() {
@@ -573,14 +630,15 @@ d3.selectAll(".xgrid").remove().exit();
         .ticks(5)
   }
 	
-  function evvalto() {
+function evvalto() {
+  if (d3.select('input[name="reszlet"]').property("checked") == false) {
     data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
-    y.domain(data.sort(this.checked
-        ? function(a, b) { return b.obi - a.obi; }
-        : function(a, b) { return d3.ascending(a.countrytext, b.countrytext); })
-        .map(function(d) { return d.countrytext; }))
-        .copy();
+    //y.domain(data.sort(document.getElementById("sorting").checked
+    //    ? function(a, b) { return b.obi - a.obi; }
+    //    : function(a, b) { return d3.ascending(a.countrytext, b.countrytext); })
+    //    .map(function(d) { return d.countrytext; }))
+    //    .copy();
 
     var transition = svg.transition().duration(550),
 	delay = function(d, i) { return i * 25; };
@@ -588,10 +646,10 @@ d3.selectAll(".xgrid").remove().exit();
   //x.domain([0, d3.max(data, function(d) { return d.obi; })]);
   //y.domain(data.map(function(d) { return d.country; }));
   
-  transition.select(".axis--y")
+//  transition.select(".axis--y")
   //    .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y))
-    .selectAll("g").delay(300);
+//      .call(d3.axisLeft(y))
+//    .selectAll("g").delay(300);
   //.append("text")
   //    .attr("transform", "rotate(-90)")
   //    .attr("x", 6)
@@ -640,8 +698,8 @@ d3.selectAll(".xgrid").remove().exit();
       .attr("id", function(d) {return d.country;})
       .attr("y", function(d) { return y(d.countrytext); })
       .attr("x", function(d) { return 0; })	
-      .attr("dy", function(d) {return y.bandwidth() + "px";})
-      .attr("font-size", function(d) {return (y.bandwidth() * 1.5) + "px";})
+      .attr("dy", function(d) {return y.bandwidth()-1 + "px";})
+      .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
       .attr("font-family", "Arial")
       .attr("text-anchor", "start")
       .text(dnptext);
@@ -652,7 +710,93 @@ d3.selectAll(".xgrid").remove().exit();
 	.attr("d", function(d) {
        return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
      });
+  
   }
+  if (d3.select('input[name="reszlet"]').property("checked") == true) {
+  data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+  var datam = data.map(function(d) { return valog(d); });
+  var keys = ["obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
+  var stack = d3.stack()
+      .keys(keys);
+  x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  z.domain(keys);
+  if (d3.select("rect.legend#obi_yer").attr("class") == "legend base") {
+    
+  keys.forEach(function(key, key_index) {
+  console.log(key);
+  var barsel = d3.select(".bar.stacked." + key).selectAll("rect").data(stack(datam)[key_index], function(d) {return d.data.country;});
+  console.log(stack(datam)[key_index]);
+  barsel.transition()
+      .attr("y", function(d) { return y(d.data.countrytext); })
+      .attr("x", function(d) { return x(d[0]); })
+      .attr("height", y.bandwidth())
+      .attr("width", function(d) { return x(d[1]) - x(d[0]); });
+    });
+  var szoveg = g.selectAll(".text")
+    .data(data.filter(function(d) {return d.co_code == "";}), function(d) {return d.country;});
+  szoveg.exit().remove();
+  szoveg.enter().append("text")
+      .attr("class", "text")
+      .attr("id", function(d) {return d.country;})
+      .attr("y", function(d) { return y(d.countrytext); })
+      .attr("x", function(d) { return 0; })	
+      .attr("dy", function(d) {return y.bandwidth()-1 + "px";})
+      .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
+      .attr("font-family", "Arial")
+      .attr("text-anchor", "start")
+      .text(dnptext);
+  d3.selectAll(".xgrid").remove().exit();
+  g.selectAll("path.xgrid").data(ticks).enter()
+	.append("path")
+	.attr("class", "xgrid")
+	.attr("stroke", "lightgrey")
+	.attr("d", function(d) {
+       return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
+     });
+  //g.selectAll("g")
+  //  .data(d3.stack().keys(keys)(datam))
+  //  .selectAll("rect")
+  //  .data(function(d) { return d; }, function(d) {return d.data.country;})
+  //  .transition().duration(500)
+  //    .attr("y", function(d) { return y(d.data.countrytext); })
+  //    .attr("x", function(d) { return x(d[0]); })
+  //    .attr("height", y.bandwidth())
+  //    .attr("width", function(d) { return x(d[1]) - x(d[0]); });
+  }
+  if (d3.select("rect.legend#obi_yer").attr("class") != "legend base") {
+  keys.forEach(function(key, key_index) {
+  var barsel = d3.select(".bar.stacked." + key).selectAll("rect").data(stack(datam)[key_index], function(d) {return d.data.country;});
+    });
+  var clicked = d3.select(".legend.clicked").attr("id");
+  d3.select(".bar.stacked." + clicked).selectAll("rect")
+    .transition()
+      .attr("x", 0)
+      .attr("width", function(d) { return x(d[1]) - x(d[0]); });
+  var szoveg = g.selectAll(".text")
+    .data(data.filter(function(d) {return d.co_code == "";}), function(d) {return d.country;});
+  szoveg.exit().remove();
+  szoveg.enter().append("text")
+      .attr("class", "text")
+      .attr("id", function(d) {return d.country;})
+      .attr("y", function(d) { return y(d.countrytext); })
+      .attr("x", function(d) { return 0; })	
+      .attr("dy", function(d) {return y.bandwidth()-1 + "px";})
+      .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
+      .attr("font-family", "Arial")
+      .attr("text-anchor", "start")
+      .text(dnptext);
+  d3.selectAll(".xgrid").remove().exit();
+  g.selectAll("path.xgrid").data(ticks).enter()
+	.append("path")
+	.attr("class", "xgrid")
+	.attr("stroke", "lightgrey")
+	.attr("d", function(d) {
+       return "M" + x(d) + " " + 20 + "L" + x(d) + " " + (1510);
+     });
+    }
+  }
+  d3.select('input[name="rendez"]').property("checked", false);
+}
 
   function dokuk() {
   data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
@@ -668,11 +812,12 @@ d3.selectAll(".xgrid").remove().exit();
   //var keys = ["country"];
   var stack = d3.stack()
       .keys(keys);
+  //console.log(stack(datam));
   //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
   x.domain([0, d3.max(data, function(d) { return d.obi; })]);
-  y.domain(datam.map(function(d) { return d.countrytext; }))
-        .copy();
+  //y.domain(datam.map(function(d) { return d.countrytext; }))
+  //      .copy();
   z.domain(keys);
 	  
   g.append("g")
@@ -682,7 +827,7 @@ d3.selectAll(".xgrid").remove().exit();
       .attr("class", function(d, i) {return "bar stacked " + d.key;} )
       .attr("fill", function(d) { return z(d.key); })
     .selectAll("rect")
-    .data(function(d) { return d; })
+    .data(function(d) { return d; }, function(d) {return d.data.country;})
     .enter().append("rect")
       .attr("y", function(d) { return y(d.data.countrytext); })
       .attr("x", function(d) { return x(d[0]); })
@@ -743,6 +888,7 @@ if (klikkelt_class.indexOf("clicked") !== -1 ) {
 	  .style("stroke", "none");
 }
 if (klikkelt_class.indexOf("fade") !== -1 ) {
+	d3.select('input[name="rendez"]').property("checked", false);
 	var valasztott = klikkelt.attr("id");
 	//console.log("harmas" + valasztott);
 	    d3.selectAll(".stacked:not(." + valasztott + ")").selectAll("rect")
@@ -762,6 +908,7 @@ if (klikkelt_class.indexOf("fade") !== -1 ) {
 	klikkelt.attr("class", "legend clicked");
 }
 if (klikkelt_class.indexOf("base") !== -1 ) {
+	d3.select('input[name="rendez"]').property("checked", false);
 	 klikkelt.style("stroke", "black")
               .style("stroke-width", 2);
 	   var valasztott = klikkelt.attr("id");
