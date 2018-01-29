@@ -233,12 +233,14 @@ label span {/* <-- style the artificial checkbox */
 
 #mainweb {
   display: inline-block;
+  margin-left: 500px;
 }
 
 a {
   vertical-align: 2px;
   font-family: Cabin;
-  font-size: 13px;
+  font-size: 15px;
+  color: #779126;
 }
 	
 .grid line {
@@ -417,7 +419,8 @@ datab = datab.sort(function(a, b) {return d3.ascending(a.countrytext, b.countryt
 
 data = datab.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
-  x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  //x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  x.domain([0, 100]);
   y.domain(datab.map(function(d) { return d.countrytext; }));
   
  g.append("g")
@@ -492,7 +495,8 @@ var data = data.sort(document.getElementById("sorting").checked
   g.selectAll(".grid").remove().exit();
   g.selectAll("text").remove().exit();
 	
-  x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  //x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  x.domain([0, 100]);
   //y.domain(datab.map(function(d) { return d.countrytext; }));
   
   //g.append("g")		
@@ -735,7 +739,8 @@ function evvalto() {
   var keys = ["obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
   var stack = d3.stack()
       .keys(keys);
-  x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  //x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  x.domain([0, 100]);
   z.domain(keys);
   if (d3.select("rect.legend#obi_yer").attr("class") == "legend base") {
     
@@ -832,7 +837,8 @@ function evvalto() {
   //console.log(stack(datam));
   //var keys = ["country", "obi_ebp", "obi_eb", "obi_ar", "obi_cb", "obi_iyr", "obi_myr", "obi_pbs", "obi_yer"];
 	  
-  x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  //x.domain([0, d3.max(data, function(d) { return d.obi; })]);
+  x.domain([0, 100]);
   //y.domain(datam.map(function(d) { return d.countrytext; }))
   //      .copy();
   z.domain(keys);
