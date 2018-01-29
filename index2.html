@@ -288,7 +288,7 @@ a {
 <label><input class="regular-checkbox" name = "reszlet" id = "stacking" type="checkbox"><span></span><label id = "lbstackbox" for = "stacking">Részletezés</label></label>
 </div>
 <div id = "mainweb">
-<a href = "http://kfib.hu/hu/obs2017">Vissza a KFIB honlapjára</a>
+<a href = "http://kfib.hu/hu/obs2017" id = "mainlink">Vissza a KFIB honlapjára</a>
 </div>
 </div>
 <div id = "main">
@@ -309,7 +309,7 @@ Sample text
 
 
 var svg = d3.select("#main").select("svg"),
-    margin = {top: 20, right: 5, bottom: 30, left: 160},
+    margin = {top: 20, right: 10, bottom: 30, left: 165},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
@@ -379,6 +379,7 @@ document.getElementById("lblanglang1").innerHTML = lang[3][nyelv];
 document.getElementById("lbsortbox").innerHTML = lang[5][nyelv];
 document.getElementById("lbstackbox").innerHTML = lang[6][nyelv];
 document.getElementById("helptext").innerHTML = lang[131][nyelv];
+document.getElementById("mainlink").innerHTML = lang[148][nyelv];
 var dnptext = lang[7][nyelv];
 var cimke = new Array(8);
 for (var i = 0; i < cimke.length; i++ ) {
