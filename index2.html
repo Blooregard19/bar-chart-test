@@ -19,8 +19,12 @@
 	
 #fejlec {
   font: 10px sans-serif;
-  position: static;
+  position: fixed;
   display: inline-block;
+  background-color: white;
+  z-index: 1;
+  width: 100%;
+  top: 0px;
 }
 
 #main {
@@ -248,11 +252,11 @@ label span {/* <-- style the artificial checkbox */
 <div id = "fejlec">
 <div id = "langbox">
 <form id = "langselector">
-  <input id = "langeng" type = "radio" name = "langsel" value = "eng" checked /><label id = "lblangeng" for = "langeng">Angol</label>
-  <input id = "langfra" type = "radio" name = "langsel" value = "fra"><label id = "lblangfra" for = "langfra">French</label>
+  <input id = "langlang1" type = "radio" name = "langsel" value = "lang1" checked><label id = "lblanglang1" for = "langlang1">Hungarian</label>
+  <input id = "langeng" type = "radio" name = "langsel" value = "eng"><label id = "lblangeng" for = "langeng">Angol</label>
+  <!--<input id = "langfra" type = "radio" name = "langsel" value = "fra"><label id = "lblangfra" for = "langfra">French</label>
   <input id = "langesp" type = "radio" name = "langsel" value = "esp"><label id = "lblangesp" for = "langesp">Spanish</label>
-  <input id = "langlang1" type = "radio" name = "langsel" value = "lang1"><label id = "lblanglang1" for = "langlang1">Hungarian</label>
-  <input id = "langlang2" type = "radio" name = "langsel" value = "lang2"><label id = "lblanglang2" for = "langlang2">Language2</label>
+  <input id = "langlang2" type = "radio" name = "langsel" value = "lang2"><label id = "lblanglang2" for = "langlang2">Language2</label>-->
 </form>
 </div>
 <div id = "evval">
@@ -261,8 +265,8 @@ label span {/* <-- style the artificial checkbox */
   <option value="2008">2008</option>
   <option value="2010">2010</option>
   <option value="2012">2012</option>
-  <option value="2015" selected>2015</option>
-  <option value="2017">2017</option>
+  <option value="2015">2015</option>
+  <option value="2017" selected>2017</option>
 </select>
 </div>
 <div id = "sortbox">
