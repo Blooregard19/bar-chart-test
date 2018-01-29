@@ -25,6 +25,7 @@
   z-index: 1;
   width: 100%;
   top: 0px;
+  padding-top:3px;
 }
 
 #main {
@@ -32,7 +33,7 @@
   height: 1580px;
   /*min-height:550px;*/
   width: 99%;
-  top: 32px;
+  top: 35px;
 }
 	
 #sortbox {
@@ -202,6 +203,7 @@ label span {/* <-- style the artificial checkbox */
   width: 300px;
   font-family: Cabin;
   margin: auto;
+  color:#324300;
 }
 
 #evval {
@@ -905,6 +907,7 @@ var klikkelt = d3.select(this);
 var klikkelt_class = d3.select(this).attr("class");
 //console.log(klikkelt.attr("class"));
 if (klikkelt_class.indexOf("clicked") !== -1 ) {
+	d3.select('input[name="rendez"]').property("checked", false);
 	var valasztott = klikkelt.attr("id");
 	    //console.log("kettes" + valasztott);
 	    d3.selectAll(".stacked").selectAll("rect")
