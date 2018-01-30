@@ -206,7 +206,7 @@ label span {/* <-- style the artificial checkbox */
 
 #helptext {
   width: 300px;
-  font-family: Cabin;
+  font-family: Raleway;
   margin: auto;
   color:#324300;
 }
@@ -255,7 +255,7 @@ a {
 h1 {
   font-size: 18px;
   color: #85A632;
-
+  font-family: Cabin;
 }
 	
 .grid line {
@@ -442,9 +442,9 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   
  g.append("g")
       .attr("class", "axis axis--y")
+      .call(d3.axisLeft(y))
       .attr("font-family", "Raleway")
-      .attr("font-size", "12")
-      .call(d3.axisLeft(y));
+      .attr("font-size", "12");
   //.append("text")
   //    .attr("transform", "rotate(-90)")
   //    .attr("x", 6)
