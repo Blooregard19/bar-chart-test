@@ -514,7 +514,6 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("width", function(d) { return x(d.obi); })
       .on("click", szinez )
       .on("mousemove", function(d){
-      // Replace hard coded vals (50, 90) with 50% of the tooltip wioth and height + a top buffer
             tooltip
               .style("left", d3.event.pageX - 20 + "px")
               .style("top", d3.event.pageY - 40 + "px")
@@ -602,7 +601,15 @@ d3.selectAll(".xgrid").remove().exit();
       .attr("x", function(d) { return 0; })
       .attr("height", y.bandwidth())
       .attr("width", function(d) { return x(d.obi); })
-      .on("click", szinez );
+      .on("click", szinez )
+      .on("mousemove", function(d){
+            tooltip
+              .style("left", d3.event.pageX - 20 + "px")
+              .style("top", d3.event.pageY - 40 + "px")
+              .style("display", "inline-block")
+              .html(d3.format(",.0f")(d.obi));
+        })
+      .on("mouseout", function(d){ tooltip.style("display", "none");});
   g.selectAll(".text")
     .data(data.filter(function(d) {return d.co_code == "";}), function(d) {return d.country;})
     .enter().append("text")
@@ -777,6 +784,14 @@ function evvalto() {
          .attr("height", y.bandwidth())
          .attr("width", function(d) { return 0; })
          .on("click", szinez )
+	 .on("mousemove", function(d){
+            tooltip
+              .style("left", d3.event.pageX - 20 + "px")
+              .style("top", d3.event.pageY - 40 + "px")
+              .style("display", "inline-block")
+              .html(d3.format(",.0f")(d.obi));
+        })
+    	.on("mouseout", function(d){ tooltip.style("display", "none");})
        .merge(chart)
          .transition().duration(550).delay(300)
          .attr("y", function(d) { return y(d.countrytext); })
@@ -928,7 +943,15 @@ function evvalto() {
       .attr("y", function(d) { return y(d.data.countrytext); })
       .attr("x", function(d) { return x(d[0]); })
       .attr("height", y.bandwidth())
-      .attr("width", function(d) { return x(d[1]) - x(d[0]); });
+      .attr("width", function(d) { return x(d[1]) - x(d[0]); })
+        .on("mousemove", function(d){
+            tooltip
+              .style("left", d3.event.pageX - 20 + "px")
+              .style("top", d3.event.pageY - 40 + "px")
+              .style("display", "inline-block")
+              .html(d3.format(",.0f")(d[1]-d[0]));
+        })
+    	.on("mouseout", function(d){ tooltip.style("display", "none");});
 
   g.selectAll(".base").remove().exit();
 d3.selectAll(".xgrid").remove().exit();
