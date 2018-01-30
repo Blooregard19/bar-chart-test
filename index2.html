@@ -444,7 +444,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("class", "axis axis--y")
       .call(d3.axisLeft(y))
       .attr("font-family", "Raleway")
-      .attr("font-size", "12");
+      .attr("font-size", "11");
   //.append("text")
   //    .attr("transform", "rotate(-90)")
   //    .attr("x", 6)
@@ -530,7 +530,9 @@ d3.selectAll(".xgrid").remove().exit();
       .attr("class", "axis axis--y")
       .attr("font-family", "Raleway")
       .attr("font-size", "12")
-      .call(d3.axisLeft(y));
+      .call(d3.axisLeft(y))
+      .attr("font-family", "Raleway")
+      .attr("font-size", "11");
   //.append("text")
   //    .attr("transform", "rotate(-90)")
   //    .attr("x", 6)
@@ -649,6 +651,8 @@ d3.selectAll(".xgrid").remove().exit();
 	  .attr("font-family", "Raleway")
           .attr("font-size", "12")
 	 .call(d3.axisLeft(y))
+	  .attr("font-family", "Raleway")
+          .attr("font-size", "11")
       .selectAll("g")
 	 .delay(delay)
         //.attr("x", -9)
