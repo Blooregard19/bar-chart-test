@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>OBI Survey Chart</title>
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway" >
 <style>
 
 #fo {
@@ -118,6 +119,10 @@ img {
 
 .bar.base.selected {
   fill: maroon;	
+}
+
+.axis--x path {
+  display: none;
 }
 
 .axis--x path {
@@ -437,6 +442,8 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
   
  g.append("g")
       .attr("class", "axis axis--y")
+      .attr("font-family", "Raleway")
+      .attr("font-size", "12")
       .call(d3.axisLeft(y));
   //.append("text")
   //    .attr("transform", "rotate(-90)")
@@ -478,7 +485,7 @@ data = datab.filter(function(d) {return d.year == d3.select("#survy").property("
       .attr("x", function(d) { return 0; })	
       .attr("dy", function(d) {return y.bandwidth()-1 + "px";})
       .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
-      .attr("font-family", "Arial")
+      .attr("font-family", "Raleway")
       .attr("text-anchor", "start")
       .text(dnptext);
    
@@ -521,6 +528,8 @@ var data = data.sort(document.getElementById("sorting").checked
 d3.selectAll(".xgrid").remove().exit();
   g.append("g")
       .attr("class", "axis axis--y")
+      .attr("font-family", "Raleway")
+      .attr("font-size", "12")
       .call(d3.axisLeft(y));
   //.append("text")
   //    .attr("transform", "rotate(-90)")
@@ -555,7 +564,7 @@ d3.selectAll(".xgrid").remove().exit();
       .attr("x", function(d) { return 0; })	
       .attr("dy", function(d) {return y.bandwidth()-1 + "px";})
       .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
-      .attr("font-family", "Arial")
+      .attr("font-family", "Raleway")
       .attr("text-anchor", "start")
       .text(dnptext);
   g.selectAll("path.xgrid").data(ticks).enter()
@@ -637,6 +646,8 @@ d3.selectAll(".xgrid").remove().exit();
         .attr("y", function(d) { return y0(d.countrytext); });
 	  
     transition.select(".axis--y")
+	  .attr("font-family", "Raleway")
+          .attr("font-size", "12")
 	 .call(d3.axisLeft(y))
       .selectAll("g")
 	 .delay(delay)
@@ -733,7 +744,7 @@ function evvalto() {
       .attr("x", function(d) { return 0; })	
       .attr("dy", function(d) {return y.bandwidth()-1 + "px";})
       .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
-      .attr("font-family", "Arial")
+      .attr("font-family", "Raleway")
       .attr("text-anchor", "start")
       .text(dnptext);
   g.selectAll("path.xgrid").data(ticks).enter()
@@ -757,10 +768,10 @@ function evvalto() {
   if (d3.select("rect.legend#obi_yer").attr("class") == "legend base") {
     
   keys.forEach(function(key, key_index) {
-  console.log(key);
+  //console.log(key);
   var barsel = d3.select(".bar.stacked." + key).selectAll("rect").data(stack(datam)[key_index], function(d) {return d.data.country;});
-  console.log(stack(datam)[key_index]);
-  barsel.transition()
+  //console.log(stack(datam)[key_index]);
+  barsel.transition().duration(450)
       .attr("y", function(d) { return y(d.data.countrytext); })
       .attr("x", function(d) { return x(d[0]); })
       .attr("height", y.bandwidth())
@@ -776,7 +787,7 @@ function evvalto() {
       .attr("x", function(d) { return 0; })	
       .attr("dy", function(d) {return y.bandwidth()-1 + "px";})
       .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
-      .attr("font-family", "Arial")
+      .attr("font-family", "Raleway")
       .attr("text-anchor", "start")
       .text(dnptext);
   d3.selectAll(".xgrid").remove().exit();
@@ -803,7 +814,7 @@ function evvalto() {
     });
   var clicked = d3.select(".legend.clicked").attr("id");
   d3.select(".bar.stacked." + clicked).selectAll("rect")
-    .transition()
+    .transition().duration(450)
       .attr("x", 0)
       .attr("width", function(d) { return x(d[1]) - x(d[0]); });
   var szoveg = g.selectAll(".text")
@@ -816,7 +827,7 @@ function evvalto() {
       .attr("x", function(d) { return 0; })	
       .attr("dy", function(d) {return y.bandwidth()-1 + "px";})
       .attr("font-size", function(d) {return (y.bandwidth() * 1.2) + "px";})
-      .attr("font-family", "Arial")
+      .attr("font-family", "Raleway")
       .attr("text-anchor", "start")
       .text(dnptext);
   d3.selectAll(".xgrid").remove().exit();
@@ -873,7 +884,7 @@ function evvalto() {
 d3.selectAll(".xgrid").remove().exit();
   var legend = g.append("g")
       .attr("class", "legend")
-      .attr("font-family", "sans-serif")
+      .attr("font-family", "Raleway")
       .attr("font-size", 10)
       .attr("text-anchor", "end")
     .selectAll("g")
