@@ -452,7 +452,12 @@ document.getElementById("lbstackbox").innerHTML = lang[6][nyelv];
 document.getElementById("helptext").innerHTML = lang[131][nyelv];
 d3.select("#extratext").append("div")
 	.text(lang[152][nyelv])
-	.on("click", function(d) {d3.select("#extrainfo").append("div").text(lang[153][nyelv]);});
+	.on("click", function(d) {
+	if (d3.select("#extrainfo").html().empty())
+	  {d3.select("#extrainfo").html(lang[153][nyelv]);}
+        else if (!d3.select("#extrainfo").html().empty())
+	  {d3.select("#extrainfo").html("")}
+        });
 document.getElementById("mainlink").innerHTML = lang[148][nyelv];
 var dnptext = lang[7][nyelv];
 var cimke = new Array(8);
