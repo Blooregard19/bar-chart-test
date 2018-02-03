@@ -452,7 +452,7 @@ document.getElementById("lbstackbox").innerHTML = lang[6][nyelv];
 document.getElementById("helptext").innerHTML = lang[131][nyelv];
 d3.select("#extratext").append("div")
 	.text(lang[152][nyelv])
-	.on("click", document.getElementById("extrainfo").innerHTML = lang[153][nyelv]);
+	.on("click", d3.select("#extrainfo").append("div").text(lang[152][nyelv]));
 document.getElementById("mainlink").innerHTML = lang[148][nyelv];
 var dnptext = lang[7][nyelv];
 var cimke = new Array(8);
