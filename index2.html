@@ -211,6 +211,20 @@ label span {/* <-- style the artificial checkbox */
   margin: auto;
   color:#332E2C;
 }
+#extratext {
+  width: 300px;
+  font-family: Raleway;
+  font-size: 15px;
+  margin: auto;
+  color:#332E2C;
+}
+#extrainfo {
+  width: 300px;
+  font-family: Raleway;
+  font-size: 15px;
+  margin: auto;
+  color:#332E2C;
+}
 
 #evval {
   /*position: absolute;*/
@@ -354,6 +368,10 @@ h1 {
 <div id = "helptext">
 Sample text
 </div>
+<div id = "extratext">
+</div>
+<div id = "extrainfo">
+</div>
 </div>
 </div>
 <script>
@@ -432,6 +450,9 @@ document.getElementById("lblanglang1").innerHTML = lang[3][nyelv];
 document.getElementById("lbsortbox").innerHTML = lang[5][nyelv];
 document.getElementById("lbstackbox").innerHTML = lang[6][nyelv];
 document.getElementById("helptext").innerHTML = lang[131][nyelv];
+document.getElementById("extratext").innerHTML = lang[152][nyelv];
+d3.select("#extratext").select("text")
+	.on("click", document.getElementById("extrainfo").innerHTML = lang[152][nyelv];);
 document.getElementById("mainlink").innerHTML = lang[148][nyelv];
 var dnptext = lang[7][nyelv];
 var cimke = new Array(8);
