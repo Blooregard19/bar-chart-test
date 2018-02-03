@@ -453,9 +453,9 @@ document.getElementById("helptext").innerHTML = lang[131][nyelv];
 d3.select("#extratext").append("div")
 	.text(lang[152][nyelv])
 	.on("click", function(d) {
-	if (d3.select("#extrainfo").html().empty())
+	if (d3.select("#extrainfo").empty())
 	  {d3.select("#extrainfo").html(lang[153][nyelv]);}
-        else if (!d3.select("#extrainfo").html().empty())
+        else if (!d3.select("#extrainfo").empty())
 	  {d3.select("#extrainfo").html("")}
         });
 document.getElementById("mainlink").innerHTML = lang[148][nyelv];
