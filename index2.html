@@ -373,6 +373,7 @@ Sample text
 <div id = "extrainfo">
 </div>
 </div>
+</div>
 <script>
 
 
@@ -449,13 +450,15 @@ document.getElementById("lblanglang1").innerHTML = lang[3][nyelv];
 document.getElementById("lbsortbox").innerHTML = lang[5][nyelv];
 document.getElementById("lbstackbox").innerHTML = lang[6][nyelv];
 document.getElementById("helptext").innerHTML = lang[131][nyelv];
+var extraon = 0;
 d3.select("#extratext").append("div")
 	.text(lang[152][nyelv])
 	.on("click", function(d) {
-	if (d3.select("#extrainfo").empty())
+	if (extraon == 0)
 	  {d3.select("#extrainfo").html(lang[153][nyelv]);}
-        else if (!d3.select("#extrainfo").empty())
+        else if (extraon == 1)
 	  {d3.select("#extrainfo").html("")}
+	extraon = Math.abs(extraon - 1);
 	});
 document.getElementById("mainlink").innerHTML = lang[148][nyelv];
 var dnptext = lang[7][nyelv];
