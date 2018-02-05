@@ -151,5 +151,5 @@
 150;ResultYear; Presented year;;;Felmérés éve;
 151;ComparisonType; Comparison type;;;Összehasonlítás típusa;
 152;scoreoldtext; Base year's score;;;Bázisév pontszáma;
-153;extratext; Further information;;;További információk;
-154;extrainfo; Further information;;;Adatok forrása: Open Budget Survey<br>2015-ben módszertani váltás történt, ezért az egyes dokumentumok súlya és pontszáma megváltozott. (Például az elfogadott költségvetésre több kérdés vonatkozik.);
+153;extratext; For further information click here;;;További információk ide kattintva érhetőek el;
+154;extrainfo; Further information;;;Adatok forrása: <a href ="https://www.internationalbudget.org/open-budget-survey/">Open Budget Survey</a><br>2015-ben módszertani váltás történt, ezért az egyes dokumentumok súlya és pontszáma megváltozott. (Például az elfogadott költségvetésre több kérdés vonatkozik.)<br>A pontszámok az átláthatóság mutatói, a felmérésben szintén szereplő költésgvetési felügyelet és nyilvánosság bevonása témakörök eredményeit nem tartalmazza.;
