@@ -457,6 +457,7 @@ document.getElementById("lbsortbox").innerHTML = lang[5][nyelv];
 document.getElementById("lbstackbox").innerHTML = lang[6][nyelv];
 document.getElementById("helptext").innerHTML = lang[131][nyelv];
 var extraon = 0;
+d3.select("#extratext").select("div").remove().exit();
 d3.select("#extratext").append("div")
 	.text(lang[152][nyelv])
 	.on("click", function(d) {
